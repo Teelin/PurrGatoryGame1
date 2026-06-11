@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D player_RB;
     private Animator player_Anim;
 
-    Vector2 moveInput;
+    Vector3 moveInput;
 
-    [SerializeField] private float moveSpeed = 50f;
+    [SerializeField] private float moveSpeed = 5f;
 
     private void OnEnable()
     {
@@ -26,11 +26,24 @@ public class PlayerController : MonoBehaviour
     {
         player_RB = GetComponent<Rigidbody2D>();
         moveAction = inputActions.FindAction("Move");
+        
+    }
+    private void Start()
+    {
+        Respawn();
     }
     // Update is called once per frame
     void Update()
     {
         moveInput = moveAction.ReadValue<Vector2>();
-        player_RB.linearVelocity = moveInput * (moveSpeed* Time.deltaTime);
+        transform.position += moveInput * (moveSpeed* Time.deltaTime);
+    }
+
+    void Respawn()
+    {
+        Vector2Int startingPos = GameManager.Instance.GetStartingPosition();
+        transform.position = new Vector3(startingPos.x*16, startingPos.y*9, 0);
+        // Reset health and other player states here as needed
+        Debug.Log("Player respawned at starting position.");
     }
 }
