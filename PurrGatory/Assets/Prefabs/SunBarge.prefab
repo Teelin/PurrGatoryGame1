@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 272758591731394367}
   - component: {fileID: 7955076107206482639}
-  - component: {fileID: 4285936986194082766}
   m_Layer: 0
-  m_Name: StarterRoom
+  m_Name: SunBarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 46936e919db31134b80045bfeb47d87c, type: 3}
-  m_Color: {r: 0.15419187, g: 0.9339623, b: 0.24659958, a: 1}
+  m_Color: {r: 1, g: 0.9019847, b: 0.2971698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,16 +91,3 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4285936986194082766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8204669051742431779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38dfddbf9091814eadf79903b89153b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StarterRoom
-  sunBargePrefab: {fileID: 8204669051742431779, guid: fa68af69f8d476446aecb74ddbd2d8b0, type: 3}

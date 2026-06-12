@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,14 +45,11 @@ public class PlayerController : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
         lookInput = lookAction.ReadValue<Vector2>();
         transform.position += moveInput * (moveSpeed* Time.deltaTime);
-        Vector2 lookdirection = lookInput.normalized - transform.position;
-        transform.rotation = Quaternion.LookRotation(lookdirection);
-        
-
-        
-
+        RotatePlayer();
         GameManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
+
     }
+
     private void FixedUpdate()
     {
         if(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)) != currentRoom)
@@ -71,5 +69,14 @@ public class PlayerController : MonoBehaviour
         currentRoom = startingPos;
         GameManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
 
+    }
+
+    void RotatePlayer()
+    {
+        Camera mainCamera = Camera.main;
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, mainCamera.nearClipPlane));
+        Vector2 direction = (mousePosition - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }

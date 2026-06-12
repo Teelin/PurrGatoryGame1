@@ -13,19 +13,23 @@ public class LevelGenerator : MonoBehaviour
     private int[,] levelGrid;
     private int targetRoomCount;
 
+    private GameObject startRoom;
+
     private void OnEnable()
     {
         targetRoomCount = Random.Range(minRooms, maxRooms + 1);
         GenerateLevel();
         PlaceRooms();
+    }
+    private void Start()
+    {
         GameManager.Instance.SetLevelGrid(levelGrid);
-
     }
 
     private void GenerateLevel()
     {
         levelGrid = new int[levelMaxHeight, levelMaxWidth]; // Reset the grid
-        Vector2Int currentPos = new Vector2Int(levelMaxWidth / 2, levelMaxHeight / 2); // Start in the middle of the grid
+        Vector2Int currentPos = new Vector2Int(levelMaxWidth / 2, levelMaxHeight/2); // Start at the middle of the grid
         levelGrid[currentPos.y, currentPos.x] = 2;
         GameManager.Instance.SetStartingPosition(currentPos);
 
@@ -51,7 +55,16 @@ public class LevelGenerator : MonoBehaviour
             if (nextRoom != Vector2Int.zero)
                 currentPos = nextRoom; // Move to the next room position
             else
-                currentPos += Vector2Int.up; // If no new room was placed, just move up to continue the process
+                foreach (Vector2Int direction in new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right })
+                {
+                    Vector2Int neighborPos = currentPos + direction;
+                    if (neighborPos.x < 0 || neighborPos.x >= levelMaxWidth || neighborPos.y < 0 || neighborPos.y >= levelMaxHeight) continue;// Skip if out of bounds
+                    if (levelGrid[neighborPos.y, neighborPos.x] == 1)
+                    {
+                        currentPos = neighborPos; // Move to the next room position
+                        break;
+                    }
+                }
         }
         GenerateBoss(currentPos);
         
@@ -73,7 +86,7 @@ public class LevelGenerator : MonoBehaviour
                 else if (pos == 2)
                 {
                     // Instantiate start room prefab
-                    Instantiate(startPrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
+                    startRoom = Instantiate(startPrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
                 }
                 else if (pos == 3)
                 {
@@ -83,6 +96,8 @@ public class LevelGenerator : MonoBehaviour
 
             }
         }
+
+        startRoom.GetComponent<StarterRoom>().CheckAdjacentRooms(); // Check for adjacent rooms to the starting room
     }
       
     private void GenerateBoss(Vector2Int position)
