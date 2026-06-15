@@ -263,12 +263,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
   minRooms: 10
-  maxRooms: 25
-  levelMaxWidth: 10
-  levelMaxHeight: 10
+  maxRooms: 20
+  levelMaxWidth: 5
+  levelMaxHeight: 5
   roomPrefab: {fileID: 8204669051742431779, guid: 4dcaa8da1a547ef4cb257f6654e6317b, type: 3}
   bossPrefab: {fileID: 8204669051742431779, guid: dfcca7fc61c933848963393be7a89019, type: 3}
   startPrefab: {fileID: 8204669051742431779, guid: 99e2b4990dae65340a2d9ff42f566369, type: 3}
+  sunBargePrefab: {fileID: 8204669051742431779, guid: fa68af69f8d476446aecb74ddbd2d8b0, type: 3}
 --- !u!4 &142048358
 Transform:
   m_ObjectHideFlags: 0

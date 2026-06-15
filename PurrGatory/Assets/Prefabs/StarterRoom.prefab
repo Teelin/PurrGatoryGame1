@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272758591731394367}
   - component: {fileID: 7955076107206482639}
-  - component: {fileID: 4285936986194082766}
+  - component: {fileID: -6101094915804677532}
   m_Layer: 0
   m_Name: StarterRoom
   m_TagString: Untagged
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4285936986194082766
+--- !u!114 &-6101094915804677532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8204669051742431779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38dfddbf9091814eadf79903b89153b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c9bdfd0d63a9b8498e7c54fc80655c9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StarterRoom
-  sunBargePrefab: {fileID: 8204669051742431779, guid: fa68af69f8d476446aecb74ddbd2d8b0, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomId: 0
