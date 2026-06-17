@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    Room[] roomList;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -44,6 +46,26 @@ public class GameManager : MonoBehaviour
     public void SetPlayerRoom(Vector2Int newPosition)
     {
         playerRoom = newPosition;
+    }
+
+    public void SetRoomList()
+    {
+        roomList = FindObjectsByType<Room>();
+    }
+    
+    public Room[] GetRoomList()
+    {
+        return roomList;
+    }
+    public void DestroyRooms()
+    {
+        if (roomList != null)
+        {
+            foreach (Room room in roomList)
+            {
+                Destroy(room.gameObject);
+            }
+        }
     }
 
 }

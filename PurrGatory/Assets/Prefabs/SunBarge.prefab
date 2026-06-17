@@ -105,3 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
   roomId: 0
+  isBossRoom: 0
+  isStartRoom: 0
+  isSunBargeRoom: 1
+  barrierTop: {fileID: 0}
+  barrierBottom: {fileID: 0}
+  barrierLeft: {fileID: 0}
+  barrierRight: {fileID: 0}
