@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -8,21 +9,30 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int minRooms, maxRooms;
     [SerializeField] private int levelMaxWidth, levelMaxHeight;
     [SerializeField] private GameObject roomPrefab, bossPrefab, startPrefab, sunBargePrefab;
+    [SerializeField] private GameObject[] roomPrefabs;
 
     private int[,] levelGrid, roomIds;
     private int targetRoomCount, currentRoomId;
 
     private GameObject previousRoom, newRoom;
 
+    public static event Action levelGenerated;
+
     private void Awake()
     {
-        targetRoomCount = Random.Range(minRooms, maxRooms + 1);
+        targetRoomCount = UnityEngine.Random.Range(minRooms, maxRooms + 1);
         GenerateLevel();
         GameManager.Instance.SetLevelGrid(levelGrid);
         PlaceRooms();
         GameManager.Instance.SetRoomList();
+        
     }
-   
+    private void Start()
+    {
+        levelGenerated?.Invoke();
+        Debug.Log($"Level generated with {targetRoomCount} rooms.");
+    }
+
     private void GenerateLevel()
     {
         levelGrid = new int[levelMaxHeight, levelMaxWidth]; // Reset the grid
@@ -54,7 +64,7 @@ public class LevelGenerator : MonoBehaviour
                 if (neighborPos.x < 0 || neighborPos.x >= levelMaxWidth || neighborPos.y < 0 || neighborPos.y >= levelMaxHeight) continue;// Skip if out of bounds
                 if (levelGrid[neighborPos.y, neighborPos.x] == 1 || levelGrid[neighborPos.y, neighborPos.x] == 2 || levelGrid[neighborPos.y, neighborPos.x] == 4) continue; // Skip if room already exists
 
-                if (Random.value < 0.5f) // 50% chance to place a room
+                if (UnityEngine.Random.value < 0.5f) // 50% chance to place a room
                 {
                     levelGrid[neighborPos.y, neighborPos.x] = 1; // Mark the grid cell as occupied
                     roomIds[neighborPos.y, neighborPos.x] = currentRoomId; // Assign a room ID to the new room
@@ -112,11 +122,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void PlaceRooms()
     {
-        foreach (int value in levelGrid)
-        {
-            Debug.Log(value);
-        }
-
+       
         for (int i = 0; i < levelMaxHeight; i++)
         {
             for (int j = 0; j < levelMaxWidth; j++)
@@ -125,27 +131,31 @@ public class LevelGenerator : MonoBehaviour
                 if (pos == 1)
                 {
                     // Instantiate room prefab
-                    GameObject room = Instantiate(roomPrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
+                    GameObject roomToSpawn = roomPrefabs[UnityEngine.Random.Range(0, roomPrefabs.Length)];
+                    GameObject room = Instantiate(roomToSpawn, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
                     room.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
+                    room.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
                 }
                 else if (pos == 2)
                 {
                     // Instantiate start room prefab
                     GameObject startRoom = Instantiate(startPrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
                     startRoom.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
+                    startRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
                 }
                 else if (pos == 3)
                 {
                     // Instantiate boss room prefab
                     GameObject bossRoom = Instantiate(bossPrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
                     bossRoom.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
-
+                    bossRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
                 }
                 else if (pos == 4)
                 {
                     // Instantiate sun barge room prefab
                     GameObject sunBargeRoom = Instantiate(sunBargePrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
                     sunBargeRoom.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
+                    sunBargeRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
                 }
 
             }

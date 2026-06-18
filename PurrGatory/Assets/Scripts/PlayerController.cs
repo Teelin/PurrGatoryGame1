@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +15,11 @@ public class PlayerController : MonoBehaviour
     private Vector2Int currentRoom;
 
     Vector3 moveInput, lookInput;
-    
+
+    public static event Action rattleAction, useAction;
+
+    InputAction rattleUsed;
+    InputAction useItem;
 
     [SerializeField] private float moveSpeed = 5f;
 
@@ -32,7 +37,8 @@ public class PlayerController : MonoBehaviour
         player_RB = GetComponent<Rigidbody2D>();
         moveAction = inputActions.FindAction("Move");
         lookAction = inputActions.FindAction("Look");
-
+        rattleUsed = inputActions.FindAction("Rattle");
+        useItem = inputActions.FindAction("Use");
     }
     private void Start()
     {
@@ -44,10 +50,19 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = moveAction.ReadValue<Vector2>();
         lookInput = lookAction.ReadValue<Vector2>();
+
         transform.position += moveInput * (moveSpeed* Time.deltaTime);
         RotatePlayer();
         GameManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
 
+        if (rattleUsed.triggered)
+        {
+            Attack();
+        }
+        if (useItem.triggered)
+        {
+            UseItem();
+        }
     }
 
     private void FixedUpdate()
@@ -78,5 +93,17 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = (mousePosition - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    void Attack()
+    {
+        // Implement attack logic here
+        rattleAction?.Invoke();
+    }
+
+    void UseItem()
+    {
+        // Implement use item logic here
+        useAction?.Invoke();
     }
 }

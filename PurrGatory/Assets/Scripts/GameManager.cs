@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        
     }
 
     public int[,]GetLevelGrid()
