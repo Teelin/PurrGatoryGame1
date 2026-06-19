@@ -1,0 +1,103 @@
+using System.Collections;
+using UnityEngine;
+
+public class BastHealth : MonoBehaviour
+{
+
+    [SerializeField] int maxDamage = 50;
+    int maxLives = 9;
+    int currentLives;
+
+    int currentDamage = 0;
+
+    float ghostTime = 5f;
+    [SerializeField] SpriteRenderer spriteRenderer;
+
+    float sacrificeCooldown = 20f;
+    float timer = 0;
+    bool canSacrifice = true;
+
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        currentLives = maxLives;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(!canSacrifice)
+        {
+            timer += Time.deltaTime;
+            if (timer >= sacrificeCooldown)
+            {
+                canSacrifice = true;
+                timer = 0;
+            }
+        }
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        currentDamage += Damage;
+        if (currentDamage >= maxDamage)
+        {
+            currentLives--;
+            currentDamage = 0;
+            if (currentLives <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                StartCoroutine("GhostTime");
+
+            }
+        }
+    }
+
+    public void TakeLife()
+    {
+        if (canSacrifice)
+        {
+            currentLives--;
+            currentDamage = 0;
+
+            if (currentLives <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                canSacrifice = false;
+                StartCoroutine("GhostTime");
+
+            }
+        }
+    }
+
+    void Die()
+    {
+        // Handle death logic here
+        Debug.Log("Bast has died.");
+        Destroy(gameObject);
+    }
+
+    IEnumerator GhostTime()
+    {
+        // Handle ghost time logic here
+        spriteRenderer.color = Color.azure; // Change color to indicate ghost time
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f); // Make the sprite semi-transparent
+        GetComponent<Collider2D>().enabled = false; // Disable the collider to make the player invincible and walk through walls
+
+        // TODO : need to look at collision layers to make sure player cant walk off map but can get through hidden doors and avoid enemies
+
+        yield return new WaitForSeconds(ghostTime);
+        spriteRenderer.color = Color.white; // Change color back to normal
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f); // Restore the sprite's opacity
+        GetComponent<Collider2D>().enabled = true; // Re-enable the collider
+    }
+}
+
+

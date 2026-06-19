@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     InputAction rattleUsed;
     InputAction useItem;
+    InputAction sacraficeLife;
 
     [SerializeField] private float moveSpeed = 5f;
 
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         lookAction = inputActions.FindAction("Look");
         rattleUsed = inputActions.FindAction("Rattle");
         useItem = inputActions.FindAction("Use");
+        sacraficeLife = inputActions.FindAction("SacraficeLife");
     }
     private void Start()
     {
@@ -62,6 +64,10 @@ public class PlayerController : MonoBehaviour
         if (useItem.triggered)
         {
             UseItem();
+        }
+        if (sacraficeLife.triggered)
+        {
+            SacraficeLife();
         }
     }
 
@@ -106,4 +112,10 @@ public class PlayerController : MonoBehaviour
         // Implement use item logic here
         useAction?.Invoke();
     }
+
+    void SacraficeLife() 
+    { 
+        GetComponent<BastHealth>().TakeLife();
+    }
+
 }
