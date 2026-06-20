@@ -12,7 +12,7 @@ public class LevelSpawner : MonoBehaviour
 
 
 
-    void Start()
+    void Awake()
     {
         LevelGenerator.levelGenerated += OnLevelGenerated;
         
@@ -22,6 +22,7 @@ public class LevelSpawner : MonoBehaviour
     {
         for (int i = 0; i < enemyCount; i++)
         {
+            Debug.Log("Spawning enemy " + (i + 1) + " of " + enemyCount);
             GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
             if (rooms.Length == 0) return;
             GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];

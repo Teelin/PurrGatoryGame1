@@ -317,11 +317,11 @@ MonoBehaviour:
   levelMaxHeight: 10
   roomPrefab: {fileID: 8204669051742431779, guid: 4dcaa8da1a547ef4cb257f6654e6317b, type: 3}
   bossPrefab: {fileID: 8204669051742431779, guid: dfcca7fc61c933848963393be7a89019, type: 3}
-  startPrefab: {fileID: 8204669051742431779, guid: 99e2b4990dae65340a2d9ff42f566369, type: 3}
+  startPrefab: {fileID: 8204669051742431779, guid: 39e6c5f542e04dd49817edb60335e95d, type: 3}
   sunBargePrefab: {fileID: 8204669051742431779, guid: fa68af69f8d476446aecb74ddbd2d8b0, type: 3}
   roomPrefabs:
   - {fileID: 8204669051742431779, guid: 4dcaa8da1a547ef4cb257f6654e6317b, type: 3}
-  - {fileID: 8204669051742431779, guid: d17a797a075f7e14792b3a889f4abe58, type: 3}
+  - {fileID: 8204669051742431779, guid: 79852920e04fd494f8f63ece977693cb, type: 3}
 --- !u!4 &142048358
 Transform:
   m_ObjectHideFlags: 0
@@ -688,8 +688,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.34091312, g: 0.37521783, b: 0.4433962, a: 1}
-  m_Intensity: 0.06
+  m_Color: {r: 0.29125136, g: 0.30472964, b: 0.3301887, a: 1}
+  m_Intensity: 0.03
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000

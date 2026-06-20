@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
             //agent.isStopped = false;
             agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
         }
-        if(!isFollowing && !isStunned)
+        if((!isFollowing || !hasLineOfSight) && !isStunned)
         {
             Wander();
         }
