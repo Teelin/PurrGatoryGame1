@@ -6,11 +6,12 @@ TagManager:
   tags:
   - SacredFire
   - GhostKitten
+  - Room
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Detectable
   - Water
   - UI
   - 

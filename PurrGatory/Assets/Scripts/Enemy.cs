@@ -12,10 +12,12 @@ public class Enemy : MonoBehaviour
     
     bool isFollowing = false;
     bool isStunned = false;
+    bool hasLineOfSight = false;
 
     private float timer;
     [SerializeField] float wanderRadius;
     [SerializeField] float wanderTimer;
+    [SerializeField] LayerMask detectionMask;
 
 
     private void OnDisable()
@@ -42,7 +44,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null && isFollowing && !isStunned)
+        hasLineOfSight = CheckLineOfSight();
+
+        if (player != null && isFollowing && !isStunned && hasLineOfSight)
         {
             //agent.isStopped = false;
             agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
@@ -79,7 +83,6 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isFollowing = false;
-            //agent.isStopped = true;
         }
     }
 
@@ -110,6 +113,36 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(duration);
         agent.isStopped = false;
         isStunned = false;
+    }
+
+    bool CheckLineOfSight()
+    {
+        // Implement line of sight logic here
+        var hit = Physics2D.Raycast(transform.position, (player.position - transform.position).normalized, Mathf.Infinity, detectionMask);
+        //Debug.DrawRay(transform.position, (player.position - transform.position).normalized * 10, Color.red);
+        if (hit.collider == null)
+            return false;
+        else if (hit.collider.CompareTag("Player"))
+            return true;
+        else
+            return false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position to visualize the wander radius
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, wanderRadius);
+        if(hasLineOfSight) 
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, player.position);
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, player.position);
+        }
     }
 }
 

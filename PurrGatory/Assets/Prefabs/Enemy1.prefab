@@ -105,7 +105,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -152,7 +152,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 30, y: 30}
   m_Direction: 0
 --- !u!96 &4665489588691122776
 TrailRenderer:
@@ -243,8 +243,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.28764686, g: 0.5768617, b: 0.6037736, a: 0.9019608}
-      key1: {r: 0.2691349, g: 0.8620955, b: 0.9056604, a: 0.5686275}
+      key0: {r: 0.6039216, g: 0.28627452, b: 0.30197704, a: 0.9019608}
+      key1: {r: 0.90588236, g: 0.42940807, b: 0.27058828, a: 0.5686275}
       key2: {r: 0, g: 0, b: 0, a: 0.5686275}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -294,6 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf3eaa8d1cb7c24faeeda9a9edca233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  isBySacredFire: 0
   wanderRadius: 20
   wanderTimer: 3
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 8

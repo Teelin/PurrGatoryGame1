@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5974516852074456241}
   - component: {fileID: 6039947203796614096}
   - component: {fileID: 4213587704667696222}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,7 +1463,8 @@ GameObject:
   - component: {fileID: 2381178094493507538}
   - component: {fileID: 2402573939735992666}
   - component: {fileID: 5624745049054799004}
-  m_Layer: 0
+  - component: {fileID: 7582500253891781194}
+  m_Layer: 3
   m_Name: RightGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1817,12 +1818,12 @@ MonoBehaviour:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
     m_EdgeProcessing: 1
-    m_TrimEdge: -1
+    m_TrimEdge: 0
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0
   m_CastingOption: 1
-  m_PreviousTrimEdge: -1
+  m_PreviousTrimEdge: 0
   m_PreviousEdgeProcessing: 1
   m_PreviousShadowCastingSource: 2
   m_PreviousShadowShape2DSource: {fileID: 358047319309168676}
@@ -1832,6 +1833,22 @@ MonoBehaviour:
     - rid: 262250433004437583
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &7582500253891781194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3012253465329618487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &6318180347153443245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,7 +1864,8 @@ GameObject:
   - component: {fileID: 1478992817507004926}
   - component: {fileID: 1231208911658103964}
   - component: {fileID: 198831205059741879}
-  m_Layer: 0
+  - component: {fileID: 6811641398983218721}
+  m_Layer: 3
   m_Name: BottomGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2208,6 +2226,22 @@ MonoBehaviour:
     - rid: 262250433004437584
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &6811641398983218721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318180347153443245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7546912915588787082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,7 +2252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5685178890799061308}
   - component: {fileID: 7403495414071377660}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2273,7 +2307,8 @@ GameObject:
   - component: {fileID: 6842485312682298443}
   - component: {fileID: 9177985411739033411}
   - component: {fileID: 8177464269321355781}
-  m_Layer: 0
+  - component: {fileID: 6350312309583617565}
+  m_Layer: 3
   m_Name: LeftGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2609,12 +2644,12 @@ MonoBehaviour:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
     m_EdgeProcessing: 1
-    m_TrimEdge: -1
+    m_TrimEdge: 0
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0
   m_CastingOption: 1
-  m_PreviousTrimEdge: -1
+  m_PreviousTrimEdge: 0
   m_PreviousEdgeProcessing: 1
   m_PreviousShadowCastingSource: 2
   m_PreviousShadowShape2DSource: {fileID: 5392998491852558578}
@@ -2624,6 +2659,22 @@ MonoBehaviour:
     - rid: 262250433004437585
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &6350312309583617565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705534183457480172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7777781318165936093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,7 +2691,7 @@ GameObject:
   - component: {fileID: 1902099695555863291}
   - component: {fileID: 2551072423845845315}
   - component: {fileID: 1128879416827964549}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3536,9 +3587,9 @@ GameObject:
   m_Component:
   - component: {fileID: 272758591731394367}
   - component: {fileID: 5525837734958660955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RoomBase 1
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3557,7 +3608,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5685178890799061308}
-  - {fileID: 2132124765475311424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5525837734958660955
@@ -3595,7 +3645,8 @@ GameObject:
   - component: {fileID: 7191908644417720173}
   - component: {fileID: 4541323324457739807}
   - component: {fileID: 3555276195122707101}
-  m_Layer: 0
+  - component: {fileID: 3442716212704439909}
+  m_Layer: 3
   m_Name: TopGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3941,12 +3992,12 @@ MonoBehaviour:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0, y: 0, z: 0}
     m_EdgeProcessing: 1
-    m_TrimEdge: -1
+    m_TrimEdge: 0
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0
   m_CastingOption: 1
-  m_PreviousTrimEdge: -1
+  m_PreviousTrimEdge: 0
   m_PreviousEdgeProcessing: 1
   m_PreviousShadowCastingSource: 2
   m_PreviousShadowShape2DSource: {fileID: 355644354626164449}
@@ -3956,73 +4007,19 @@ MonoBehaviour:
     - rid: 262250433004437587
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
---- !u!1001 &6146778184104907832
-PrefabInstance:
+--- !u!114 &3442716212704439909
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 272758591731394367}
-    m_Modifications:
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.048611116
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.022444153
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0105246445
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859425318510475839, guid: c4136664e1c01054f9425832a762e817, type: 3}
-      propertyPath: m_Name
-      value: SacredFire
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c4136664e1c01054f9425832a762e817, type: 3}
---- !u!4 &2132124765475311424 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
-  m_PrefabInstance: {fileID: 6146778184104907832}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8686669831433231070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

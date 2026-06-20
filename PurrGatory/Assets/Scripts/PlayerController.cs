@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 5f;
 
+    bool canAttack = true;
+    float timer = 0f;
+    [SerializeField] float attackCoolDown = 5f;
+
     private void OnEnable()
     {
         inputActions.FindActionMap("Player").Enable();
@@ -59,7 +63,12 @@ public class PlayerController : MonoBehaviour
 
         if (rattleUsed.triggered)
         {
-            Attack();
+            if(canAttack)
+            { 
+                Attack();
+                canAttack = false;
+            }
+            
         }
         if (useItem.triggered)
         {
@@ -69,7 +78,18 @@ public class PlayerController : MonoBehaviour
         {
             SacraficeLife();
         }
+
+        if(!canAttack) 
+        {
+            timer += Time.deltaTime;
+            if (timer >= attackCoolDown)
+            {
+                canAttack = true;
+                timer = 0;
+            }
+        }
     }
+
 
     private void FixedUpdate()
     {
