@@ -55,6 +55,7 @@ public class BastHealth : MonoBehaviour
 
             }
         }
+        GameManager.Instance.UpdateLives(currentLives);
     }
 
     public void TakeLife()
@@ -75,6 +76,7 @@ public class BastHealth : MonoBehaviour
 
             }
         }
+        GameManager.Instance.UpdateLives(currentLives);
     }
 
     void Die()
@@ -82,6 +84,7 @@ public class BastHealth : MonoBehaviour
         // Handle death logic here
         Debug.Log("Bast has died.");
         Destroy(gameObject);
+        GameManager.Instance.RoundOver();
     }
 
     IEnumerator GhostTime()

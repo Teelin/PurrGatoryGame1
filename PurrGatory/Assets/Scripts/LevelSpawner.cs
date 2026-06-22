@@ -54,9 +54,28 @@ public class LevelSpawner : MonoBehaviour
             Instantiate(sacredFire, spawnPosition, Quaternion.identity);
         }
     }
+    void resetLevel()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        GameObject[] urns = GameObject.FindGameObjectsWithTag("Urn");
+        foreach (GameObject urn in urns)
+        {
+            Destroy(urn);
+        }
+        GameObject[] sacredFires = GameObject.FindGameObjectsWithTag("SacredFire");
+        foreach (GameObject fire in sacredFires)
+        {
+            Destroy(fire);
+        }
+    }
 
     void OnLevelGenerated()
     {
+        resetLevel();
         SpawnEnemies();
         SpawnUrns();
         SpawnSacredFire();

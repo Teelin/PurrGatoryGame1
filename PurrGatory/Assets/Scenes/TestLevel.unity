@@ -311,8 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b2b4931bba06e48a7466944626d2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
-  minRooms: 20
-  maxRooms: 50
   levelMaxWidth: 10
   levelMaxHeight: 10
   roomPrefab: {fileID: 8204669051742431779, guid: 4dcaa8da1a547ef4cb257f6654e6317b, type: 3}
