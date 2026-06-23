@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 
@@ -56,7 +56,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateLevel()
     {
-        levelMaxSize = CalculateStructuralGrid(targetRoomCount) *2;
+        levelMaxSize = CalculateStructuralGrid(targetRoomCount);
         levelGrid = new int[levelMaxSize, levelMaxSize]; // Reset the grid
         roomIds = new int[levelMaxSize, levelMaxSize]; // Reset the room IDs
         int roomsPlaced = 0; // Reset the number of rooms placed
@@ -125,26 +125,17 @@ public class LevelGenerator : MonoBehaviour
                 GenerateBoss(currentPos);
             }      
         */
-
-        //Updated while loop from Copilot to ensure we don't get stuck in an infinite loop if we can't place enough rooms
-
-        int maxAttempts = targetRoomCount * 10; // Safety limit to prevent infinite loops
-        int attempts = 0;
-
-        while (roomsPlaced < targetRoomCount && attempts < maxAttempts)
+        while (roomsPlaced < targetRoomCount)
         {
-            attempts++;
-            Vector2Int nextRoom = Vector2Int.zero;
-            bool foundValidNeighbor = false;
 
+            Vector2Int nextRoom = Vector2Int.zero;
+            
             foreach (Vector2Int direction in new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right })
             {
                 Vector2Int neighborPos = currentPos + direction;
 
                 if (neighborPos.x < 0 || neighborPos.x >= levelMaxSize || neighborPos.y < 0 || neighborPos.y >= levelMaxSize) continue;// Skip if out of bounds
                 if (levelGrid[neighborPos.y, neighborPos.x] == 1 || levelGrid[neighborPos.y, neighborPos.x] == 2 || levelGrid[neighborPos.y, neighborPos.x] == 4) continue; // Skip if room already exists
-
-                foundValidNeighbor = true; // We found at least one valid spot
 
                 if (UnityEngine.Random.value < 0.5f) // 50% chance to place a room
                 {
@@ -159,19 +150,11 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
 
-            if (nextRoom != Vector2Int.zero)
-            {
-                currentPos = nextRoom; // Move to the next room position
-            }
-            else if (foundValidNeighbor)
-            {
-                // Valid spots exist but random chance failed, stay at current position and retry
-                continue;
-            }
+
+            if (nextRoom != Vector2Int.zero) currentPos = nextRoom; // Move to the next room position
             else
             {
-                // No valid neighbors found, try to backtrack to an existing room
-                bool foundBacktrack = false;
+
                 foreach (Vector2Int direction in new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right })
                 {
                     Vector2Int neighborPos = currentPos + direction;
@@ -180,29 +163,13 @@ public class LevelGenerator : MonoBehaviour
                     {
                         currentPos = neighborPos; // Move to the next room position
                         newRoom = previousRoom; // Update the new room reference to the previous room
-                        foundBacktrack = true;
                         break;
                     }
                 }
-
-                // If we can't backtrack either, we're stuck - regenerate
-                if (!foundBacktrack)
-                {
-                    Debug.LogWarning($"Could not find valid backtrack position. Placed {roomsPlaced}/{targetRoomCount} rooms. Regenerating...");
-                    GenerateLevel();
-                    return;
-                }
             }
-        }
 
-        // Check if we failed to place enough rooms
-        if (roomsPlaced < targetRoomCount)
-        {
-            Debug.LogWarning($"Could not place enough rooms. Placed {roomsPlaced}/{targetRoomCount}. Regenerating...");
-            GenerateLevel();
-            return;
-        }
 
+        }
         GenerateBoss(currentPos);
 
     }
