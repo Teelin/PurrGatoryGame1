@@ -44,10 +44,6 @@ public class SacredFire : MonoBehaviour
         {
             playerNearby = true;
         }
-        if (collision.CompareTag("GhostKitten"))
-        {
-            collision.GetComponent<GhostKitten>().IsNearFire(true);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -55,10 +51,6 @@ public class SacredFire : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerNearby = false;
-        }
-        if (collision.CompareTag("GhostKitten"))
-        {
-            collision.GetComponent<GhostKitten>().IsNearFire(false);
         }
     }
 }

@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     float timer = 0f;
     [SerializeField] float attackCoolDown = 5f;
 
+    bool nearBarge = false;
+
     private void OnEnable()
     {
         inputActions.FindActionMap("Player").Enable();
@@ -59,7 +61,8 @@ public class PlayerController : MonoBehaviour
 
         transform.position += moveInput * (moveSpeed* Time.deltaTime);
         RotatePlayer();
-        GameManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
+        LevelManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
+        nearBarge = Physics2D.OverlapCircle(transform.position, .5f, LayerMask.GetMask("SunBarge"));
 
         if (rattleUsed.triggered)
         {
@@ -96,19 +99,19 @@ public class PlayerController : MonoBehaviour
         if(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)) != currentRoom)
         {
             currentRoom = new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9));
-            GameManager.Instance.SetPlayerRoom(currentRoom);
+            LevelManager.Instance.SetPlayerRoom(currentRoom);
             Camera.main.GetComponent<CameraController>().UpdateCameraPosition();
         }
     }
 
     void Respawn()
     {
-        Vector2Int startingPos = GameManager.Instance.GetStartingPosition();
+        Vector2Int startingPos = LevelManager.Instance.GetStartingPosition();
         transform.position = new Vector3(startingPos.x*16, startingPos.y*9, 0);
         // Reset health and other player states here as needed
         Debug.Log("Player respawned at starting position.");
         currentRoom = startingPos;
-        GameManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
+        LevelManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
 
     }
 
@@ -131,6 +134,11 @@ public class PlayerController : MonoBehaviour
     {
         // Implement use item logic here
         useAction?.Invoke();
+
+        if(nearBarge)
+        {
+            GameManager.Instance.LevelComplete();
+        }
     }
 
     void SacraficeLife() 

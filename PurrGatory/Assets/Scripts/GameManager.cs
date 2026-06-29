@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     int currentLevel = 1;
     int lives = 9;
+    int kittensSaved = 0;
 
     private int minRooms, maxRooms;
     private int defaultMinRooms = 5, defaultMaxRooms = 10;
@@ -33,67 +34,68 @@ public class GameManager : MonoBehaviour
 
         maxRooms = defaultMaxRooms + (currentLevel - 1) * 2;
         minRooms = defaultMinRooms + (currentLevel - 1);
+
+        GhostKitten.KittenSaved.AddListener(KittenSaved);
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L)) 
-        {
-            LevelComplete();
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
-        }
+       
+    }
+    private void OnDisable()
+    {
+        GhostKitten.KittenSaved.RemoveListener(KittenSaved);
     }
 
 
-    public int[,]GetLevelGrid()
-    {
-        return levelGrid;
-    }
+    //public int[,]GetLevelGrid()
+    //{
+    //    return levelGrid;
+    //}
 
-    public void SetLevelGrid(int[,] newGrid)
-    {
-        levelGrid = newGrid;
-    }
+    //public void SetLevelGrid(int[,] newGrid)
+    //{
+    //    levelGrid = newGrid;
+    //}
 
-    public Vector2Int GetStartingPosition()
-    {
-        return startingPosition;
-    }
-    public void SetStartingPosition(Vector2Int newPosition)
-    {
-        startingPosition = newPosition;
-    }
+    //public Vector2Int GetStartingPosition()
+    //{
+    //    return startingPosition;
+    //}
+    //public void SetStartingPosition(Vector2Int newPosition)
+    //{
+    //    startingPosition = newPosition;
+    //}
 
-    public Vector2Int GetPlayerRoom()
-    {
-        return playerRoom;
-    }
-    public void SetPlayerRoom(Vector2Int newPosition)
-    {
-        playerRoom = newPosition;
-    }
+    //public Vector2Int GetPlayerRoom()
+    //{
+    //    return playerRoom;
+    //}
+    //public void SetPlayerRoom(Vector2Int newPosition)
+    //{
+    //    playerRoom = newPosition;
+    //}
 
-    public void SetRoomList()
-    {
-        roomList = null;
-        roomList = FindObjectsByType<Room>();
-    }
+    //public void SetRoomList()
+    //{
+    //    roomList = null;
+    //    roomList = FindObjectsByType<Room>();
+    //}
     
-    public Room[] GetRoomList()
-    {
-        return roomList;
-    }
-    public void DestroyRooms()
-    {
-        var rooms = FindObjectsByType<Room>();
-        if (rooms != null)
-        {
-            foreach (Room room in rooms)
-            {
-                Destroy(room.gameObject);
-            }
-        }
-    }
+    //public Room[] GetRoomList()
+    //{
+    //    return roomList;
+    //}
+    //public void DestroyRooms()
+    //{
+    //    var rooms = FindObjectsByType<Room>();
+    //    if (rooms != null)
+    //    {
+    //        foreach (Room room in rooms)
+    //        {
+    //            Destroy(room.gameObject);
+    //        }
+    //    }
+    //}
 
     public int GetCurrentLevel()
     {
@@ -126,11 +128,13 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete()
     {
+
         ProgressLevel();
         maxRooms = defaultMaxRooms + (currentLevel - 1) * 2;
         minRooms = defaultMinRooms + (currentLevel - 1);
-
-        OnLevelComplete.Invoke();
+        OnLevelComplete?.Invoke();
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 
     public void RoundOver()
@@ -139,6 +143,13 @@ public class GameManager : MonoBehaviour
         lives = 9;
         maxRooms = defaultMaxRooms;
         minRooms = defaultMinRooms;
+        kittensSaved = 0;
+        LevelManager.Instance.ResetLevel();
+    }
+
+    public void KittenSaved() 
+    {
+        kittensSaved++;
     }
 
 }

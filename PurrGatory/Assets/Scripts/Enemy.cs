@@ -13,11 +13,14 @@ public class Enemy : MonoBehaviour
     bool isFollowing = false;
     bool isStunned = false;
     bool hasLineOfSight = false;
+    bool canAttack = true;
 
-    private float timer;
+    private float timer, attackTimer;
     [SerializeField] float wanderRadius;
     [SerializeField] float wanderTimer;
+    [SerializeField] float attackCooldown;
     [SerializeField] LayerMask detectionMask;
+    [SerializeField] int damage;
 
 
     private void OnDisable()
@@ -50,10 +53,26 @@ public class Enemy : MonoBehaviour
         {
             //agent.isStopped = false;
             agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
-        }
+
+            bool playerIsNear = Physics2D.OverlapCircle(transform.position, 1f, detectionMask);
+            if (playerIsNear && canAttack)
+            {
+                Attack();
+                canAttack = false;
+                attackTimer = attackCooldown;
+            }
         if((!isFollowing || !hasLineOfSight) && !isStunned)
         {
             Wander();
+        }
+
+        if (!canAttack)
+        {
+            attackTimer -= Time.deltaTime;
+            if (attackTimer <= 0f)
+            {
+                canAttack = true;
+            }
         }
     }
     
@@ -68,6 +87,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -126,6 +146,13 @@ public class Enemy : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    void Attack()
+    {
+        // Implement attack logic here
+        Debug.Log("Enemy is attacking the player!");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<BastHealth>().TakeDamage(damage);
     }
 
     void OnDrawGizmosSelected()

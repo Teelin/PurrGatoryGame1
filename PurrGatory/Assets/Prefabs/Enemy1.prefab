@@ -296,6 +296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   wanderRadius: 20
   wanderTimer: 3
+  attackCooldown: 5
   detectionMask:
     serializedVersion: 2
     m_Bits: 8
+  damage: 5

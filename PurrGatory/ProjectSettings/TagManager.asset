@@ -9,6 +9,7 @@ TagManager:
   - Room
   - Enemy
   - Urn
+  - SunBarge
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Detectable
   - Water
   - UI
-  - 
-  - 
+  - SacredFire
+  - SunBarge
   - 
   - 
   - 

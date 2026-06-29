@@ -31,14 +31,14 @@ public class LevelGenerator : MonoBehaviour
 
     public void InitialiseLevel()
     {
-        GameManager.Instance.DestroyRooms(); // Destroy any existing rooms before generating a new level
+        LevelManager.Instance.DestroyRooms(); // Destroy any existing rooms before generating a new level
         minRooms = GameManager.Instance.GetMinRooms();
         maxRooms = GameManager.Instance.GetMaxRooms();
         targetRoomCount = UnityEngine.Random.Range(minRooms, maxRooms + 1);
         GenerateLevel();
-        GameManager.Instance.SetLevelGrid(levelGrid);
+        LevelManager.Instance.SetLevelGrid(levelGrid);
         PlaceRooms();
-        GameManager.Instance.SetRoomList();
+        LevelManager.Instance.SetRoomList();
         levelGenerated?.Invoke();
 
     }
@@ -70,7 +70,7 @@ public class LevelGenerator : MonoBehaviour
         roomIds[currentPos.x, currentPos.y] = currentRoomId; // Assign a room ID to the starting room
 
         currentRoomId++; // Increment the room ID for the next room
-        GameManager.Instance.SetStartingPosition(currentPos);
+        LevelManager.Instance.SetStartingPosition(currentPos);
         /*int roomsPlacedThisIteration = 0;
         for (roomsPlaced = 0; roomsPlaced < targetRoomCount; roomsPlaced++)
         {
@@ -249,7 +249,7 @@ public class LevelGenerator : MonoBehaviour
 
             }
         }
-        GameManager.Instance.SetLevelGrid(levelGrid);
+        LevelManager.Instance.SetLevelGrid(levelGrid);
 
     }
 

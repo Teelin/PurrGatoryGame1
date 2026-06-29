@@ -4022,6 +4022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5685178890799061308}
+  - {fileID: 3797227760135376271}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5525837734958660955
@@ -4044,6 +4045,9 @@ MonoBehaviour:
   barrierBottom: {fileID: 6318180347153443245}
   barrierLeft: {fileID: 7705534183457480172}
   barrierRight: {fileID: 3012253465329618487}
+  hasSacredFire: 1
+  isScaredFireActive: 0
+  sacredFirePrefab: {fileID: 3258847819358383304}
 --- !u!1 &8686669831433231070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4457,3 +4461,82 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1001 &8964727985308866295
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 272758591731394367}
+    m_Modifications:
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.048611116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0030687652
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0017209746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859425318510475839, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_Name
+      value: SacredFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859425318510475839, guid: c4136664e1c01054f9425832a762e817, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c4136664e1c01054f9425832a762e817, type: 3}
+--- !u!1 &3258847819358383304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5859425318510475839, guid: c4136664e1c01054f9425832a762e817, type: 3}
+  m_PrefabInstance: {fileID: 8964727985308866295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3797227760135376271 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5249906461240826744, guid: c4136664e1c01054f9425832a762e817, type: 3}
+  m_PrefabInstance: {fileID: 8964727985308866295}
+  m_PrefabAsset: {fileID: 0}

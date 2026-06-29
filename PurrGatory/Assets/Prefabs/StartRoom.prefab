@@ -2648,7 +2648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
   m_OverrideArea: 1
-  m_Area: 1
+  m_Area: 2
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
 --- !u!1 &7546912915588787082
@@ -4053,6 +4053,9 @@ MonoBehaviour:
   barrierBottom: {fileID: 6318180347153443245}
   barrierLeft: {fileID: 7705534183457480172}
   barrierRight: {fileID: 3012253465329618487}
+  hasSacredFire: 0
+  isScaredFireActive: 0
+  sacredFirePrefab: {fileID: 0}
 --- !u!1 &8686669831433231070
 GameObject:
   m_ObjectHideFlags: 0

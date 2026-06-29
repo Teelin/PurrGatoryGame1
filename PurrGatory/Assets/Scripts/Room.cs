@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -7,8 +8,13 @@ public class Room : MonoBehaviour
 
     public int roomId;
 
-    [SerializeField] bool isBossRoom, isStartRoom, isSunBargeRoom;
+    [SerializeField] bool isBossRoom, isStartRoom, isSunBargeRoom; 
+    
     [SerializeField] GameObject barrierTop, barrierBottom, barrierLeft, barrierRight;
+
+    [SerializeField] bool hasSacredFire = false, isScaredFireActive;
+
+    [SerializeField] GameObject sacredFirePrefab;
 
 
     private void Awake()
@@ -25,12 +31,28 @@ public class Room : MonoBehaviour
         LevelGenerator.levelGenerated -= OpenBarriers;
     }
 
+    private void Update()
+    {
+        if (isStartRoom)
+        {
+            if(LevelManager.Instance.IsBossDefeated())
+            {
+                barrierBottom.SetActive(false);
+            }
+        }
+        if(isScaredFireActive)
+        {
+            // Add logic for when the sacred fire is active
+            sacredFirePrefab.SetActive(true);
+        }
+    }
+
 
     private void SetBossRoomBarrier()
     {
         if (isBossRoom)
         {
-            foreach (Room room in GameManager.Instance.GetRoomList())
+            foreach (Room room in LevelManager.Instance.GetRoomList())
             {
                 if (room.roomId == roomId - 1)
                 {
@@ -64,7 +86,7 @@ public class Room : MonoBehaviour
 
         if (!isBossRoom  && !isSunBargeRoom)
         {
-            var levelGrid = GameManager.Instance.GetLevelGrid();
+            var levelGrid = LevelManager.Instance.GetLevelGrid();
 
             int x = roomPos.x;
             int y = roomPos.y;
@@ -105,7 +127,19 @@ public class Room : MonoBehaviour
         roomPos = pos;
     }
 
-    
+    public bool GetStartRoomStatus()
+    {
+        return isStartRoom;
+    }
 
+    public void SetSacredFireActive(bool status)
+    {
+        isScaredFireActive = status;
+    }
+
+    public bool GetSacredFireStatus()
+    {
+        return hasSacredFire;
+    }
 
 }

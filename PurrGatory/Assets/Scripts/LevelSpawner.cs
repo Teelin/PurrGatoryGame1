@@ -20,38 +20,52 @@ public class LevelSpawner : MonoBehaviour
 
     void SpawnEnemies()
     {
+        enemyCount = LevelManager.Instance.GetEnemyCount(); 
         for (int i = 0; i < enemyCount; i++)
         {
             Debug.Log("Spawning enemy " + (i + 1) + " of " + enemyCount);
             GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
             if (rooms.Length == 0) return;
             GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];
-            Vector3 spawnPosition = randomRoom.transform.position + new Vector3(Random.Range(-4f, 4f), Random.Range(-4f, 4f), 0);
+            Vector3 spawnPosition = randomRoom.transform.position + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0);
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }
     }
 
     void SpawnUrns()
     {
-        for (int i = 0; i < urnCount; i++)
+        urnCount = LevelManager.Instance.GetKittensThisLevel();
+        for (int i = 0; i < urnCount; )
         {
             GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
             if (rooms.Length == 0) return;
             GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];
-            Vector3 spawnPosition = randomRoom.transform.position + new Vector3(Random.Range(-4f, 4f), Random.Range(-4f, 4f), 0);
+            if (randomRoom.GetComponent<Room>().GetStartRoomStatus()) continue; // Skip spawning urns in the starting room
+            Vector3 spawnPosition = randomRoom.transform.position + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0);
             Instantiate(urnPrefab, spawnPosition, Quaternion.identity);
+            i++;
         }
     }
 
     void SpawnSacredFire()
     {
+        sacredFireCount = 1; // Example: Always spawn 1 sacred fire per level, can be adjusted later based on level or difficulty
         for (int i = 0; i < sacredFireCount; i++)
         {
-            GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
-            if (rooms.Length == 0) return;
-            GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];
-            Vector3 spawnPosition = randomRoom.transform.position;
-            Instantiate(sacredFire, spawnPosition, Quaternion.identity);
+            bool sacredFireSpawned = false;
+            while (!sacredFireSpawned)
+            {
+                GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
+                if (rooms.Length == 0) return;
+                GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];
+                if (randomRoom.GetComponent<Room>().GetSacredFireStatus())
+                {
+                    randomRoom.GetComponent<Room>().SetSacredFireActive(true); // Mark the room as having a sacred fire 
+                    sacredFireSpawned = true;
+                }
+            }
+    
+            
         }
     }
     void resetLevel()

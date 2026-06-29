@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: 900657f9d91042b4d86beaa85bc29a4d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6901626578349360859
+    second: Bastet_Cat Form_ Walk_Spritesheet_0
+  - first:
+      213: -7235294797357530044
+    second: Bastet_Cat Form_ Walk_Spritesheet_1
+  - first:
+      213: 3374820761069832078
+    second: Bastet_Cat Form_ Walk_Spritesheet_2
+  - first:
+      213: -8032204923562785986
+    second: Bastet_Cat Form_ Walk_Spritesheet_3
+  - first:
+      213: 5836551986575706558
+    second: Bastet_Cat Form_ Walk_Spritesheet_4
+  - first:
+      213: 1943911571856741722
+    second: Bastet_Cat Form_ Walk_Spritesheet_5
+  - first:
+      213: -1978276501138094531
+    second: Bastet_Cat Form_ Walk_Spritesheet_6
+  - first:
+      213: -3742362770182575290
+    second: Bastet_Cat Form_ Walk_Spritesheet_7
+  - first:
+      213: 5601732324985956396
+    second: Bastet_Cat Form_ Walk_Spritesheet_8
+  - first:
+      213: -1632750938023500394
+    second: Bastet_Cat Form_ Walk_Spritesheet_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 47
+        width: 56
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5297711813f7830a0800000000000000
+      internalID: -6901626578349360859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 444c54e47b1179b90800000000000000
+      internalID: -7235294797357530044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 47
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e874e240a95c5de20800000000000000
+      internalID: 3374820761069832078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3385efad20e78090800000000000000
+      internalID: -8032204923562785986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 47
+        width: 55
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb902f0cb199ff050800000000000000
+      internalID: 5836551986575706558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55da4b76492afa10800000000000000
+      internalID: 1943911571856741722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 47
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d36492ae000cb84e0800000000000000
+      internalID: -1978276501138094531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64bee9e63e4701cc0800000000000000
+      internalID: -3742362770182575290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 47
+        width: 55
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c286c9dced95dbd40800000000000000
+      internalID: 5601732324985956396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bastet_Cat Form_ Walk_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 0
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6956c6c2cad4759e0800000000000000
+      internalID: -1632750938023500394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bastet_Cat Form_ Walk_Spritesheet_0: -6901626578349360859
+      Bastet_Cat Form_ Walk_Spritesheet_1: -7235294797357530044
+      Bastet_Cat Form_ Walk_Spritesheet_2: 3374820761069832078
+      Bastet_Cat Form_ Walk_Spritesheet_3: -8032204923562785986
+      Bastet_Cat Form_ Walk_Spritesheet_4: 5836551986575706558
+      Bastet_Cat Form_ Walk_Spritesheet_5: 1943911571856741722
+      Bastet_Cat Form_ Walk_Spritesheet_6: -1978276501138094531
+      Bastet_Cat Form_ Walk_Spritesheet_7: -3742362770182575290
+      Bastet_Cat Form_ Walk_Spritesheet_8: 5601732324985956396
+      Bastet_Cat Form_ Walk_Spritesheet_9: -1632750938023500394
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

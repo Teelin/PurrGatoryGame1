@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3974268074274122063}
   - component: {fileID: 7220110038186120470}
   - component: {fileID: 900251929064869985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SacredFire
   m_TagString: SacredFire
   m_Icon: {fileID: 0}

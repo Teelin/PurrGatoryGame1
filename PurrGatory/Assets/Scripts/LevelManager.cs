@@ -1,0 +1,88 @@
+using UnityEngine;
+using UnityEngine.LowLevel;
+
+public class LevelManager : MonoBehaviour
+{
+    int kittensSaved = 0;
+    int kittensToSave = 0;
+    int enemyCount = 0;
+
+    private int[,] levelGrid;
+    private Vector2Int startingPosition;
+    private Vector2Int playerRoom;
+    Room[] roomList;
+
+    public bool isBossDefeated = false;
+
+    public static LevelManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        GhostKitten.KittenSaved.AddListener(KittenSaved);
+        GameManager.OnLevelComplete.AddListener(ResetLevel);
+        CalculateSpawns();
+        
+    }
+    private void OnDisable()
+    {
+        GhostKitten.KittenSaved.RemoveListener(KittenSaved);
+        GameManager.OnLevelComplete.RemoveListener(ResetLevel);
+    }
+    public void KittenSaved()
+    {
+        kittensSaved++;
+    }
+
+    public void ResetLevel()
+    {
+        kittensSaved = 0;
+        CalculateSpawns();
+    }
+
+    void CalculateSpawns()
+    {
+        kittensToSave = GameManager.Instance.GetCurrentLevel() + 3;  // Example: Increase urn count based on current level TODO: Make this a more complex formula based on level and difficulty
+        enemyCount = GameManager.Instance.GetCurrentLevel() * 2; // Example: Increase enemy count based on current level TODO: Make this a more complex formula based on level and difficulty
+    }
+
+    public int GetKittensThisLevel() { return kittensToSave; }
+    public int GetEnemyCount() { return enemyCount;}
+
+    public bool IsBossDefeated() { return isBossDefeated; }
+
+    public int[,] GetLevelGrid() { return levelGrid; }
+
+    public void SetLevelGrid(int[,] newGrid) { levelGrid = newGrid; }
+
+    public Vector2Int GetStartingPosition() { return startingPosition; }
+    public void SetStartingPosition(Vector2Int newPosition) { startingPosition = newPosition; }
+
+    public Vector2Int GetPlayerRoom() { return playerRoom; }
+    public void SetPlayerRoom(Vector2Int newPosition) { playerRoom = newPosition; }
+
+    public void SetRoomList()
+    {
+        roomList = null;
+        roomList = FindObjectsByType<Room>();
+    }
+    public Room[] GetRoomList() { return roomList; }
+    public void DestroyRooms()
+    {
+        var rooms = FindObjectsByType<Room>();
+        if (rooms != null)
+        {
+            foreach (Room room in rooms)
+            {
+                Destroy(room.gameObject);
+            }
+        }
+    }
+}
