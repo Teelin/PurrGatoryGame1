@@ -22,6 +22,24 @@ public class Enemy : MonoBehaviour
     [SerializeField] LayerMask detectionMask;
     [SerializeField] int damage;
 
+    enum EnemyState
+    {
+        Wandering,
+        Following,
+        Attacking,
+        Stunned,
+        Stealing
+    }
+
+    private EnemyState currentState = EnemyState.Wandering;
+
+    enum EnemyCanSee
+    {
+        none,
+        player,
+        Kitten,
+    }
+    private EnemyCanSee whatEnemyCanSee;
 
     private void OnDisable()
     {
@@ -48,7 +66,9 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         hasLineOfSight = CheckLineOfSight();
+        whatEnemyCanSee = CheckEnemySight();
 
+        /*
         if (player != null && isFollowing && !isStunned && hasLineOfSight)
         {
             //agent.isStopped = false;
@@ -61,9 +81,63 @@ public class Enemy : MonoBehaviour
                 canAttack = false;
                 attackTimer = attackCooldown;
             }
-        if((!isFollowing || !hasLineOfSight) && !isStunned)
+        }
+
+
+        if ((!isFollowing || !hasLineOfSight) && !isStunned)
         {
-            Wander();
+            currentState = EnemyState.Wandering;
+        }
+
+        if (!canAttack)
+        {
+            attackTimer -= Time.deltaTime;
+            if (attackTimer <= 0f)
+            {
+                canAttack = true;
+            }
+        }*/
+        bool playerIsNear = Physics2D.OverlapCircle(transform.position, 1f, detectionMask);
+
+        
+
+        if(isStunned) { currentState = EnemyState.Stunned; }
+
+        else if (playerIsNear && canAttack)
+        {
+            currentState = EnemyState.Attacking;
+        }
+        else if (whatEnemyCanSee == EnemyCanSee.Kitten) { currentState = EnemyState.Stealing; }
+
+        else if (whatEnemyCanSee == EnemyCanSee.player && currentState != EnemyState.Stealing) { currentState = EnemyState.Following; }
+
+        else
+        {
+            currentState = EnemyState.Wandering;
+        }
+
+
+            switch (currentState)
+        {
+            case EnemyState.Wandering:
+                Wander();
+                break;
+            case EnemyState.Following:
+                agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
+                break;
+            case EnemyState.Attacking:
+                Attack();
+                canAttack = false;
+                attackTimer = attackCooldown;
+                break;
+            case EnemyState.Stunned:
+                // Do nothing while stunned
+                break;
+            case EnemyState.Stealing:
+                Debug.Log("Enemy is stealing the kitten!");
+                agent.SetDestination(new Vector3(player.position.x, player.position.y, player.position.z)); 
+                break;
+
         }
 
         if (!canAttack)
@@ -74,6 +148,7 @@ public class Enemy : MonoBehaviour
                 canAttack = true;
             }
         }
+
     }
     
     void Wander()
@@ -87,24 +162,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            // Handle player collision logic here
-            Debug.Log("Enemy collided with Player.");
-            isFollowing = true;
-            target = player.Find("KittenFollowTarget");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isFollowing = false;
-        }
-    }
+
+
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        // Handle player collision logic here
+    //        Debug.Log("Enemy collided with Player.");
+    //        isFollowing = true;
+    //        target = player.Find("KittenFollowTarget");
+    //    }
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        isFollowing = false;
+    //    }
+    //}
 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
@@ -144,8 +221,20 @@ public class Enemy : MonoBehaviour
             return false;
         else if (hit.collider.CompareTag("Player"))
             return true;
-        else
+        else 
             return false;
+    }
+    EnemyCanSee CheckEnemySight()
+    {
+        var hit = Physics2D.Raycast(transform.position, (player.position - transform.position).normalized, Mathf.Infinity, detectionMask);
+        if (hit.collider == null)
+            return EnemyCanSee.none;
+        else if (hit.collider.CompareTag("Player"))
+            return EnemyCanSee.player;
+        else if (hit.collider.CompareTag("GhostKitten"))
+            return EnemyCanSee.Kitten;
+        else
+            return EnemyCanSee.none;
     }
 
     void Attack()

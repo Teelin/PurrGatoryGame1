@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
         if(nearBarge)
         {
-            GameManager.Instance.LevelComplete();
+            LevelManager.Instance.LevelCompletedCheck();
         }
     }
 

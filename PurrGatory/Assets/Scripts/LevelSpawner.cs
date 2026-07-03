@@ -9,6 +9,8 @@ public class LevelSpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject urnPrefab;
     [SerializeField] GameObject sacredFire;
+    GameObject[] enemySpawns;
+    GameObject[] urnSpawns;
 
 
 
@@ -17,18 +19,28 @@ public class LevelSpawner : MonoBehaviour
         LevelGenerator.levelGenerated += OnLevelGenerated;
         
     }
+    void GetSpawnLocations()
+    {
+        enemySpawns = GameObject.FindGameObjectsWithTag("EnemySpawn");
+        urnSpawns = GameObject.FindGameObjectsWithTag("UrnSpawn");
+    }
 
     void SpawnEnemies()
     {
         enemyCount = LevelManager.Instance.GetEnemyCount(); 
-        for (int i = 0; i < enemyCount; i++)
+        for (int i = 0; i < enemyCount; )
         {
-            Debug.Log("Spawning enemy " + (i + 1) + " of " + enemyCount);
-            GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
-            if (rooms.Length == 0) return;
-            GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];
-            Vector3 spawnPosition = randomRoom.transform.position + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0);
+            if (enemySpawns.Length == 0) return;
+            int randomIndex = Random.Range(0, enemySpawns.Length);
+            if(enemySpawns[randomIndex] == null) 
+            { 
+                continue;
+            }
+            GameObject randomSpawn = enemySpawns[randomIndex];
+            Vector3 spawnPosition = randomSpawn.transform.position;
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            enemySpawns[randomIndex] = null; // Mark this spawn point as used
+            i++;
         }
     }
 
@@ -37,12 +49,17 @@ public class LevelSpawner : MonoBehaviour
         urnCount = LevelManager.Instance.GetKittensThisLevel();
         for (int i = 0; i < urnCount; )
         {
-            GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
-            if (rooms.Length == 0) return;
-            GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];
-            if (randomRoom.GetComponent<Room>().GetStartRoomStatus()) continue; // Skip spawning urns in the starting room
-            Vector3 spawnPosition = randomRoom.transform.position + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0);
+            
+            if (urnSpawns.Length == 0) return;
+            int randomIndex = Random.Range(0, urnSpawns.Length);
+            if(urnSpawns[randomIndex] == null) 
+            { 
+                continue;
+            }
+            GameObject randomSpawn = urnSpawns[randomIndex];
+            Vector3 spawnPosition = randomSpawn.transform.position;
             Instantiate(urnPrefab, spawnPosition, Quaternion.identity);
+            urnSpawns[randomIndex] = null; // Mark this spawn point as used
             i++;
         }
     }
@@ -90,6 +107,7 @@ public class LevelSpawner : MonoBehaviour
     void OnLevelGenerated()
     {
         resetLevel();
+        GetSpawnLocations();
         SpawnEnemies();
         SpawnUrns();
         SpawnSacredFire();

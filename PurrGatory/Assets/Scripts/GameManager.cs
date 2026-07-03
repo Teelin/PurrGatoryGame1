@@ -16,11 +16,15 @@ public class GameManager : MonoBehaviour
     int currentLevel = 1;
     int lives = 9;
     int kittensSaved = 0;
+    int kittensSavedThisLevel = 0;
 
     private int minRooms, maxRooms;
     private int defaultMinRooms = 5, defaultMaxRooms = 10;
 
     public static UnityEvent OnLevelComplete = new UnityEvent();
+
+    float timeTillDawn = 2400f; // 40 minutes in seconds
+    float timeLastLevel =0f;
 
 
     private void Awake()
@@ -133,8 +137,7 @@ public class GameManager : MonoBehaviour
         maxRooms = defaultMaxRooms + (currentLevel - 1) * 2;
         minRooms = defaultMinRooms + (currentLevel - 1);
         OnLevelComplete?.Invoke();
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
+        SceneManager.LoadScene("TestLevel");
     }
 
     public void RoundOver()
@@ -151,5 +154,32 @@ public class GameManager : MonoBehaviour
     {
         kittensSaved++;
     }
+    public void SetKittensSavedThisLevel(int kittens)
+    {
+        kittensSavedThisLevel = kittens;
+    }
 
+    public int GetKittensSavedThisLevel()
+    {
+        return kittensSavedThisLevel;
+    }
+    public int GetKittensSaved()
+    {
+        return kittensSaved;
+    }
+
+    public void SetTimeLastLevel(float time)
+    {
+        timeLastLevel = time;
+        timeTillDawn -= time;
+    }
+
+    public float GetTimeLastLevel()
+    {
+        return timeLastLevel;
+    }
+    public float GetTimeTillDawn()
+    {
+        return timeTillDawn;
+    }
 }

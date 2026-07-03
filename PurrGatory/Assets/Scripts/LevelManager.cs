@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.LowLevel;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     int kittensSaved = 0;
     int kittensToSave = 0;
+    int kittensNeedSaving = 0;
     int enemyCount = 0;
 
     private int[,] levelGrid;
@@ -13,6 +15,9 @@ public class LevelManager : MonoBehaviour
     Room[] roomList;
 
     public bool isBossDefeated = false;
+    private bool isLevelComplete = false;
+
+    float timeToCompleteLevel = 0f;
 
     public static LevelManager Instance { get; private set; }
     private void Awake()
@@ -36,6 +41,11 @@ public class LevelManager : MonoBehaviour
         GhostKitten.KittenSaved.RemoveListener(KittenSaved);
         GameManager.OnLevelComplete.RemoveListener(ResetLevel);
     }
+    private void Update()
+    {
+        if(!isLevelComplete)
+        timeToCompleteLevel += Time.deltaTime;
+    }
     public void KittenSaved()
     {
         kittensSaved++;
@@ -51,9 +61,13 @@ public class LevelManager : MonoBehaviour
     {
         kittensToSave = GameManager.Instance.GetCurrentLevel() + 3;  // Example: Increase urn count based on current level TODO: Make this a more complex formula based on level and difficulty
         enemyCount = GameManager.Instance.GetCurrentLevel() * 2; // Example: Increase enemy count based on current level TODO: Make this a more complex formula based on level and difficulty
+        kittensNeedSaving = kittensToSave/2; // Example: Half of the kittens need saving, the rest are optional. TODO: Make this a more complex formula based on level and difficulty
     }
 
+    public float GetTimeToCompleteLevel() { return timeToCompleteLevel; }
+
     public int GetKittensThisLevel() { return kittensToSave; }
+    public int GetKittensSaved() { return kittensSaved; }
     public int GetEnemyCount() { return enemyCount;}
 
     public bool IsBossDefeated() { return isBossDefeated; }
@@ -83,6 +97,17 @@ public class LevelManager : MonoBehaviour
             {
                 Destroy(room.gameObject);
             }
+        }
+    }
+
+    public void LevelCompletedCheck()
+    {
+        if (kittensSaved >= kittensNeedSaving && isBossDefeated)
+        {
+            isLevelComplete = true;
+            GameManager.Instance.SetTimeLastLevel(timeToCompleteLevel);
+            GameManager.Instance.SetKittensSavedThisLevel(kittensSaved);
+            SceneManager.LoadScene("EndLevel");
         }
     }
 }
