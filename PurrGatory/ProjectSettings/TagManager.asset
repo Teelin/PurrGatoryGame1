@@ -12,6 +12,7 @@ TagManager:
   - SunBarge
   - EnemySpawn
   - UrnSpawn
+  - CameraTarget
   layers:
   - Default
   - TransparentFX

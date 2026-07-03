@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Respawn();
-        Camera.main.GetComponent<CameraController>().UpdateCameraPosition();
+        GameObject.FindGameObjectWithTag("CameraTarget").GetComponent<CameraController>().UpdateCameraPosition();
+       //Camera.main.GetComponent<CameraController>().UpdateCameraPosition();
     }
     // Update is called once per frame
     void Update()
@@ -100,7 +101,8 @@ public class PlayerController : MonoBehaviour
         {
             currentRoom = new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9));
             LevelManager.Instance.SetPlayerRoom(currentRoom);
-            Camera.main.GetComponent<CameraController>().UpdateCameraPosition();
+            GameObject.FindGameObjectWithTag("CameraTarget").GetComponent<CameraController>().UpdateCameraPosition();
+            //Camera.main.GetComponent<CameraController>().UpdateCameraPosition();
         }
     }
 
@@ -118,7 +120,7 @@ public class PlayerController : MonoBehaviour
     void RotatePlayer()
     {
         Camera mainCamera = Camera.main;
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, mainCamera.nearClipPlane));
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, lookInput.z));
         Vector2 direction = (mousePosition - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
