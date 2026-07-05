@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -9,8 +10,9 @@ public class LevelGenerator : MonoBehaviour
     private int minRooms, maxRooms;
     private int levelMaxSize;
     [SerializeField] private GameObject roomPrefab, bossPrefab, startPrefab, sunBargePrefab;
-    [SerializeField] private GameObject[] roomPrefabs;
+    [SerializeField] private GameObject[] EasyRooms, MediumRooms, DifficultRooms;
 
+    private GameObject[] roomPrefabs;
     private int[,] levelGrid, roomIds;
     private int targetRoomCount, currentRoomId;
 
@@ -35,12 +37,29 @@ public class LevelGenerator : MonoBehaviour
         minRooms = GameManager.Instance.GetMinRooms();
         maxRooms = GameManager.Instance.GetMaxRooms();
         targetRoomCount = UnityEngine.Random.Range(minRooms, maxRooms + 1);
+        CalculateRoomsToSpawn();
         GenerateLevel();
         LevelManager.Instance.SetLevelGrid(levelGrid);
         PlaceRooms();
         LevelManager.Instance.SetRoomList();
         levelGenerated?.Invoke();
 
+    }
+
+    void CalculateRoomsToSpawn()
+    {
+        if(GameManager.Instance.GetCurrentLevel() <= 3)
+        { 
+            roomPrefabs = EasyRooms;
+        }
+        if(GameManager.Instance.GetCurrentLevel() > 3 && GameManager.Instance.GetCurrentLevel() <= 6)
+        {
+            roomPrefabs = MediumRooms;
+        }
+        if(GameManager.Instance.GetCurrentLevel() > 6)
+        {
+            roomPrefabs = DifficultRooms;
+        }
     }
     public int CalculateStructuralGrid(int maxRooms)
     {
@@ -220,7 +239,8 @@ public class LevelGenerator : MonoBehaviour
                 if (pos == 1)
                 {
                     // Instantiate room prefab
-                    GameObject roomToSpawn = roomPrefabs[UnityEngine.Random.Range(0, roomPrefabs.Length)];
+                    //GameObject roomToSpawn = roomPrefabs[UnityEngine.Random.Range(0, roomPrefabs.Length)];
+                    GameObject roomToSpawn = roomPrefab;
                     GameObject room = Instantiate(roomToSpawn, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
                     room.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
                     room.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component

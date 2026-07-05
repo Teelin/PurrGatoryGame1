@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8046105098320677069}
   - component: {fileID: 8624885595693236751}
   - component: {fileID: 6367743208253400403}
+  - component: {fileID: 5077579478668949930}
   m_Layer: 3
   m_Name: Urn
   m_TagString: Urn
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 2149252009890648334, guid: 5e3658fa0c3d69c4db31bd692e89e615, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,11 +167,19 @@ MonoBehaviour:
   m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.5, y: -0.28866673, z: 0}
-  - {x: -0.022632599, y: 0.5823145, z: 0}
-  - {x: -0.0031738281, y: 0.5823145, z: 0}
-  - {x: 0.5, y: -0.28866673, z: 0}
-  m_ShapePathHash: -791528683
+  - {x: -0.26683807, y: -0.23766327, z: 0}
+  - {x: -0.29151154, y: -0.07267666, z: 0}
+  - {x: -0.17493057, y: 0.09490776, z: 0}
+  - {x: -0.20407486, y: 0.42278862, z: 0}
+  - {x: -0.00077438354, y: 0.31272316, z: 0}
+  - {x: 0.1789856, y: 0.4438753, z: 0}
+  - {x: 0.17481232, y: 0.087620735, z: 0}
+  - {x: 0.30326843, y: -0.12836933, z: 0}
+  - {x: 0.22581863, y: -0.29854965, z: 0}
+  - {x: 0.08737564, y: -0.4078436, z: 0}
+  - {x: -0.05834961, y: -0.4224167, z: 0}
+  - {x: -0.20407486, y: -0.342268, z: 0}
+  m_ShapePathHash: -1770310475
   m_InstanceId: 0
   m_ShadowShape2DComponent: {fileID: 0}
   m_ShadowShape2DProvider:
@@ -179,13 +188,13 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0, y: 0.14682388, z: 0}
-      m_Extent: {x: 0.5, y: 0.4354906, z: 0}
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.24687195, y: 0.38749695, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.05
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.05
+    m_InitialTrim: 0.02
   m_CastingOption: 1
   m_PreviousTrimEdge: 0.05
   m_PreviousEdgeProcessing: 1
@@ -196,3 +205,25 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!95 &5077579478668949930
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837710654289255358}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4978324bd5bdf24b86f6ef48191ec1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

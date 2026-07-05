@@ -13,6 +13,7 @@ TagManager:
   - EnemySpawn
   - UrnSpawn
   - CameraTarget
+  - RattleLight
   layers:
   - Default
   - TransparentFX
