@@ -40,20 +40,17 @@ public class Enemy3 : MonoBehaviour
         changingTarget = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            // Handle collision with player
-            Debug.Log("Enemy collided with Player!");
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             // Handle trigger with player
-            Debug.Log("Enemy triggered with Player!");
+            collision.GetComponent<BastHealth>().TakeDamage(50); 
+        }
+        if(collision.CompareTag("GhostKitten"))
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("GhostKitten destroyed by Enemy3");
         }
     }
 }

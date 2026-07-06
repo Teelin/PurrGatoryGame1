@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Room : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class Room : MonoBehaviour
     [SerializeField] bool hasSacredFire = false, isScaredFireActive;
 
     [SerializeField] GameObject sacredFirePrefab;
+
+    GameObject bossDoor;
+    bool playerInBossRoom = false;
+
+    public static UnityEvent BossRoomEntered = new UnityEvent();
 
 
     private void Awake()
@@ -45,6 +51,22 @@ public class Room : MonoBehaviour
             // Add logic for when the sacred fire is active
             sacredFirePrefab.SetActive(true);
         }
+
+        if (isBossRoom)
+        {
+            if (LevelManager.Instance.GetPlayerRoom() == roomPos && LevelManager.Instance.isBossDefeated == false && !playerInBossRoom)
+            {
+                bossDoor.SetActive(true);
+                BossRoomEntered?.Invoke();
+                playerInBossRoom = true;
+            }
+            if(LevelManager.Instance.isBossDefeated == true)
+            {
+                bossDoor.SetActive(false);
+            }
+        
+        }
+
     }
 
 
@@ -52,31 +74,47 @@ public class Room : MonoBehaviour
     {
         if (isBossRoom)
         {
-            foreach (Room room in LevelManager.Instance.GetRoomList())
+            var levelGrid = LevelManager.Instance.GetLevelGrid();
+
+            int x = roomPos.x;
+            int y = roomPos.y;
+
+            foreach (Vector2Int direction in new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right })
             {
-                if (room.roomId == roomId - 1)
+                int newX = x + direction.x;
+                int newY = y + direction.y;
+                if (newX >= 0 && newX < levelGrid.GetLength(0) && newY >= 0 && newY < levelGrid.GetLength(1))
                 {
-                    Vector2 direction = room.transform.position - transform.position;
-                    if (direction.x > 0)
+                    if (levelGrid[newX, newY] == 1)
                     {
-                        barrierRight.SetActive(false);
-                    }
-                    else if (direction.x < 0)
-                    {
-                        barrierLeft.SetActive(false);
-                    }
-                    else if (direction.y > 0)
-                    {
-                        barrierTop.SetActive(false);
-                    }
-                    else if (direction.y < 0)
-                    {
-                        barrierBottom.SetActive(false);
+                        if (direction == Vector2Int.up)
+                        {
+                            barrierTop.SetActive(false);
+                            bossDoor = barrierTop;
+                            break;
+                        }
+                        else if (direction == Vector2Int.down)
+                        {
+                            barrierBottom.SetActive(false);
+                            bossDoor = barrierBottom;
+                            break;
+                        }
+                        else if (direction == Vector2Int.left)
+                        {
+                            barrierLeft.SetActive(false);
+                            bossDoor = barrierLeft;
+                            break;
+                        }
+                        else if (direction == Vector2Int.right)
+                        {
+                            barrierRight.SetActive(false);
+                            bossDoor = barrierRight;
+                            break;
+                        }
                     }
                 }
-
             }
-
+            
         }
     }
 
