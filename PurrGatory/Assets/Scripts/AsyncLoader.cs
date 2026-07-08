@@ -12,8 +12,11 @@ public class AsyncLoader : MonoBehaviour
     [Header("Loading Screen Slider")]
     [SerializeField] private Slider loadingSlider;
 
+    [SerializeField] AudioSource AudioSource;
+
     public void LoadSceneAsync(string sceneName)
     {
+        AudioSource.Play();
         mainMenuScreen.SetActive(false);
         loadingScreen.SetActive(true);
         StartCoroutine(LoadSceneCoroutine(sceneName));
@@ -32,5 +35,11 @@ public class AsyncLoader : MonoBehaviour
             loadingSlider.value = progress;
             yield return null;
         }
+    }
+
+    public void Quit()
+    {
+        AudioSource.Play();
+        Application.Quit();
     }
 }

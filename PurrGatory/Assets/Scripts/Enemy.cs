@@ -61,6 +61,8 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+
 
     }
 
@@ -75,10 +77,10 @@ public class Enemy : MonoBehaviour
         if (player != null && !isStunned && hasLineOfSight)
         {
             //agent.isStopped = false;
-            agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
+            agent.SetDestination(new Vector3(target.position.x, target.position.y,0));
             
 
-            playerIsNear = Physics2D.OverlapCircle(transform.position, 1f, detectionMask);
+            playerIsNear = Physics2D.OverlapCircle(transform.position, .5f, detectionMask);
             canBeStunned = Physics2D.OverlapCircle(transform.position, stunDistance, detectionMask);
             if (playerIsNear && canAttack)
             {
@@ -255,7 +257,8 @@ public class Enemy : MonoBehaviour
         // Draw a yellow sphere at the transform's position to visualize the wander radius
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, wanderRadius);
-        if(hasLineOfSight) 
+        
+        if (hasLineOfSight) 
         {
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, player.position);

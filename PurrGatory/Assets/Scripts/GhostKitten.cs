@@ -19,12 +19,16 @@ public class GhostKitten : MonoBehaviour
 
     public static UnityEvent KittenSaved = new UnityEvent();
 
+    [SerializeField] AudioClip kittenMeow;
+    AudioSource AudioSource;
+
 
 
     private void Awake()
     {
         player = FindAnyObjectByType<PlayerController>().transform;
         target = player.Find("Sprite").Find("KittenFollowTarget");
+        AudioSource = GetComponent<AudioSource>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,13 +41,13 @@ public class GhostKitten : MonoBehaviour
     }
     private void OnEnable()
     {
-        SacredFire.fireLit += OnFireLit;
-        SacredFire.fireDoused += OnFireDoused;
+        SacredFire.fireLit.AddListener(OnFireLit);
+        SacredFire.fireDoused.AddListener(OnFireDoused);
     }
     private void OnDisable()
     {
-        SacredFire.fireLit -= OnFireLit;
-        SacredFire.fireDoused -= OnFireDoused;
+        SacredFire.fireLit.RemoveListener(OnFireLit);
+        SacredFire.fireDoused.RemoveListener(OnFireDoused);
     }
     // Update is called once per frame
     void Update()
@@ -75,11 +79,11 @@ public class GhostKitten : MonoBehaviour
 
     }
 
-    void OnFireLit(SacredFire fire)
+    void OnFireLit()
     {
         isFireLit = true;
     }
-    void OnFireDoused(SacredFire fire)
+    void OnFireDoused()
     {
         isFireLit = false;
     }
@@ -102,9 +106,10 @@ public class GhostKitten : MonoBehaviour
 
     }
 
-    IEnumerator DestroyKitten()
+    public IEnumerator DestroyKitten()
     {
-        yield return new WaitForSeconds(.3f);
+        AudioSource.PlayOneShot(kittenMeow);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }

@@ -40,6 +40,7 @@ public class LevelGenerator : MonoBehaviour
         PlaceRooms();
         LevelManager.Instance.SetRoomList();
         levelGenerated?.Invoke();
+        GameManager.Instance.SetGameState(GameManager.GameState.Playing);
 
     }
     public int CalculateStructuralGrid(int maxRooms)
@@ -66,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
 
         Vector2Int currentPos = new Vector2Int(levelMaxSize / 2, levelMaxSize / 2); // Start at the middle of the grid
         levelGrid[currentPos.x, currentPos.y] = 2; // Mark the starting room in the grid
-        levelGrid[currentPos.x, currentPos.y - 1] = 4; // Mark the SunBarge room in the grid
+        levelGrid[currentPos.x , currentPos.y -1 ] = 4; // Mark the SunBarge room in the grid
         roomIds[currentPos.x, currentPos.y] = currentRoomId; // Assign a room ID to the starting room
 
         currentRoomId++; // Increment the room ID for the next room
@@ -142,14 +143,14 @@ public class LevelGenerator : MonoBehaviour
                 Vector2Int neighborPos = currentPos + direction;
 
                 if (neighborPos.x < 0 || neighborPos.x >= levelMaxSize || neighborPos.y < 0 || neighborPos.y >= levelMaxSize) continue;// Skip if out of bounds
-                if (levelGrid[neighborPos.y, neighborPos.x] == 1 || levelGrid[neighborPos.y, neighborPos.x] == 2 || levelGrid[neighborPos.y, neighborPos.x] == 4) continue; // Skip if room already exists
+                if (levelGrid[neighborPos.x, neighborPos.y] == 1 || levelGrid[neighborPos.x, neighborPos.y] == 2 || levelGrid[neighborPos.x, neighborPos.y] == 4) continue; // Skip if room already exists
 
                 foundValidNeighbor = true; // We found at least one valid spot
 
                 if (UnityEngine.Random.value < 0.5f) // 50% chance to place a room
                 {
-                    levelGrid[neighborPos.y, neighborPos.x] = 1; // Mark the grid cell as occupied
-                    roomIds[neighborPos.y, neighborPos.x] = currentRoomId; // Assign a room ID to the new room
+                    levelGrid[neighborPos.x, neighborPos.y] = 1; // Mark the grid cell as occupied
+                    roomIds[neighborPos.x, neighborPos.y] = currentRoomId; // Assign a room ID to the new room
 
                     currentRoomId++; // Increment the room ID for the next room
                     roomsPlaced++;
@@ -176,7 +177,7 @@ public class LevelGenerator : MonoBehaviour
                 {
                     Vector2Int neighborPos = currentPos + direction;
                     if (neighborPos.x < 0 || neighborPos.x >= levelMaxSize || neighborPos.y < 0 || neighborPos.y >= levelMaxSize) continue;// Skip if out of bounds
-                    if (levelGrid[neighborPos.y, neighborPos.x] == 1)
+                    if (levelGrid[neighborPos.x, neighborPos.y] == 1)
                     {
                         currentPos = neighborPos; // Move to the next room position
                         newRoom = previousRoom; // Update the new room reference to the previous room
@@ -204,6 +205,7 @@ public class LevelGenerator : MonoBehaviour
         }
 
         GenerateBoss(currentPos);
+        Output2DArray(levelGrid); // Output the grid to the console for debugging
 
     }
 
@@ -216,35 +218,35 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int j = 0; j < levelMaxSize; j++)
             {
-                int pos = levelGrid[i, j];
+                int pos = levelGrid[j, i];
                 if (pos == 1)
                 {
                     // Instantiate room prefab
                     GameObject roomToSpawn = roomPrefabs[UnityEngine.Random.Range(0, roomPrefabs.Length)];
-                    GameObject room = Instantiate(roomToSpawn, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
-                    room.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
-                    room.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
+                    GameObject room = Instantiate(roomToSpawn, new Vector3(j * 16, i * 9, 0), Quaternion.identity);
+                    room.GetComponent<Room>().roomId = roomIds[j, i]; // Assign the room ID to the Room component
+                    room.GetComponent<Room>().SetRoomPos(new Vector2Int(j, i)); // Set the room position in the Room component
                 }
                 else if (pos == 2)
                 {
                     // Instantiate start room prefab
-                    GameObject startRoom = Instantiate(startPrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
-                    startRoom.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
-                    startRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
+                    GameObject startRoom = Instantiate(startPrefab, new Vector3(j * 16, i * 9, 0), Quaternion.identity);
+                    startRoom.GetComponent<Room>().roomId = roomIds[j, i]; // Assign the room ID to the Room component
+                    startRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(j, i)); // Set the room position in the Room component
                 }
                 else if (pos == 3)
                 {
                     // Instantiate boss room prefab
-                    GameObject bossRoom = Instantiate(bossPrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
-                    bossRoom.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
-                    bossRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
+                    GameObject bossRoom = Instantiate(bossPrefab, new Vector3(j * 16, i * 9, 0), Quaternion.identity);
+                    bossRoom.GetComponent<Room>().roomId = roomIds[j, i]; // Assign the room ID to the Room component
+                    bossRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(j, i)); // Set the room position in the Room component
                 }
                 else if (pos == 4)
                 {
                     // Instantiate sun barge room prefab
-                    GameObject sunBargeRoom = Instantiate(sunBargePrefab, new Vector3(i * 16, j * 9, 0), Quaternion.identity);
-                    sunBargeRoom.GetComponent<Room>().roomId = roomIds[i, j]; // Assign the room ID to the Room component
-                    sunBargeRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(i, j)); // Set the room position in the Room component
+                    GameObject sunBargeRoom = Instantiate(sunBargePrefab, new Vector3(j * 16, i * 9, 0), Quaternion.identity);
+                    sunBargeRoom.GetComponent<Room>().roomId = roomIds[j, i]; // Assign the room ID to the Room component
+                    sunBargeRoom.GetComponent<Room>().SetRoomPos(new Vector2Int(j, i)); // Set the room position in the Room component
                 }
 
             }
@@ -262,11 +264,11 @@ public class LevelGenerator : MonoBehaviour
             Vector2Int tempBoss = position + direction;
             if (tempBoss.x < 0 || tempBoss.x >= levelMaxSize || tempBoss.y < 0 || tempBoss.y >= levelMaxSize)
                 continue; // Skip if out of bounds
-            if (levelGrid[tempBoss.y, tempBoss.x] == 1 || levelGrid[tempBoss.y, tempBoss.x] == 2 || levelGrid[tempBoss.y, tempBoss.x] == 4)
+            if (levelGrid[tempBoss.x, tempBoss.y] == 1 || levelGrid[tempBoss.x, tempBoss.y] == 2 || levelGrid[tempBoss.x, tempBoss.y] == 4)
                 continue; // Room already exists
 
-            levelGrid[tempBoss.y, tempBoss.x] = 3; // Mark the grid cell as occupied by boss room
-            roomIds[tempBoss.y, tempBoss.x] = currentRoomId; // Assign a room ID to the boss room
+            levelGrid[tempBoss.x, tempBoss.y] = 3; // Mark the grid cell as occupied by boss room
+            roomIds[tempBoss.x, tempBoss.y] = currentRoomId; // Assign a room ID to the boss room
             currentRoomId++; // Increment the room ID for the next room
             bossPlaced = true;
         }
@@ -277,6 +279,19 @@ public class LevelGenerator : MonoBehaviour
 
     }
 
+    public void Output2DArray(int[,] array)
+    {
+        string output = "";
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                output += array[j, i] + " ";
+            }
+            output += "\n";
+        }
+        Debug.Log(output);
+    }
 
 
 }

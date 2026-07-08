@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 7220110038186120470}
   - component: {fileID: 900251929064869985}
   - component: {fileID: 2426168794862541923}
+  - component: {fileID: 6289539280504849556}
   m_Layer: 6
   m_Name: SacredFire
   m_TagString: SacredFire
@@ -417,6 +418,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6289539280504849556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5859425318510475839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifierVolume
+  m_Size: {x: 4.973445, y: 5.0191736, z: 4}
+  m_Center: {x: 0.037535667, y: -0.009586811, z: 0}
+  m_Area: 1
+  m_AffectedAgents: f2652fae
 --- !u!1 &9123014918733216105
 GameObject:
   m_ObjectHideFlags: 0

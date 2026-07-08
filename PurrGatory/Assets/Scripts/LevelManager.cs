@@ -68,6 +68,7 @@ public class LevelManager : MonoBehaviour
 
     public int GetKittensThisLevel() { return kittensToSave; }
     public int GetKittensSaved() { return kittensSaved; }
+    public int GetKittensNeedSaving() { return kittensNeedSaving; }
     public int GetEnemyCount() { return enemyCount;}
 
     public bool IsBossDefeated() { return isBossDefeated; }
@@ -107,6 +108,7 @@ public class LevelManager : MonoBehaviour
             isLevelComplete = true;
             GameManager.Instance.SetTimeLastLevel(timeToCompleteLevel);
             GameManager.Instance.SetKittensSavedThisLevel(kittensSaved);
+            GameManager.Instance.SetGameState(GameManager.GameState.Menu);
             SceneManager.LoadScene("EndLevel");
         }
     }

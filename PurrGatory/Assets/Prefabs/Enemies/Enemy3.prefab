@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7569232269956143274}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5680214819480535993}
   - component: {fileID: 2462673336559890621}
   - component: {fileID: 2193224825407281122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8448131833454054754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1685657788851662464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4442794432319303415}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

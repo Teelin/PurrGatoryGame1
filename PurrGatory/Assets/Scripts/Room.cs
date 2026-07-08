@@ -59,10 +59,12 @@ public class Room : MonoBehaviour
                 bossDoor.SetActive(true);
                 BossRoomEntered?.Invoke();
                 playerInBossRoom = true;
+                GameManager.Instance.SetGameState(GameManager.GameState.BossFight);
             }
             if(LevelManager.Instance.isBossDefeated == true)
             {
                 bossDoor.SetActive(false);
+                GameManager.Instance.SetGameState(GameManager.GameState.Playing);
             }
         
         }

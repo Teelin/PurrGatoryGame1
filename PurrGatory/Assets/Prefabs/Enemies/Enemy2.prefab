@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6073278971068620019}
   - component: {fileID: 1951386382026169775}
   - component: {fileID: 5659970950088295944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7121108504742361945}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CapturePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

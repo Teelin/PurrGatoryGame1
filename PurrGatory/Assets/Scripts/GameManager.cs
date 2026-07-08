@@ -1,3 +1,5 @@
+using System;
+using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -27,6 +29,13 @@ public class GameManager : MonoBehaviour
     float timeLastLevel =0f;
 
     float playerAttackDamage= 5f;
+    [SerializeField] AudioClip menuMusic, gameMusic, bossMusic, miniBossMusic;
+    AudioSource mainMusicSource;
+
+    public enum GameState { Menu, Playing, Paused, GameOver, BossFight, MiniBossFight };
+
+    static GameState gameState;
+    bool musicPlaying = false;
 
 
     private void Awake()
@@ -42,66 +51,52 @@ public class GameManager : MonoBehaviour
         minRooms = defaultMinRooms + (currentLevel - 1);
 
         GhostKitten.KittenSaved.AddListener(KittenSaved);
+        mainMusicSource = GetComponent<AudioSource>();
+        mainMusicSource.clip = menuMusic; 
+        mainMusicSource.Play();
+        musicPlaying = true;
     }
     private void Update()
     {
-       
+        switch (gameState)
+        {
+            case GameState.Menu:
+                mainMusicSource.clip = menuMusic;
+                
+                break;
+            case GameState.Playing:
+                mainMusicSource.clip = gameMusic;
+                break;
+            case GameState.BossFight:
+                mainMusicSource.clip = bossMusic;
+                break;
+            case GameState.MiniBossFight:
+                mainMusicSource.clip = miniBossMusic;
+                break;
+            case GameState.GameOver:
+                mainMusicSource.clip = menuMusic;
+                break;
+            case GameState.Paused:
+                mainMusicSource.clip = gameMusic;
+                break;
+        }
+        if (musicPlaying == false)
+        {
+            mainMusicSource.Play();
+            musicPlaying = true;
+        }
+    }
+
+    public void SetGameState(GameState newState)
+    {
+        gameState = newState;
+        musicPlaying = false;
+
     }
     private void OnDisable()
     {
         GhostKitten.KittenSaved.RemoveListener(KittenSaved);
     }
-
-
-    //public int[,]GetLevelGrid()
-    //{
-    //    return levelGrid;
-    //}
-
-    //public void SetLevelGrid(int[,] newGrid)
-    //{
-    //    levelGrid = newGrid;
-    //}
-
-    //public Vector2Int GetStartingPosition()
-    //{
-    //    return startingPosition;
-    //}
-    //public void SetStartingPosition(Vector2Int newPosition)
-    //{
-    //    startingPosition = newPosition;
-    //}
-
-    //public Vector2Int GetPlayerRoom()
-    //{
-    //    return playerRoom;
-    //}
-    //public void SetPlayerRoom(Vector2Int newPosition)
-    //{
-    //    playerRoom = newPosition;
-    //}
-
-    //public void SetRoomList()
-    //{
-    //    roomList = null;
-    //    roomList = FindObjectsByType<Room>();
-    //}
-    
-    //public Room[] GetRoomList()
-    //{
-    //    return roomList;
-    //}
-    //public void DestroyRooms()
-    //{
-    //    var rooms = FindObjectsByType<Room>();
-    //    if (rooms != null)
-    //    {
-    //        foreach (Room room in rooms)
-    //        {
-    //            Destroy(room.gameObject);
-    //        }
-    //    }
-    //}
 
     public int GetCurrentLevel()
     {
@@ -140,6 +135,7 @@ public class GameManager : MonoBehaviour
         minRooms = defaultMinRooms + (currentLevel - 1);
         OnLevelComplete?.Invoke();
         SceneManager.LoadScene("TestLevel");
+        SetGameState(GameState.Playing);
     }
 
     public void RoundOver()

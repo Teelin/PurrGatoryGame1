@@ -1,5 +1,8 @@
+using NavMeshPlus.Components;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
+
 
 public class SacredFire : MonoBehaviour
 {
@@ -7,14 +10,18 @@ public class SacredFire : MonoBehaviour
     Light2D fireLight;
     bool playerNearby = false;
 
-    public static event System.Action<SacredFire> fireLit;
-    public static event System.Action<SacredFire> fireDoused;
+    public static UnityEvent fireLit = new UnityEvent();
+    public static UnityEvent fireDoused = new UnityEvent();
+    
+    NavMeshModifierVolume navObstacle;
 
 
     private void Awake()
     {
         fireLight = GetComponent<Light2D>();
         fireLight.enabled = false;
+        navObstacle = GetComponent<NavMeshModifierVolume>();
+        navObstacle.enabled = false;
     }
     private void Start()
     {
@@ -28,11 +35,16 @@ public class SacredFire : MonoBehaviour
             fireLight.enabled = !fireLight.enabled;
             if (fireLight.enabled)
             {
-                fireLit?.Invoke(this);
+                navObstacle.enabled = true;
+                fireLit?.Invoke();
+                
+
             }
             else
             {
-                fireDoused?.Invoke(this);
+                navObstacle.enabled = false;
+                fireDoused?.Invoke();
+                
             }
         }
     }

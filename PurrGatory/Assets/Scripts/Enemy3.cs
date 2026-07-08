@@ -49,7 +49,7 @@ public class Enemy3 : MonoBehaviour
         }
         if(collision.CompareTag("GhostKitten"))
         {
-            Destroy(collision.gameObject);
+            StartCoroutine(collision.gameObject.GetComponent<GhostKitten>().DestroyKitten());
             Debug.Log("GhostKitten destroyed by Enemy3");
         }
     }

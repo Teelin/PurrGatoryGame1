@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3518718633630827712}
   - component: {fileID: 4665489588691122776}
   - component: {fileID: 577804912682869455}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 51.79293, y: 14.59776, z: 0}
-  m_LocalScale: {x: 0.46083, y: 0.46083, z: 0.46083}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,8 +103,8 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7171778104533524805}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.25
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
@@ -152,7 +152,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 30, y: 30}
+  m_Size: {x: 2, y: 2}
   m_Direction: 0
 --- !u!96 &4665489588691122776
 TrailRenderer:

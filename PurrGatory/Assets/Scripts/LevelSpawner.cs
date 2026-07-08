@@ -38,7 +38,7 @@ public class LevelSpawner : MonoBehaviour
             }
             GameObject randomSpawn = enemySpawns[randomIndex];
             Vector3 spawnPosition = randomSpawn.transform.position;
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             enemySpawns[randomIndex] = null; // Mark this spawn point as used
             i++;
         }

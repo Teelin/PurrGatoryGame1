@@ -17,7 +17,9 @@ public class BastHealth : MonoBehaviour
     float timer = 0;
     bool canSacrifice = true;
 
-    
+    [SerializeField] LayerMask normalLayerMask, ghostLayerMask;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -92,14 +94,35 @@ public class BastHealth : MonoBehaviour
         // Handle ghost time logic here
         spriteRenderer.color = Color.azure; // Change color to indicate ghost time
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f); // Make the sprite semi-transparent
-        GetComponent<Collider2D>().enabled = false; // Disable the collider to make the player invincible and walk through walls
+        //GetComponent<Collider2D>().enabled = false; // Disable the collider to make the player invincible and walk through walls
+        GetComponent<Collider2D>().excludeLayers = ghostLayerMask;
 
         // TODO : need to look at collision layers to make sure player cant walk off map but can get through hidden doors and avoid enemies
 
         yield return new WaitForSeconds(ghostTime);
         spriteRenderer.color = Color.white; // Change color back to normal
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f); // Restore the sprite's opacity
-        GetComponent<Collider2D>().enabled = true; // Re-enable the collider
+        GetComponent<Collider2D>().excludeLayers = normalLayerMask; // Re-enable the collider
+    }
+
+    public int GetCurrentDamage()
+    {
+        return currentDamage;
+    }
+
+    public int GetMaxDamage()
+    {
+        return maxDamage;
+    }
+
+    public int GetCurrentLives()
+    {
+        return currentLives;
+    }
+
+    public int GetMaxLives()
+    {
+        return maxLives;
     }
 }
 
