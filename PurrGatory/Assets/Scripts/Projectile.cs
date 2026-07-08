@@ -15,9 +15,15 @@ public class Projectile : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             collision.GetComponent<BastHealth>().TakeDamage(10);
-            Destroy(gameObject);
+            Destroy(gameObject); // Destroy the projectile on collision
+
+        }
+        if(collision.CompareTag("Walls"))
+        {
+            Destroy(gameObject); // Destroy the projectile on collision
         }
         
+
     }
 }
 

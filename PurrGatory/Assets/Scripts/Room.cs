@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     [SerializeField] bool isBossRoom, isStartRoom, isSunBargeRoom; 
     
     [SerializeField] GameObject barrierTop, barrierBottom, barrierLeft, barrierRight;
+    [SerializeField] GameObject sconceTop, sconceBottom, sconceLeft, sconceRight;
 
     [SerializeField] bool hasSacredFire = false, isScaredFireActive;
 
@@ -23,9 +24,19 @@ public class Room : MonoBehaviour
     public static UnityEvent BossRoomEntered = new UnityEvent();
 
 
+
+
     private void Awake()
     {
         LevelGenerator.levelGenerated += OpenBarriers;
+        if(!isBossRoom && !isSunBargeRoom)
+        {
+            sconceTop.SetActive(false);
+            sconceLeft.SetActive(false);
+            sconceRight.SetActive(false);
+            sconceBottom.SetActive(false);
+        }
+
     }
     private void Start()
     {
@@ -143,18 +154,22 @@ public class Room : MonoBehaviour
                         if (direction == Vector2Int.up)
                         {
                             barrierTop.SetActive(false);
+                            sconceTop.SetActive(true);
                         }
                         else if (direction == Vector2Int.down)
                         {
                             barrierBottom.SetActive(false);
+                            sconceBottom.SetActive(true);
                         }
                         else if (direction == Vector2Int.left)
                         {
                             barrierLeft.SetActive(false);
+                            sconceLeft.SetActive(true);
                         }
                         else if (direction == Vector2Int.right)
                         {
                             barrierRight.SetActive(false);
+                            sconceRight.SetActive(true);
                         }
                     }
                 }

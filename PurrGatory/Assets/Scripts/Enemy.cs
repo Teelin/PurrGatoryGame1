@@ -205,7 +205,7 @@ public class Enemy : MonoBehaviour
     {
         if (canBeStunned)
         {
-            StartCoroutine(StunCoroutine(3f));
+            StartCoroutine(StunCoroutine(4f));
             //currentState = EnemyState.Stunned;
 
         }

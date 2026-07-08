@@ -30,6 +30,11 @@ public class Boss : MonoBehaviour
 
     float attack1Timer = 1f, attack2Timer = .05f;
 
+    [SerializeField] GameObject[] teleportPoints;
+    GameObject teleportTarget;
+    [SerializeField] float minTeleportTime = 3f, maxTeleportTime = 10f;
+    bool changingTeleportTarget = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +43,7 @@ public class Boss : MonoBehaviour
         player = FindAnyObjectByType<PlayerController>().gameObject;
         currentState = BossState.None;
         Room.BossRoomEntered.AddListener(() => ChangeState(BossState.Attack1));
+        teleportTarget = teleportPoints[Random.Range(0, teleportPoints.Length)];
 
     }
 
@@ -126,7 +132,14 @@ public class Boss : MonoBehaviour
             ChangeState(BossState.Enraged);
             isEnraged = true;
         }
-    
+        if (teleportTarget.transform.position == transform.position && !changingTeleportTarget)
+        {
+            changingTeleportTarget = true;
+            StartCoroutine(ChangeTeleportTarget());
+
+        }
+        transform.position = teleportTarget.transform.position;
+
     }
 
     void RotateTowardsPlayer()
@@ -166,6 +179,14 @@ public class Boss : MonoBehaviour
         transform.Rotate(0, 0, 2);
         enragedCounter++;
         // animator.SetTrigger("Enraged");
+    }
+
+    IEnumerator ChangeTeleportTarget()
+    {
+        yield return new WaitForSeconds(Random.Range(minTeleportTime, maxTeleportTime));
+        teleportTarget = teleportPoints[Random.Range(0, teleportPoints.Length)];
+        
+        changingTeleportTarget = false;
     }
 
 }

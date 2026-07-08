@@ -69,7 +69,17 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movemntSpeed = moveInput * (moveSpeed * Time.deltaTime);
         transform.position += movemntSpeed;
-        //RotatePlayer();
+        if(movemntSpeed != Vector3.zero)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            RotatePlayer();
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(0, 0, -90f);
+        }
+        
         LevelManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
         nearBarge = Physics2D.OverlapCircle(transform.position, .5f, LayerMask.GetMask("SunBarge"));
 
@@ -101,17 +111,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (movemntSpeed.x > 0)
+        /*if (movemntSpeed.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
         if (movemntSpeed.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        }
+        }*/
 
-        player_Anim.SetFloat("XSpeed", Mathf.Abs(moveInput.x));
-        player_Anim.SetFloat("YSpeed", moveInput.y);
+        //player_Anim.SetFloat("XSpeed", Mathf.Abs(moveInput.x));
+        //player_Anim.SetFloat("SpeedY", moveInput.y);
+        player_Anim.SetFloat("Speed", movemntSpeed.sqrMagnitude);
 
     }
 
@@ -140,9 +151,10 @@ public class PlayerController : MonoBehaviour
 
     void RotatePlayer()
     {
-        Camera mainCamera = Camera.main;
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, mainCamera.nearClipPlane));
-        Vector2 direction = (mousePosition - transform.position).normalized;
+        //Camera mainCamera = Camera.main;
+        //Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, mainCamera.nearClipPlane));
+
+        Vector2 direction = moveInput;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
