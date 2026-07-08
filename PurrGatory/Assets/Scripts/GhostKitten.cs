@@ -24,7 +24,7 @@ public class GhostKitten : MonoBehaviour
     private void Awake()
     {
         player = FindAnyObjectByType<PlayerController>().transform;
-        target = player.Find("KittenFollowTarget");
+        target = player.Find("Sprite").Find("KittenFollowTarget");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

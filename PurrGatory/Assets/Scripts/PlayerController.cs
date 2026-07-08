@@ -3,13 +3,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using System;
+using UnityEngine.Rendering.Universal;
+using System.Collections;
+using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
     public InputActionAsset inputActions;
 
     private InputAction moveAction, lookAction;
-    private Rigidbody2D player_RB;
+    //private Rigidbody2D player_RB;
     private Animator player_Anim;
 
     private Vector2Int currentRoom;
@@ -30,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     bool nearBarge = false;
 
+    CinemachineImpulseSource impulseSource;
+
     private void OnEnable()
     {
         inputActions.FindActionMap("Player").Enable();
@@ -41,7 +46,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        player_RB = GetComponent<Rigidbody2D>();
+        //player_RB = GetComponent<Rigidbody2D>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+        player_Anim = GetComponentInChildren<Animator>();
         moveAction = inputActions.FindAction("Move");
         lookAction = inputActions.FindAction("Look");
         rattleUsed = inputActions.FindAction("Rattle");
@@ -60,8 +67,9 @@ public class PlayerController : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
         lookInput = lookAction.ReadValue<Vector2>();
 
-        transform.position += moveInput * (moveSpeed* Time.deltaTime);
-        RotatePlayer();
+        Vector3 movemntSpeed = moveInput * (moveSpeed * Time.deltaTime);
+        transform.position += movemntSpeed;
+        //RotatePlayer();
         LevelManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
         nearBarge = Physics2D.OverlapCircle(transform.position, .5f, LayerMask.GetMask("SunBarge"));
 
@@ -92,6 +100,19 @@ public class PlayerController : MonoBehaviour
                 timer = 0;
             }
         }
+
+        if (movemntSpeed.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (movemntSpeed.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        player_Anim.SetFloat("XSpeed", Mathf.Abs(moveInput.x));
+        player_Anim.SetFloat("YSpeed", moveInput.y);
+
     }
 
 
@@ -120,7 +141,7 @@ public class PlayerController : MonoBehaviour
     void RotatePlayer()
     {
         Camera mainCamera = Camera.main;
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, lookInput.z));
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(lookInput.x, lookInput.y, mainCamera.nearClipPlane));
         Vector2 direction = (mousePosition - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -130,6 +151,8 @@ public class PlayerController : MonoBehaviour
     {
         // Implement attack logic here
         rattleAction?.Invoke();
+        StartCoroutine(Rattle());
+        impulseSource.GenerateImpulse();
     }
 
     void UseItem()
@@ -146,6 +169,13 @@ public class PlayerController : MonoBehaviour
     void SacraficeLife() 
     { 
         GetComponent<BastHealth>().TakeLife();
+    }
+
+    IEnumerator Rattle()
+    {
+        GameObject.FindGameObjectWithTag("RattleLight").GetComponent<Light2D> ().intensity = 10f;
+        yield return new WaitForSeconds(0.5f);
+        GameObject.FindGameObjectWithTag("RattleLight").GetComponent<Light2D> ().intensity = 1f;
     }
 
 }

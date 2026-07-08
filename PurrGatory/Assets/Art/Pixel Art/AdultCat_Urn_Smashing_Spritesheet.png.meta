@@ -241,7 +241,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -255,7 +255,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -278,7 +278,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -325,7 +325,7 @@ TextureImporter:
         width: 19
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -347,7 +347,7 @@ TextureImporter:
         width: 19
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -369,7 +369,7 @@ TextureImporter:
         width: 21
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -383,37 +383,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 120
-        width: 8
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cac5224c691f20d20800000000000000
-      internalID: 3243420311498153132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AdultCat_Urn_Smashing_Spritesheet_4
       rect:
         serializedVersion: 2
-        x: 215
-        y: 129
-        width: 8
-        height: 13
+        x: 212
+        y: 108
+        width: 23
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -427,169 +405,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 218
-        y: 122
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3a7e4316b40a2a3a0800000000000000
-      internalID: -6655581053686323293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 129
-        width: 7
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 538a7d1782f64c970800000000000000
-      internalID: 8774260193523902517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 121
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5dd6b6522ec8101a0800000000000000
-      internalID: -6845035055708148267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 112
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0e8ef043c20be4700800000000000000
-      internalID: 526551910347434208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 109
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21c91d468f6bfd110800000000000000
-      internalID: 1287949196410854418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 221
-        y: 117
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0758fc9288f05e2a0800000000000000
-      internalID: -6708938992407050896
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 113
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 95f48bebd40b401d0800000000000000
-      internalID: -3385387171917050023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AdultCat_Urn_Smashing_Spritesheet_12
       rect:
         serializedVersion: 2
-        x: 22
-        y: 83
-        width: 8
-        height: 13
+        x: 19
+        y: 61
+        width: 25
+        height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -603,59 +427,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_13
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 76
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df1919e3833caea00800000000000000
-      internalID: 786655731264885245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_14
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 83
-        width: 7
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c7419cd8acb76220800000000000000
-      internalID: 2479157553331783621
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AdultCat_Urn_Smashing_Spritesheet_15
       rect:
         serializedVersion: 2
-        x: 82
-        y: 85
-        width: 10
-        height: 12
+        x: 81
+        y: 61
+        width: 30
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -669,367 +449,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_16
-      rect:
-        serializedVersion: 2
-        x: 89
-        y: 79
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 015e7e8dc93fe6d80800000000000000
-      internalID: -8255393211944016624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_17
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 85
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8c8adf3934eae1ce0800000000000000
-      internalID: -1432516026188322616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_18
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 74
-        width: 12
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 958341bf46b43ec70800000000000000
-      internalID: 8999119377497602137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_19
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 78
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 436f7a527f6db1a00800000000000000
-      internalID: 728412121727497780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_20
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 73
-        width: 8
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a89a14d71a48e3b30800000000000000
-      internalID: 4268995325919865226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_21
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 69
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 789b81a7029c4d6c0800000000000000
-      internalID: -4119446617812584057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_22
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 74
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58c99d9886148a600800000000000000
-      internalID: 479705277560102021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_23
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 66
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c12736b396ced990800000000000000
-      internalID: -7359226403357253182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_24
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 74
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6541c56633f307590800000000000000
-      internalID: -7678567874673503146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_25
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 71
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 26e28750b7505c420800000000000000
-      internalID: 2649529981708283490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_26
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 67
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 44efa93dd58e40120800000000000000
-      internalID: 2379281992838217284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_27
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 74
-        width: 8
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c023487b223f90590800000000000000
-      internalID: -7707361956834561524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_28
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 74
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 17c5adcf502910c30800000000000000
-      internalID: 4323897671667047537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_29
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 71
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7cab437a6216c6b0800000000000000
-      internalID: -5276509665007784836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_30
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 59
-        width: 9
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 95ba39cc21b739170800000000000000
-      internalID: 8184020268534180697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_31
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 70
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2e0fc59f2b648880800000000000000
-      internalID: -8609638735504536021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AdultCat_Urn_Smashing_Spritesheet_32
       rect:
         serializedVersion: 2
-        x: 237
-        y: 64
-        width: 7
-        height: 10
+        x: 197
+        y: 54
+        width: 54
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1043,191 +471,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_33
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 63
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66bf422bd8db9e910800000000000000
-      internalID: 1867231936798587750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_34
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 61
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 76b371d54cfaef4a0800000000000000
-      internalID: -6557610749494609049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_35
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 62
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: acfa9b94ad0b07410800000000000000
-      internalID: 1472871529736417226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_36
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 60
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ee5eebe1f1c52d3e0800000000000000
-      internalID: -2030459193261103634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_37
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 62
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4bfe37ac2fc3c7f50800000000000000
-      internalID: 6880441344191623092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_38
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 61
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 43ed037407df134f0800000000000000
-      internalID: -850620195923763660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_39
-      rect:
-        serializedVersion: 2
-        x: 197
-        y: 58
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0dad13c9e304f070800000000000000
-      internalID: 8139134729101094159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_40
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 60
-        width: 20
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 23a2e176537185ff0800000000000000
-      internalID: -47262277956654542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AdultCat_Urn_Smashing_Spritesheet_41
       rect:
         serializedVersion: 2
-        x: 208
-        y: 54
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 140
+        y: 59
+        width: 41
+        height: 35
+      alignment: 9
+      pivot: {x: 0.4476742, y: 0.5000008}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1241,191 +493,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_42
-      rect:
-        serializedVersion: 2
-        x: 221
-        y: 54
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a68c8d78f833053f0800000000000000
-      internalID: -914174032803739542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_43
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 64
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3e1a3909af4a2450800000000000000
-      internalID: 6064747435630665274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_44
-      rect:
-        serializedVersion: 2
-        x: 231
-        y: 61
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 27dead9ef86b68590800000000000000
-      internalID: -7672244185959043726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_45
-      rect:
-        serializedVersion: 2
-        x: 243
-        y: 58
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2defe82c4da07800800000000000000
-      internalID: 608176492310949163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_46
-      rect:
-        serializedVersion: 2
-        x: 231
-        y: 56
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7083bc9c18439e020800000000000000
-      internalID: 2371484410828240903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_47
-      rect:
-        serializedVersion: 2
-        x: 238
-        y: 57
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 693914f47d4ed7360800000000000000
-      internalID: 7169137795242496918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_48
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 12
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6223ccd3c5adf7cf0800000000000000
-      internalID: -252242964400819674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_49
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 7
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9f427f6bba208c480800000000000000
-      internalID: -8878843728828619527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AdultCat_Urn_Smashing_Spritesheet_50
       rect:
         serializedVersion: 2
-        x: 7
-        y: 7
-        width: 26
-        height: 16
+        x: 0
+        y: 2
+        width: 60
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1439,103 +515,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_51
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 6
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8de8871d058e8fd20800000000000000
-      internalID: 3312652959740366552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_52
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 12
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 719a03a330f6bb070800000000000000
-      internalID: 8123208412544674071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_53
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 10
-        width: 13
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e9d719c9c4819d2e0800000000000000
-      internalID: -2100621033868264034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_54
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 9
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 014e896a80c5bae90800000000000000
-      internalID: -7013410802474884080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: AdultCat_Urn_Smashing_Spritesheet_55
       rect:
         serializedVersion: 2
-        x: 58
-        y: 8
-        width: 6
-        height: 7
+        x: 59
+        y: 1
+        width: 69
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1548,297 +536,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_56
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 11
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 220c185849691b0a0800000000000000
-      internalID: -6867542392124096478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_57
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 4
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b52cd0608716711b0800000000000000
-      internalID: -5685968836406427045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_58
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 8
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 155ac5b5682dc5730800000000000000
-      internalID: 3989294844443665745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_59
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 5
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d8a0e0a31eec2d100800000000000000
-      internalID: 131394805884127885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_60
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 14
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 27850317697793860800000000000000
-      internalID: 7510165341644806258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_61
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 5
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5dc1cc8f43fa40880800000000000000
-      internalID: -8645592742597223211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_62
-      rect:
-        serializedVersion: 2
-        x: 117
-        y: 5
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 90ded03cd7a9ceeb0800000000000000
-      internalID: -4689203247065469687
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_63
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 3
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da6ed6dd785bc1cb0800000000000000
-      internalID: -4891835500091021651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_64
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 4
-        width: 12
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e284f7e88fb4bd150800000000000000
-      internalID: 5898391667886475310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_65
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 5
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9751a59bbb9b3a1b0800000000000000
-      internalID: -5646465291872758407
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_66
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 0
-        width: 15
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a92e932dd24a24760800000000000000
-      internalID: 7440690051076973210
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_67
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 0
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 294d9e5c1815ebc60800000000000000
-      internalID: 7835790019484308626
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AdultCat_Urn_Smashing_Spritesheet_68
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 2
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6f98b14ca2ecac120800000000000000
-      internalID: 2434985231621261814
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dbe52d1156d28d347b311f8c06bc1e49
     internalID: 0
     vertices: []
     indices: 

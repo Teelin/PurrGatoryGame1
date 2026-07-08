@@ -22,7 +22,7 @@ public class LevelGenerator : MonoBehaviour
     {
         InitialiseLevel();
     }
-   
+
     private void Start()
     {
         levelGenerated?.Invoke();
@@ -56,17 +56,17 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateLevel()
     {
-        levelMaxSize = CalculateStructuralGrid(targetRoomCount) *2;
+        levelMaxSize = CalculateStructuralGrid(targetRoomCount) * 2;
         levelGrid = new int[levelMaxSize, levelMaxSize]; // Reset the grid
         roomIds = new int[levelMaxSize, levelMaxSize]; // Reset the room IDs
         int roomsPlaced = 0; // Reset the number of rooms placed
-        
+
         currentRoomId = 1; // Start room IDs from 1
 
 
         Vector2Int currentPos = new Vector2Int(levelMaxSize / 2, levelMaxSize / 2); // Start at the middle of the grid
         levelGrid[currentPos.x, currentPos.y] = 2; // Mark the starting room in the grid
-        levelGrid[currentPos.x , currentPos.y - 1] = 4; // Mark the SunBarge room in the grid
+        levelGrid[currentPos.x, currentPos.y - 1] = 4; // Mark the SunBarge room in the grid
         roomIds[currentPos.x, currentPos.y] = currentRoomId; // Assign a room ID to the starting room
 
         currentRoomId++; // Increment the room ID for the next room
@@ -211,7 +211,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void PlaceRooms()
     {
-       
+
         for (int i = 0; i < levelMaxSize; i++)
         {
             for (int j = 0; j < levelMaxSize; j++)
@@ -258,7 +258,7 @@ public class LevelGenerator : MonoBehaviour
         bool bossPlaced = false;
         foreach (Vector2Int direction in new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right })
         {
-            if(bossPlaced) break; // Stop if boss room has been placed)
+            if (bossPlaced) break; // Stop if boss room has been placed)
             Vector2Int tempBoss = position + direction;
             if (tempBoss.x < 0 || tempBoss.x >= levelMaxSize || tempBoss.y < 0 || tempBoss.y >= levelMaxSize)
                 continue; // Skip if out of bounds
@@ -268,7 +268,7 @@ public class LevelGenerator : MonoBehaviour
             levelGrid[tempBoss.y, tempBoss.x] = 3; // Mark the grid cell as occupied by boss room
             roomIds[tempBoss.y, tempBoss.x] = currentRoomId; // Assign a room ID to the boss room
             currentRoomId++; // Increment the room ID for the next room
-            bossPlaced =true;
+            bossPlaced = true;
         }
         if (!bossPlaced)
         {

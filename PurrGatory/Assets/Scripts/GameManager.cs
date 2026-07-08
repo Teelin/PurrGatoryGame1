@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     float timeTillDawn = 2400f; // 40 minutes in seconds
     float timeLastLevel =0f;
 
+    float playerAttackDamage= 5f;
+
 
     private void Awake()
     {
@@ -181,5 +183,10 @@ public class GameManager : MonoBehaviour
     public float GetTimeTillDawn()
     {
         return timeTillDawn;
+    }
+
+    public float GetPlayerAttackDamage()
+    {
+        return playerAttackDamage;
     }
 }

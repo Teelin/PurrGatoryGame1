@@ -10,10 +10,11 @@ public class Enemy : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     
-    bool isFollowing = false;
+    //bool isFollowing = false;
     bool isStunned = false;
     bool hasLineOfSight = false;
     bool canAttack = true;
+    bool playerIsNear, canBeStunned;
 
     private float timer, attackTimer;
     [SerializeField] float wanderRadius;
@@ -22,16 +23,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] LayerMask detectionMask;
     [SerializeField] int damage;
 
+    float stunDistance = 2.5f;
+
     enum EnemyState
     {
         Wandering,
         Following,
         Attacking,
-        Stunned,
-        Stealing
+        Stunned
     }
 
-    private EnemyState currentState = EnemyState.Wandering;
+   //private EnemyState currentState = EnemyState.Wandering;
 
     enum EnemyCanSee
     {
@@ -50,7 +52,7 @@ public class Enemy : MonoBehaviour
     {
         player = FindAnyObjectByType<PlayerController>().transform;
         PlayerController.rattleAction += Stun;
-        target = player.Find("KittenFollowTarget");
+        target = player.Find("Sprite").Find("KittenFollowTarget");
         timer = wanderTimer;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -68,13 +70,16 @@ public class Enemy : MonoBehaviour
         hasLineOfSight = CheckLineOfSight();
         whatEnemyCanSee = CheckEnemySight();
 
-        /*
-        if (player != null && isFollowing && !isStunned && hasLineOfSight)
+
+        
+        if (player != null && !isStunned && hasLineOfSight)
         {
             //agent.isStopped = false;
             agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
+            
 
-            bool playerIsNear = Physics2D.OverlapCircle(transform.position, 1f, detectionMask);
+            playerIsNear = Physics2D.OverlapCircle(transform.position, 1f, detectionMask);
+            canBeStunned = Physics2D.OverlapCircle(transform.position, stunDistance, detectionMask);
             if (playerIsNear && canAttack)
             {
                 Attack();
@@ -82,11 +87,12 @@ public class Enemy : MonoBehaviour
                 attackTimer = attackCooldown;
             }
         }
+        
 
 
-        if ((!isFollowing || !hasLineOfSight) && !isStunned)
+        if (!hasLineOfSight && !isStunned)
         {
-            currentState = EnemyState.Wandering;
+            Wander();
         }
 
         if (!canAttack)
@@ -96,24 +102,25 @@ public class Enemy : MonoBehaviour
             {
                 canAttack = true;
             }
-        }*/
-        bool playerIsNear = Physics2D.OverlapCircle(transform.position, 1f, detectionMask);
-
+        }
+        /*
         
 
-        if(isStunned) { currentState = EnemyState.Stunned; }
 
-        else if (playerIsNear && canAttack)
-        {
-            currentState = EnemyState.Attacking;
-        }
-        else if (whatEnemyCanSee == EnemyCanSee.Kitten) { currentState = EnemyState.Stealing; }
 
-        else if (whatEnemyCanSee == EnemyCanSee.player && currentState != EnemyState.Stealing) { currentState = EnemyState.Following; }
+        if (!isStunned) {
 
-        else
-        {
-            currentState = EnemyState.Wandering;
+            if (playerIsNear && canAttack)
+            {
+                currentState = EnemyState.Attacking;
+            }
+            else if (whatEnemyCanSee == EnemyCanSee.player) { currentState = EnemyState.Following; isFollowing = true; }
+
+            else
+            {
+                currentState = EnemyState.Wandering;
+                isFollowing = false;
+            }
         }
 
 
@@ -131,11 +138,7 @@ public class Enemy : MonoBehaviour
                 attackTimer = attackCooldown;
                 break;
             case EnemyState.Stunned:
-                // Do nothing while stunned
-                break;
-            case EnemyState.Stealing:
-                Debug.Log("Enemy is stealing the kitten!");
-                agent.SetDestination(new Vector3(player.position.x, player.position.y, player.position.z)); 
+                StartCoroutine(StunCoroutine(3f));
                 break;
 
         }
@@ -147,7 +150,7 @@ public class Enemy : MonoBehaviour
             {
                 canAttack = true;
             }
-        }
+        }*/
 
     }
     
@@ -198,13 +201,16 @@ public class Enemy : MonoBehaviour
 
     void Stun()
     {
-        if (isFollowing)
-        { 
+        if (canBeStunned)
+        {
             StartCoroutine(StunCoroutine(3f));
+            //currentState = EnemyState.Stunned;
+
         }
     }
     IEnumerator StunCoroutine(float duration)
     {
+        
         agent.isStopped = true;
         isStunned = true;
         yield return new WaitForSeconds(duration);
