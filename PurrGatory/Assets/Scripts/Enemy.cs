@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] LayerMask detectionMask;
     [SerializeField] int damage;
 
-    float stunDistance = 2.5f;
+    
 
     enum EnemyState
     {
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
             
 
             playerIsNear = Physics2D.OverlapCircle(transform.position, .5f, detectionMask);
-            canBeStunned = Physics2D.OverlapCircle(transform.position, stunDistance, detectionMask);
+            canBeStunned = Vector2.Distance(transform.position, player.transform.position) < player.GetComponent<PlayerController>().GetRattleRange();
             if (playerIsNear && canAttack)
             {
                 Attack();

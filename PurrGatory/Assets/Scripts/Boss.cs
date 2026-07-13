@@ -44,11 +44,12 @@ public class Boss : MonoBehaviour
         currentState = BossState.None;
         Room.BossRoomEntered.AddListener(() => ChangeState(BossState.Attack1));
         teleportTarget = teleportPoints[Random.Range(0, teleportPoints.Length)];
+        baseAttackRate = Random.Range(5, 15);
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         switch (currentState)
@@ -63,7 +64,7 @@ public class Boss : MonoBehaviour
                 }
                 else
                 {
-                    attack1Timer -= Time.deltaTime; // Decrease the timer by the time elapsed since the last frame
+                    attack1Timer -= Time.fixedDeltaTime; // Decrease the timer by the time elapsed since the last frame
                 }
         
                 
@@ -87,7 +88,7 @@ public class Boss : MonoBehaviour
                 if(attack2Timer <= 0f)
                 {
                     attack2Counter++;
-                    attack2Timer = .05f; // Reset the timer to .3f second
+                    attack2Timer = .05f; // Reset the timer to .5f second
                     Attack2();
                 }
                 else
@@ -127,7 +128,7 @@ public class Boss : MonoBehaviour
                 break;
         }
 
-        if (health.GetCurrentHealth() <= 50 && !isEnraged)
+        if (health.GetCurrentHealth() <= health.GetMaxHealth()/2 && !isEnraged)
         {
             ChangeState(BossState.Enraged);
             isEnraged = true;

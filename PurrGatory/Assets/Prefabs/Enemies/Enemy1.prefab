@@ -299,5 +299,5 @@ MonoBehaviour:
   attackCooldown: 5
   detectionMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 8200
   damage: 5

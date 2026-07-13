@@ -8,8 +8,9 @@ public class LevelGenerator : MonoBehaviour
 
     private int minRooms, maxRooms;
     private int levelMaxSize;
-    [SerializeField] private GameObject roomPrefab, bossPrefab, startPrefab, sunBargePrefab;
     [SerializeField] private GameObject[] roomPrefabs;
+    [SerializeField] private GameObject roomPrefab, bossPrefab, startPrefab, sunBargePrefab;
+    [SerializeField] private GameObject[] EasyRooms, MediumRooms, HardRooms;
 
     private int[,] levelGrid, roomIds;
     private int targetRoomCount, currentRoomId;
@@ -31,7 +32,26 @@ public class LevelGenerator : MonoBehaviour
 
     public void InitialiseLevel()
     {
-        LevelManager.Instance.DestroyRooms(); // Destroy any existing rooms before generating a new level
+        Debug.Log(GameManager.Instance.GetCurrentLevel() );
+        /*
+        if (GameManager.Instance.GetCurrentLevel() <= 3)
+        {
+            if (EasyRooms != null && EasyRooms.Length > 0)
+                roomPrefabs = EasyRooms;
+        }
+        else if (GameManager.Instance.GetCurrentLevel() <= 6)
+        {
+            if (MediumRooms != null && MediumRooms.Length > 0)
+                roomPrefabs = MediumRooms;
+        }
+        else
+        {
+            if (HardRooms != null && HardRooms.Length > 0)
+                roomPrefabs = HardRooms;
+        }*/
+
+        
+        LevelManager.Instance.DestroyRooms();
         minRooms = GameManager.Instance.GetMinRooms();
         maxRooms = GameManager.Instance.GetMaxRooms();
         targetRoomCount = UnityEngine.Random.Range(minRooms, maxRooms + 1);
@@ -213,6 +233,12 @@ public class LevelGenerator : MonoBehaviour
 
     private void PlaceRooms()
     {
+        // Safety check to ensure roomPrefabs is valid
+        if (roomPrefabs == null || roomPrefabs.Length == 0)
+        {
+            Debug.LogError("roomPrefabs is null or empty! Make sure to assign room prefabs in the Inspector.");
+            return;
+        }
 
         for (int i = 0; i < levelMaxSize; i++)
         {
@@ -223,6 +249,9 @@ public class LevelGenerator : MonoBehaviour
                 {
                     // Instantiate room prefab
                     GameObject roomToSpawn = roomPrefabs[UnityEngine.Random.Range(0, roomPrefabs.Length)];
+
+
+
                     GameObject room = Instantiate(roomToSpawn, new Vector3(j * 16, i * 9, 0), Quaternion.identity);
                     room.GetComponent<Room>().roomId = roomIds[j, i]; // Assign the room ID to the Room component
                     room.GetComponent<Room>().SetRoomPos(new Vector2Int(j, i)); // Set the room position in the Room component

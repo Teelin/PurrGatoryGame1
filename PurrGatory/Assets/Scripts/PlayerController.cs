@@ -25,15 +25,19 @@ public class PlayerController : MonoBehaviour
     InputAction useItem;
     InputAction sacraficeLife;
 
-    [SerializeField] private float moveSpeed = 5f;
+    //[SerializeField] private float moveSpeed = 5f;
 
     bool canAttack = true;
     float timer = 0f;
-    [SerializeField] float attackCoolDown = 5f;
+    //[SerializeField] float attackCoolDown = 5f;
 
     bool nearBarge = false;
 
     CinemachineImpulseSource impulseSource;
+
+    float moveSpeed, sightRange, rattleRange, rattleCooldown, damage;
+
+    [SerializeField] Light2D rattleLight, eyeLight;
 
     private void OnEnable()
     {
@@ -54,10 +58,14 @@ public class PlayerController : MonoBehaviour
         rattleUsed = inputActions.FindAction("Rattle");
         useItem = inputActions.FindAction("Use");
         sacraficeLife = inputActions.FindAction("SacraficeLife");
+
     }
     private void Start()
     {
         Respawn();
+        GetPlayerStats();
+        rattleLight.pointLightOuterRadius = rattleRange;
+        eyeLight.pointLightOuterRadius = sightRange;
         GameObject.FindGameObjectWithTag("CameraTarget").GetComponent<CameraController>().UpdateCameraPosition();
        //Camera.main.GetComponent<CameraController>().UpdateCameraPosition();
     }
@@ -104,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if(!canAttack) 
         {
             timer += Time.deltaTime;
-            if (timer >= attackCoolDown)
+            if (timer >= rattleCooldown)
             {
                 canAttack = true;
                 timer = 0;
@@ -124,6 +132,15 @@ public class PlayerController : MonoBehaviour
         //player_Anim.SetFloat("SpeedY", moveInput.y);
         player_Anim.SetFloat("Speed", movemntSpeed.sqrMagnitude);
 
+    }
+
+    void GetPlayerStats()
+    {
+        moveSpeed = GameManager.Instance.GetSpeed();
+        sightRange = GameManager.Instance.GetSightRange();
+        rattleRange = GameManager.Instance.GetRattleRange();
+        rattleCooldown = GameManager.Instance.GetRattleCooldown();
+        damage = GameManager.Instance.GetDamage();
     }
 
 
@@ -165,6 +182,15 @@ public class PlayerController : MonoBehaviour
         rattleAction?.Invoke();
         StartCoroutine(Rattle());
         impulseSource.GenerateImpulse();
+    }
+
+    public float GetRattleDamege()
+    {
+        return damage;
+    }
+    public float GetRattleRange()
+    {
+        return rattleRange;
     }
 
     void UseItem()
