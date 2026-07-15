@@ -1,10 +1,14 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Urn : MonoBehaviour
 {
 
     bool playerNearby = false;
     [SerializeField] GameObject KittenPrefab;
+    [SerializeField] TextMeshProUGUI popUp;
+    Transform player;
     Animator animator;
     AudioSource audioSource;
 
@@ -13,24 +17,28 @@ public class Urn : MonoBehaviour
         PlayerController.rattleAction += Rattle;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        
+    }
+    private void Start()
+    {
+        player = FindAnyObjectByType<PlayerController>().transform;
     }
     private void OnDisable()
     {
         PlayerController.rattleAction -= Rattle;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerNearby = true;
-        }
+        
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("Player"))
+        playerNearby = Vector2.Distance(transform.position, player.position) < player.GetComponent<PlayerController>().GetRattleRange();
+        if (playerNearby)
         {
-            playerNearby = false;
+            popUp.enabled = true;
+        }
+        else
+        {
+            popUp.enabled = false;
         }
     }
     private void Rattle()

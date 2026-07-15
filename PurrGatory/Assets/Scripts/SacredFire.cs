@@ -1,7 +1,9 @@
 using NavMeshPlus.Components;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 
 public class SacredFire : MonoBehaviour
@@ -12,7 +14,8 @@ public class SacredFire : MonoBehaviour
 
     public static UnityEvent fireLit = new UnityEvent();
     public static UnityEvent fireDoused = new UnityEvent();
-    
+    [SerializeField] TextMeshProUGUI popUp;
+    GameObject player;
     NavMeshModifierVolume navObstacle;
 
 
@@ -26,8 +29,21 @@ public class SacredFire : MonoBehaviour
     private void Start()
     {
         PlayerController.useAction += LightFire;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    private void Update()
+    {
+        playerNearby = Vector2.Distance(transform.position, player.transform.position) < player.GetComponent<PlayerController>().GetRattleRange();
+        if (playerNearby)
+        {
+            popUp.enabled = true;
+        }
+        else
+        {
+            popUp.enabled = false;
+        }
+    }
     void LightFire()
     {
         if(playerNearby)
@@ -47,22 +63,9 @@ public class SacredFire : MonoBehaviour
                 
             }
         }
+
+        
     }
     
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerNearby = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            playerNearby = false;
-        }
-    }
 }

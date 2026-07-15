@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: b3fe77ce48c79324c916e6dcee0f03b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -318196216081538527
+    second: Kitten_Orb_spritesheet_0
+  - first:
+      213: -5458415657813591301
+    second: Kitten_Orb_spritesheet_1
+  - first:
+      213: 5006444777416448073
+    second: Kitten_Orb_spritesheet_2
+  - first:
+      213: -4093559260614435334
+    second: Kitten_Orb_spritesheet_3
+  - first:
+      213: 7482113868396465287
+    second: Kitten_Orb_spritesheet_4
+  - first:
+      213: 8203447442190513971
+    second: Kitten_Orb_spritesheet_5
+  - first:
+      213: -2227720942142827521
+    second: Kitten_Orb_spritesheet_6
+  - first:
+      213: -4971546956732780083
+    second: Kitten_Orb_spritesheet_7
+  - first:
+      213: -6160604384506114473
+    second: Kitten_Orb_spritesheet_8
+  - first:
+      213: -2323742187248209096
+    second: Kitten_Orb_spritesheet_9
+  - first:
+      213: -9001970901206571036
+    second: Kitten_Orb_spritesheet_10
+  - first:
+      213: 5903935789479083177
+    second: Kitten_Orb_spritesheet_11
+  - first:
+      213: -9069574109540105944
+    second: Kitten_Orb_spritesheet_12
+  - first:
+      213: -528702477762447482
+    second: Kitten_Orb_spritesheet_13
+  - first:
+      213: -6145722412016878437
+    second: Kitten_Orb_spritesheet_14
+  - first:
+      213: -2558627570888510355
+    second: Kitten_Orb_spritesheet_15
+  - first:
+      213: 7469356824634250181
+    second: Kitten_Orb_spritesheet_16
+  - first:
+      213: 2554423624199362779
+    second: Kitten_Orb_spritesheet_17
+  - first:
+      213: 8134936362707148941
+    second: Kitten_Orb_spritesheet_18
+  - first:
+      213: 1028402962972710634
+    second: Kitten_Orb_spritesheet_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 63
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12226933a3a859bf0800000000000000
+      internalID: -318196216081538527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 64
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfa379f01efcf34b0800000000000000
+      internalID: -5458415657813591301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 65
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9485481fff67a7540800000000000000
+      internalID: 5006444777416448073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 64
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afdd0148a81c037c0800000000000000
+      internalID: -4093559260614435334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 63
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c8bcedbeec5d760800000000000000
+      internalID: 7482113868396465287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 64
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3373a552cff78d170800000000000000
+      internalID: 8203447442190513971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 65
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3d0e82b9b8511e0800000000000000
+      internalID: -2227720942142827521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 64
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1b4cb1264810bb0800000000000000
+      internalID: -4971546956732780083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 35
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e8ccbd3f2218aa0800000000000000
+      internalID: -6160604384506114473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 34
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8333b7bdac860cfd0800000000000000
+      internalID: -2323742187248209096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 12
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7ed2be823921380800000000000000
+      internalID: -9001970901206571036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 25
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acbd94f15efee150800000000000000
+      internalID: 5903935789479083177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82148c86666622280800000000000000
+      internalID: -9069574109540105944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 687b91dc5eba9a8f0800000000000000
+      internalID: -528702477762447482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9cb397170206baa0800000000000000
+      internalID: -6145722412016878437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d647bacc7cded7cd0800000000000000
+      internalID: -2558627570888510355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 3
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c3d6f8257c78a760800000000000000
+      internalID: 7469356824634250181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8d44690c2237320800000000000000
+      internalID: 2554423624199362779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 6
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d806199658915e070800000000000000
+      internalID: 8134936362707148941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kitten_Orb_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae692fdcb0f954e00800000000000000
+      internalID: 1028402962972710634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Kitten_Orb_spritesheet_0: -318196216081538527
+      Kitten_Orb_spritesheet_1: -5458415657813591301
+      Kitten_Orb_spritesheet_10: -9001970901206571036
+      Kitten_Orb_spritesheet_11: 5903935789479083177
+      Kitten_Orb_spritesheet_12: -9069574109540105944
+      Kitten_Orb_spritesheet_13: -528702477762447482
+      Kitten_Orb_spritesheet_14: -6145722412016878437
+      Kitten_Orb_spritesheet_15: -2558627570888510355
+      Kitten_Orb_spritesheet_16: 7469356824634250181
+      Kitten_Orb_spritesheet_17: 2554423624199362779
+      Kitten_Orb_spritesheet_18: 8134936362707148941
+      Kitten_Orb_spritesheet_19: 1028402962972710634
+      Kitten_Orb_spritesheet_2: 5006444777416448073
+      Kitten_Orb_spritesheet_3: -4093559260614435334
+      Kitten_Orb_spritesheet_4: 7482113868396465287
+      Kitten_Orb_spritesheet_5: 8203447442190513971
+      Kitten_Orb_spritesheet_6: -2227720942142827521
+      Kitten_Orb_spritesheet_7: -4971546956732780083
+      Kitten_Orb_spritesheet_8: -6160604384506114473
+      Kitten_Orb_spritesheet_9: -2323742187248209096
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

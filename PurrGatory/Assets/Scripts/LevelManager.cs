@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour
 
     float timeToCompleteLevel = 0f;
 
+    [SerializeField] GameObject hudUI, endLevelUI;
+
     public static LevelManager Instance { get; private set; }
     private void Awake()
     {
@@ -34,7 +36,8 @@ public class LevelManager : MonoBehaviour
         GhostKitten.KittenSaved.AddListener(KittenSaved);
         GameManager.OnLevelComplete.AddListener(ResetLevel);
         CalculateSpawns();
-        
+        Time.timeScale = 1f;
+
     }
     private void OnDisable()
     {
@@ -109,7 +112,9 @@ public class LevelManager : MonoBehaviour
             GameManager.Instance.SetTimeLastLevel(timeToCompleteLevel);
             GameManager.Instance.SetKittensSavedThisLevel(kittensSaved);
             GameManager.Instance.SetGameState(GameManager.GameState.Menu);
-            SceneManager.LoadScene("EndLevel");
+            Time.timeScale = 0f;
+            hudUI.SetActive(false);
+            endLevelUI.SetActive(true);
         }
     }
 }

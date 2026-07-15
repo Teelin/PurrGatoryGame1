@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     int lives = 9;
     int kittensSaved = 0;
     int kittensSavedThisLevel = 0;
+    int kittensAvailableToSpend = 0;
 
     private int minRooms, maxRooms;
     private int defaultMinRooms = 5, defaultMaxRooms = 10;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     float timeTillDawn = 2400f; // 40 minutes in seconds
     float timeLastLevel =0f;
 
-    float playerAttackDamage= 5f;
+    
     [SerializeField] AudioClip menuMusic, gameMusic, bossMusic, miniBossMusic;
     AudioSource mainMusicSource;
 
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     static GameState gameState;
     bool musicPlaying = false;
+
+    float speed = 5f, sightRange = 3f, rattleRange = 2f, rattleCooldown = 5f, playerAttackDamage = 5f;
 
 
     private void Awake()
@@ -85,6 +88,27 @@ public class GameManager : MonoBehaviour
             mainMusicSource.Play();
             musicPlaying = true;
         }
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+    public float GetSightRange()
+    {
+        return sightRange;
+    }
+    public float GetRattleRange()
+    {
+        return rattleRange;
+    }
+    public float GetRattleCooldown()
+    {
+        return rattleCooldown;
+    }
+    public float GetDamage()
+    {
+        return playerAttackDamage;
     }
 
     public void SetGameState(GameState newState)
@@ -144,8 +168,14 @@ public class GameManager : MonoBehaviour
         lives = 9;
         maxRooms = defaultMaxRooms;
         minRooms = defaultMinRooms;
-        kittensSaved = 0;
-        LevelManager.Instance.ResetLevel();
+        if(SceneManager.GetActiveScene().name != "EndLevel")
+        {
+            SceneManager.LoadScene("EndLevel");
+        }
+        else
+        {
+            SceneManager.LoadScene("TestLevel");
+        }
     }
 
     public void KittenSaved() 
@@ -155,6 +185,7 @@ public class GameManager : MonoBehaviour
     public void SetKittensSavedThisLevel(int kittens)
     {
         kittensSavedThisLevel = kittens;
+        kittensAvailableToSpend += kittens;
     }
 
     public int GetKittensSavedThisLevel()
@@ -181,8 +212,46 @@ public class GameManager : MonoBehaviour
         return timeTillDawn;
     }
 
-    public float GetPlayerAttackDamage()
+    public bool SpendKittens(int kittens)
     {
-        return playerAttackDamage;
+        if (kittens <= kittensAvailableToSpend)
+        {
+            kittensAvailableToSpend -= kittens;
+            return true;
+        }
+        else
+        {
+            Debug.LogWarning("Not enough kittens available to spend.");
+            return false;
+        }
+    }
+    public int GetKittensAvailableToSpend()
+    {
+        return kittensAvailableToSpend;
+    }
+    public void AddLife()
+    {
+        lives++;
+    }
+
+    public void UpdateDamage(float newDamage)
+    {
+        playerAttackDamage = newDamage;
+    }
+    public void UpdateRattleRange(float newRange)
+    {
+        rattleRange = newRange;
+    }
+    public void UpdateRattleCooldown(float newCooldown)
+    {
+        rattleCooldown = newCooldown;
+    }
+    public void UpdateSightRange(float newRange)
+    {
+        sightRange = newRange;
+    }
+    public void UpdateSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 }

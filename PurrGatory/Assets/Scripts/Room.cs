@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,6 +24,9 @@ public class Room : MonoBehaviour
 
     public static UnityEvent BossRoomEntered = new UnityEvent();
 
+    [SerializeField] GameObject miniMapMask;
+    [SerializeField] TextMeshProUGUI exitPopUpText;
+
 
 
 
@@ -36,11 +40,13 @@ public class Room : MonoBehaviour
             sconceRight.SetActive(false);
             sconceBottom.SetActive(false);
         }
+        
 
     }
     private void Start()
     {
         SetBossRoomBarrier();
+        miniMapMask.SetActive(false);
        
     }
     private void OnDisable()
@@ -50,14 +56,22 @@ public class Room : MonoBehaviour
 
     private void Update()
     {
-        if (isStartRoom)
+        if (isStartRoom )
         {
             if(LevelManager.Instance.IsBossDefeated())
             {
                 barrierBottom.SetActive(false);
+                exitPopUpText.text = "Boss Defeated! You can now exit.";
             }
         }
-        if(isScaredFireActive)
+        if (isSunBargeRoom)
+        {
+            if (LevelManager.Instance.IsBossDefeated())
+            {
+                barrierTop.SetActive(false);
+            }
+        }
+        if (isScaredFireActive)
         {
             // Add logic for when the sacred fire is active
             sacredFirePrefab.SetActive(true);
@@ -79,6 +93,9 @@ public class Room : MonoBehaviour
             }
         
         }
+        if(LevelManager.Instance.GetPlayerRoom() == roomPos)
+            miniMapMask.SetActive(true);
+            
 
     }
 

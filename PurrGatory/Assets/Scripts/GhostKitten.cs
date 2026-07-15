@@ -22,6 +22,8 @@ public class GhostKitten : MonoBehaviour
     [SerializeField] AudioClip kittenMeow;
     AudioSource AudioSource;
 
+    Animator animator;
+
 
 
     private void Awake()
@@ -29,6 +31,8 @@ public class GhostKitten : MonoBehaviour
         player = FindAnyObjectByType<PlayerController>().transform;
         target = player.Find("Sprite").Find("KittenFollowTarget");
         AudioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +40,8 @@ public class GhostKitten : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        
+        animator.SetTrigger("Spawn");
+
 
     }
     private void OnEnable()
@@ -109,6 +114,7 @@ public class GhostKitten : MonoBehaviour
     public IEnumerator DestroyKitten()
     {
         AudioSource.PlayOneShot(kittenMeow);
+        animator.SetTrigger("Die");
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

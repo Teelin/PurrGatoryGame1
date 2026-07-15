@@ -85,8 +85,9 @@ public class BastHealth : MonoBehaviour
     {
         // Handle death logic here
         Debug.Log("Bast has died.");
-        Destroy(gameObject);
         GameManager.Instance.RoundOver();
+        Destroy(gameObject);
+        
     }
 
     IEnumerator GhostTime()
