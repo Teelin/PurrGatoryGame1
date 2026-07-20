@@ -18,6 +18,8 @@ public class BastHealth : MonoBehaviour
     bool canSacrifice = true;
 
     [SerializeField] LayerMask normalLayerMask, ghostLayerMask;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip damageSound;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,6 +60,10 @@ public class BastHealth : MonoBehaviour
             }
         }
         GameManager.Instance.UpdateLives(currentLives);
+        if(!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
     }
 
     public void TakeLife()

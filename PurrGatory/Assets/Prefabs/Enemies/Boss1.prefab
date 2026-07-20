@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94.272, y: 0.859}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1.303, y: 0.2317}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4695704171988429893
@@ -188,6 +188,7 @@ MonoBehaviour:
   teleportPoints: []
   minTeleportTime: 3
   maxTeleportTime: 10
+  healthBar: {fileID: 5910623068558114095}
 --- !u!114 &10812459826905714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94.272, y: 0.859}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1.303, y: 0.2317}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3002812430056213513
@@ -355,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 5703842413329567031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 94.26433, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -400,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -94.26433, y: 0.287}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4756681776354539125

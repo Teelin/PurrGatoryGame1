@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
     float moveSpeed, sightRange, rattleRange, rattleCooldown, damage;
 
     [SerializeField] Light2D rattleLight, eyeLight;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip rattleClip, useClip, sacraficeClip;
+    [SerializeField] ParticleSystem rattleDust;
 
     private void OnEnable()
     {
@@ -84,8 +87,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            transform.rotation = Quaternion.Euler(0, 0, -90f);
+            transform.localScale = new Vector3(1, 1, 1);
+            //transform.rotation = Quaternion.Euler(0, 0, -90f);
         }
         
         LevelManager.Instance.SetPlayerRoom(new Vector2Int(Mathf.RoundToInt(transform.position.x / 16), Mathf.RoundToInt(transform.position.y / 9)));
@@ -182,6 +185,8 @@ public class PlayerController : MonoBehaviour
         rattleAction?.Invoke();
         StartCoroutine(Rattle());
         impulseSource.GenerateImpulse();
+        audioSource.PlayOneShot(rattleClip);
+        rattleDust.Play();
     }
 
     public float GetRattleDamege()
@@ -202,11 +207,20 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager.Instance.LevelCompletedCheck();
         }
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(useClip);
+        }
+        
     }
 
     void SacraficeLife() 
     { 
         GetComponent<BastHealth>().TakeLife();
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(sacraficeClip);
+        }
     }
 
     IEnumerator Rattle()

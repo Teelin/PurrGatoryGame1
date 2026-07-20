@@ -1,6 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.LowLevel;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -20,6 +22,10 @@ public class LevelManager : MonoBehaviour
     float timeToCompleteLevel = 0f;
 
     [SerializeField] GameObject hudUI, endLevelUI;
+
+    [Header("Apophis Loading Screen")]
+    [SerializeField] private Slider loadingSlider;
+    [SerializeField] private GameObject apophisLoadingScreen;
 
     public static LevelManager Instance { get; private set; }
     private void Awake()
@@ -46,8 +52,23 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        if(!isLevelComplete)
-        timeToCompleteLevel += Time.deltaTime;
+        if (!isLevelComplete)
+        {
+            timeToCompleteLevel += Time.deltaTime;
+
+            if (timeToCompleteLevel + (GameManager.Instance.GetMaxTimeTillDawn() - GameManager.Instance.GetTimeTillDawn()) >= GameManager.Instance.GetMaxTimeTillDawn())
+            {
+                apophisLoadingScreen.SetActive(true);
+                SceneManager.LoadSceneAsync("Apophis");
+                Time.timeScale = 0f;
+            }
+        }
+    }
+
+    IEnumerator LoadApophisSceneCoroutine(string sceneName)
+    {
+        yield return new WaitForSeconds(5f); // Wait for 5 seconds
+        SceneManager.LoadSceneAsync(sceneName);
     }
     public void KittenSaved()
     {

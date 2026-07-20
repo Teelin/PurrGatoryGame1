@@ -9,7 +9,7 @@ public class Enemy3 : MonoBehaviour
     int targetPointIndex = 0;
     [SerializeField] float patrolSpeed;
     bool changingTarget = false;
-
+    [SerializeField] AudioSource AudioSource;
     private void Start()
     {
         foreach (GameObject point in patrolPoints)
@@ -38,6 +38,8 @@ public class Enemy3 : MonoBehaviour
             targetPointIndex = 0;
         }
         changingTarget = false;
+        AudioSource.Play();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
