@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 6f75ee336bf5d2c4b8ccefffe31c746c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3972540505771381387
+    second: Purr-Gatory_UI_spritesheet V2_0
+  - first:
+      213: -8687892717919669327
+    second: Purr-Gatory_UI_spritesheet V2_1
+  - first:
+      213: 2956927092970444994
+    second: Purr-Gatory_UI_spritesheet V2_2
+  - first:
+      213: -1048458734929611834
+    second: Purr-Gatory_UI_spritesheet V2_3
+  - first:
+      213: 3236186397895097993
+    second: Purr-Gatory_UI_spritesheet V2_4
+  - first:
+      213: 8818486904446551335
+    second: Purr-Gatory_UI_spritesheet V2_5
+  - first:
+      213: 944635149654233552
+    second: Purr-Gatory_UI_spritesheet V2_6
+  - first:
+      213: 3199052882615382973
+    second: Purr-Gatory_UI_spritesheet V2_7
+  - first:
+      213: 7115277619489360025
+    second: Purr-Gatory_UI_spritesheet V2_8
+  - first:
+      213: 3880993498499791428
+    second: Purr-Gatory_UI_spritesheet V2_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 465
+        width: 385
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b829a56ea8c412730800000000000000
+      internalID: 3972540505771381387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 385
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3f1bd7a976e6780800000000000000
+      internalID: -8687892717919669327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 201
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c85b3b468d190920800000000000000
+      internalID: 2956927092970444994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 191
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c37dd6e5502371f0800000000000000
+      internalID: -1048458734929611834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_4
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 191
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98efc71026e39ec20800000000000000
+      internalID: 3236186397895097993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_5
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 168
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72588f30e1f816a70800000000000000
+      internalID: 8818486904446551335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_6
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 175
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d11d79e9a40c1d00800000000000000
+      internalID: 944635149654233552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_7
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 164
+        width: 12
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3bafdb5a1556c20800000000000000
+      internalID: 3199052882615382973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_8
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 164
+        width: 12
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99843fbeb4b8eb260800000000000000
+      internalID: 7115277619489360025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_9
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 175
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44a3ea5460f0cd530800000000000000
+      internalID: 3880993498499791428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ba1e305e6b825438a2c49d88a42ee6
+      internalID: 130387735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_11
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af93dbb4612eb584c8f920c67a1686f9
+      internalID: -515637153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_12
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3907b1445b4c3614f97cbe0d06a36cee
+      internalID: -719194655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_13
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a574bb5a1d98a2419241fe1ed92e30b
+      internalID: -1163610548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4489a231aa2b949aa8d763e09c617a
+      internalID: -558808622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e823a84215b514da7d225514d6fd7a
+      internalID: 1145600471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_16
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e47a9acc7b0554408aa5280b4de8327
+      internalID: 1179926008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_17
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 273
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5096caf2efe95b4458e64d21e2929938
+      internalID: -313619056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 258
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b649f0e390d09024d84f9f8f90f6e227
+      internalID: 32701774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_19
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 164
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1948a10aaac612643ae70b8ee36637c8
+      internalID: 1937895990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_20
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575b5478b74c47843b0b9131ab50fae9
+      internalID: 868578631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcc6cfceb50e2f41930b559308e2be6
+      internalID: 1932788419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 422
+        width: 386
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d712d9f9a84104ab38ad7bdf6bb01b
+      internalID: -1810948162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f5b4b330cce70a7489b05ffc117ffa19
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Purr-Gatory_UI_spritesheet V2_0: 3972540505771381387
+      Purr-Gatory_UI_spritesheet V2_1: -8687892717919669327
+      Purr-Gatory_UI_spritesheet V2_10: 130387735
+      Purr-Gatory_UI_spritesheet V2_11: -515637153
+      Purr-Gatory_UI_spritesheet V2_12: -719194655
+      Purr-Gatory_UI_spritesheet V2_13: -1163610548
+      Purr-Gatory_UI_spritesheet V2_14: -558808622
+      Purr-Gatory_UI_spritesheet V2_15: 1145600471
+      Purr-Gatory_UI_spritesheet V2_16: 1179926008
+      Purr-Gatory_UI_spritesheet V2_17: -313619056
+      Purr-Gatory_UI_spritesheet V2_18: 32701774
+      Purr-Gatory_UI_spritesheet V2_19: 1937895990
+      Purr-Gatory_UI_spritesheet V2_2: 2956927092970444994
+      Purr-Gatory_UI_spritesheet V2_20: 868578631
+      Purr-Gatory_UI_spritesheet V2_21: 1932788419
+      Purr-Gatory_UI_spritesheet V2_22: -1810948162
+      Purr-Gatory_UI_spritesheet V2_3: -1048458734929611834
+      Purr-Gatory_UI_spritesheet V2_4: 3236186397895097993
+      Purr-Gatory_UI_spritesheet V2_5: 8818486904446551335
+      Purr-Gatory_UI_spritesheet V2_6: 944635149654233552
+      Purr-Gatory_UI_spritesheet V2_7: 3199052882615382973
+      Purr-Gatory_UI_spritesheet V2_8: 7115277619489360025
+      Purr-Gatory_UI_spritesheet V2_9: 3880993498499791428
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

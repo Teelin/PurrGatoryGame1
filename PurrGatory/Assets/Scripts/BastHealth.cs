@@ -4,7 +4,7 @@ using UnityEngine;
 public class BastHealth : MonoBehaviour
 {
 
-    [SerializeField] int maxDamage = 50;
+    [SerializeField] int maxDamage = 8;
     int maxLives = 9;
     int currentLives;
 

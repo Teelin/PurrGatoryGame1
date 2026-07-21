@@ -45,7 +45,7 @@ public class Room : MonoBehaviour
     }
     private void Start()
     {
-        SetBossRoomBarrier();
+        
         miniMapMask.SetActive(false);
        
     }
@@ -90,6 +90,10 @@ public class Room : MonoBehaviour
             {
                 bossDoor.SetActive(false);
                 GameManager.Instance.SetGameState(GameManager.GameState.Playing);
+            }
+            if (LevelManager.Instance.GetKittensSaved() >= LevelManager.Instance.GetKittensNeedSaving())
+            {
+                SetBossRoomBarrier();
             }
         
         }

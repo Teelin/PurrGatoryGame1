@@ -47,7 +47,7 @@ public class Enemy3 : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Handle trigger with player
-            collision.GetComponent<BastHealth>().TakeDamage(50); 
+            collision.GetComponent<BastHealth>().TakeDamage(8); 
         }
         if(collision.CompareTag("GhostKitten"))
         {

@@ -197,6 +197,10 @@ public class PlayerController : MonoBehaviour
     {
         return rattleRange;
     }
+    public float GetRattleCooldown()
+    {
+        return timer;
+    }
 
     void UseItem()
     {
@@ -217,6 +221,7 @@ public class PlayerController : MonoBehaviour
     void SacraficeLife() 
     { 
         GetComponent<BastHealth>().TakeLife();
+        LevelManager.Instance.KittenSaved();
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(sacraficeClip);

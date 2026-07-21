@@ -5492,7 +5492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1630bc6a12c97141973eb2febcefd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BastHealth
-  maxDamage: 50
+  maxDamage: 8
   spriteRenderer: {fileID: 4031768593746140507}
   normalLayerMask:
     serializedVersion: 2

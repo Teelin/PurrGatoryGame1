@@ -303,7 +303,7 @@ MonoBehaviour:
   detectionMask:
     serializedVersion: 2
     m_Bits: 8200
-  damage: 5
+  damage: 1
   attackDistance: 1
   attackClip: {fileID: 8300000, guid: 872513dfe7478234fad6ba943fc404a0, type: 3}
   walkClip: {fileID: 8300000, guid: 4c458410949259642a18c1cca1fb6381, type: 3}
