@@ -13,7 +13,7 @@ public class BastHealth : MonoBehaviour
     float ghostTime = 5f;
     [SerializeField] SpriteRenderer spriteRenderer;
 
-    float sacrificeCooldown = 20f;
+    float sacrificeCooldown = 10f;
     float timer = 0;
     bool canSacrifice = true;
 
@@ -72,6 +72,8 @@ public class BastHealth : MonoBehaviour
         {
             currentLives--;
             currentDamage = 0;
+            LevelManager.Instance.KittenSaved();
+            GameManager.Instance.KittenSaved();
 
             if (currentLives <= 0)
             {
@@ -85,6 +87,7 @@ public class BastHealth : MonoBehaviour
             }
         }
         GameManager.Instance.UpdateLives(currentLives);
+        
     }
 
     void Die()
@@ -92,7 +95,7 @@ public class BastHealth : MonoBehaviour
         // Handle death logic here
         Debug.Log("Bast has died.");
         GameManager.Instance.RoundOver();
-        Destroy(gameObject);
+        //Destroy(gameObject);
         
     }
 
@@ -131,6 +134,16 @@ public class BastHealth : MonoBehaviour
     {
         return maxLives;
     }
+
+    public float GetSacrificeCooldownTimer()
+    {
+        return timer;
+    }
+    public float GetSacrificeCooldown()
+    {
+        return sacrificeCooldown;
+    }
+
 }
 
 

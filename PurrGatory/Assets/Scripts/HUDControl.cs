@@ -12,13 +12,17 @@ public class HUDControl : MonoBehaviour
     GameObject player;
     [SerializeField] Image[] lives;
     [SerializeField] Sprite[] livesSprites;
-    [SerializeField] Image RattleCooldown;
+    [SerializeField] Image rattleCooldown, sacraficeCooldown;
 
     private void Start()
     {
         timeSlider.maxValue = GameManager.Instance.GetMaxTimeTillDawn();
         currentTimeTillDawn = GameManager.Instance.GetTimeTillDawn();
         player = GameObject.FindGameObjectWithTag("Player");
+        foreach (var life in lives)
+        {
+            life.sprite = livesSprites[0];
+        }
 
     }
     void Update()
@@ -79,11 +83,21 @@ public class HUDControl : MonoBehaviour
 
         if(player.GetComponent<PlayerController>().GetRattleCooldown()<= 0 )
         {
-            RattleCooldown.fillAmount = 1;
+            rattleCooldown.fillAmount = 1;
         }
         else
         {
-            RattleCooldown.fillAmount = player.GetComponent<PlayerController>().GetRattleCooldown() / GameManager.Instance.GetRattleCooldown();
+            rattleCooldown.fillAmount = player.GetComponent<PlayerController>().GetRattleCooldown() / GameManager.Instance.GetRattleCooldown();
+        }
+
+        if (player.GetComponent<BastHealth>().GetSacrificeCooldownTimer() <= 0)
+        {
+            sacraficeCooldown.fillAmount = 1;
+        }
+        else
+        {
+            sacraficeCooldown.fillAmount = player.GetComponent<BastHealth>().GetSacrificeCooldownTimer() / player.GetComponent<BastHealth>().GetSacrificeCooldown();
+            
         }
 
     }

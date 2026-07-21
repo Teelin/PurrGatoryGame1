@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &178867303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2121181963, guid: f59c1c7400d8b24458d7031f4134d70f, type: 3}
+  m_Sprite: {fileID: 2956927092970444994, guid: 6f75ee336bf5d2c4b8ccefffe31c746c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -522,9 +522,9 @@ MonoBehaviour:
     Growth: When you lose all 9 lives or choose to give up, use your safely banked
     kittens in the Underworld Shop to permanently upgrade your Speed, Attack Range,
     and Sight Range ready for the next evening.  '
-  - 'Controls\n W, A, S, D / Arrow Keys  Navigate Bastet through the narrow paths
-    of the maze.\n  Left Mouse Click Use your Sistrum Rattle Unleash a frontal sonic
-    ring to stun chasing Spirits and to attack your enemies.  '
+  - Controls\n\n\n W, A, S, D / Arrow Keys - Movement.\n\n  Left Mouse Click - Use
+    your Sistrum Rattle Unleash a sonic ring to stun chasing Spirits and to attack
+    your enemies. \n \n Q - Sacrfice a Life  to save another \n1 life for 1 Kitten
   infoTextUI: {fileID: 1002559505}
   playButton: {fileID: 178867302}
 --- !u!82 &179254850
@@ -2779,17 +2779,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Core Gameplay Rules\n\n Rescue: Walk up to and attack ancient clay urns
-    to release the ghostly kittens trailing behind you. \n \nThe Price of Failure:
-    You begin your journey with 9 Lives. If you take too much damage a life will
-    be permanently lost.  \n\n The Sun Barge: The portal to safety is sealed tightly
-    at the start of each level. You must locate and defeat the Level Boss to open
-    the Sun Barge room.  \n\n The Ultimate Choice: Once your kittens are safely escorted
-    to the Barge, choose wisely: progress to a deeper, more treacherous level to
-    rescue more spirits, or risk it all to face Apophis, the Serpent of Chaos.  \n\n
-    Permanent Growth: When you lose all 9 lives or choose to give up, use your safely
-    banked kittens in the Underworld Shop to permanently upgrade your Speed, Attack
-    Range, and Sight Range ready for the next evening.  '
+  m_text: Controls\n\n\n W, A, S, D / Arrow Keys - Movement.\n\n  Left Mouse Click
+    - Use your Sistrum Rattle Unleash a sonic ring to stun chasing Spirits and to
+    attack your enemies. \n \n Q - Sacrfice a Life  to save another \n1 life for
+    1 Kitten
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: edf701b8304da7940ad77cd1dedcaadc, type: 2}
   m_sharedMaterial: {fileID: -3557126631863853884, guid: edf701b8304da7940ad77cd1dedcaadc, type: 2}
@@ -3325,7 +3318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3340736117512491966, guid: f59c1c7400d8b24458d7031f4134d70f, type: 3}
+  m_Sprite: {fileID: -1048458734929611834, guid: 6f75ee336bf5d2c4b8ccefffe31c746c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4226,7 +4219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -951156594, guid: f59c1c7400d8b24458d7031f4134d70f, type: 3}
+  m_Sprite: {fileID: 3236186397895097993, guid: 6f75ee336bf5d2c4b8ccefffe31c746c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

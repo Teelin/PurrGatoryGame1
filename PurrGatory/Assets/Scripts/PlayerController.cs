@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour
     void SacraficeLife() 
     { 
         GetComponent<BastHealth>().TakeLife();
-        LevelManager.Instance.KittenSaved();
+        
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(sacraficeClip);

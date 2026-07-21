@@ -25,7 +25,8 @@ public class Room : MonoBehaviour
     public static UnityEvent BossRoomEntered = new UnityEvent();
 
     [SerializeField] GameObject miniMapMask;
-    [SerializeField] TextMeshProUGUI exitPopUpText;
+    [SerializeField] TextMeshProUGUI exitPopUpText, bossRequirmentText;
+    [SerializeField] GameObject bossRequirmentObject;
 
 
 
@@ -45,7 +46,7 @@ public class Room : MonoBehaviour
     }
     private void Start()
     {
-        
+        SetBossRoomBarrier();
         miniMapMask.SetActive(false);
        
     }
@@ -79,6 +80,16 @@ public class Room : MonoBehaviour
 
         if (isBossRoom)
         {
+            bossRequirmentText.text = LevelManager.Instance.GetKittensSaved() + "/" + LevelManager.Instance.GetKittensNeedSaving();
+            if (LevelManager.Instance.GetKittensSaved() < LevelManager.Instance.GetKittensNeedSaving())
+            {
+                bossRequirmentText.color = Color.red;
+            }
+            else
+            {
+                bossRequirmentText.color = Color.green;
+            }
+
             if (LevelManager.Instance.GetPlayerRoom() == roomPos && LevelManager.Instance.isBossDefeated == false && !playerInBossRoom)
             {
                 bossDoor.SetActive(true);
@@ -91,9 +102,9 @@ public class Room : MonoBehaviour
                 bossDoor.SetActive(false);
                 GameManager.Instance.SetGameState(GameManager.GameState.Playing);
             }
-            if (LevelManager.Instance.GetKittensSaved() >= LevelManager.Instance.GetKittensNeedSaving())
+            if (LevelManager.Instance.GetKittensSaved() >= LevelManager.Instance.GetKittensNeedSaving()&& LevelManager.Instance.GetPlayerRoom() != roomPos)
             {
-                SetBossRoomBarrier();
+                bossDoor.SetActive(false);
             }
         
         }
@@ -123,25 +134,25 @@ public class Room : MonoBehaviour
                     {
                         if (direction == Vector2Int.up)
                         {
-                            barrierTop.SetActive(false);
+                            //barrierTop.SetActive(false);
                             bossDoor = barrierTop;
                             break;
                         }
                         else if (direction == Vector2Int.down)
                         {
-                            barrierBottom.SetActive(false);
+                            //barrierBottom.SetActive(false);
                             bossDoor = barrierBottom;
                             break;
                         }
                         else if (direction == Vector2Int.left)
                         {
-                            barrierLeft.SetActive(false);
+                            //barrierLeft.SetActive(false);
                             bossDoor = barrierLeft;
                             break;
                         }
                         else if (direction == Vector2Int.right)
                         {
-                            barrierRight.SetActive(false);
+                            //barrierRight.SetActive(false);
                             bossDoor = barrierRight;
                             break;
                         }
@@ -216,6 +227,29 @@ public class Room : MonoBehaviour
     public bool GetSacredFireStatus()
     {
         return hasSacredFire;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(isBossRoom)
+        {
+            if(collision.CompareTag("Player"))
+            {
+                bossRequirmentObject.SetActive(true);
+                bossRequirmentObject.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y +1, bossRequirmentObject.transform.position.z);
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (isBossRoom)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                bossRequirmentObject.SetActive(false);
+                 
+            }
+        }
     }
 
 }

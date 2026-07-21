@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         mainMusicSource = GetComponent<AudioSource>();
         mainMusicSource.clip = menuMusic; 
         mainMusicSource.Play();
+        mainMusicSource.loop = true;
         musicPlaying = true;
         timeTillDawn = maxTimeTillDawn;
         quitGamePressed = inputActions.FindAction("Quit");
@@ -202,6 +203,7 @@ public class GameManager : MonoBehaviour
         timeTillDawn = maxTimeTillDawn;
         if (SceneManager.GetActiveScene().name != "EndLevel")
         {
+            SetGameState(GameState.Menu);
             SceneManager.LoadScene("EndLevel");
         }
         else
