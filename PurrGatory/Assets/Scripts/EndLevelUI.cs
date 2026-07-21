@@ -19,7 +19,10 @@ public class EndLevelUI : MonoBehaviour
     {
         GameManager.Instance.LevelComplete();
     }
-
+    public void GoToMainMneu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void QuitButton()
     {
         SceneManager.LoadScene("EndLevel");
@@ -28,7 +31,7 @@ public class EndLevelUI : MonoBehaviour
     public void ApophisButton()
     {
         Debug.Log("Apophis Button Pressed");
-        //SceneManager.LoadScene("Apophis");
+        SceneManager.LoadScene("Apophis");
     }
 
 }

@@ -34,6 +34,7 @@ public class Boss : MonoBehaviour
     GameObject teleportTarget;
     [SerializeField] float minTeleportTime = 3f, maxTeleportTime = 10f;
     bool changingTeleportTarget = false;
+    [SerializeField] GameObject healthBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -140,6 +141,7 @@ public class Boss : MonoBehaviour
 
         }
         transform.position = teleportTarget.transform.position;
+        healthBar.transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
 
     }
 

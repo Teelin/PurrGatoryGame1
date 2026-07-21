@@ -2,6 +2,7 @@ using System;
 using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
@@ -26,11 +27,12 @@ public class GameManager : MonoBehaviour
 
     public static UnityEvent OnLevelComplete = new UnityEvent();
 
-    float timeTillDawn = 2400f; // 40 minutes in seconds
+    [SerializeField]float maxTimeTillDawn = 600f; // 10 minutes in seconds
+    float timeTillDawn;
     float timeLastLevel =0f;
 
     
-    [SerializeField] AudioClip menuMusic, gameMusic, bossMusic, miniBossMusic;
+    [SerializeField] AudioClip menuMusic, gameMusic, bossMusic, miniBossMusic, uiClip;
     AudioSource mainMusicSource;
 
     public enum GameState { Menu, Playing, Paused, GameOver, BossFight, MiniBossFight };
@@ -40,7 +42,20 @@ public class GameManager : MonoBehaviour
 
     float speed = 5f, sightRange = 3f, rattleRange = 2f, rattleCooldown = 5f, playerAttackDamage = 5f;
 
+    public InputActionAsset inputActions;
 
+    InputAction quitGamePressed;
+    [SerializeField] GameObject quitMenu;
+
+    private void OnEnable()
+    {
+        inputActions.FindActionMap("UI").Enable();
+    }
+    private void OnDisable()
+    {
+        GhostKitten.KittenSaved.RemoveListener(KittenSaved);
+        inputActions.FindActionMap("UI").Disable();
+    }
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -58,6 +73,8 @@ public class GameManager : MonoBehaviour
         mainMusicSource.clip = menuMusic; 
         mainMusicSource.Play();
         musicPlaying = true;
+        timeTillDawn = maxTimeTillDawn;
+        quitGamePressed = inputActions.FindAction("Quit");
     }
     private void Update()
     {
@@ -88,8 +105,25 @@ public class GameManager : MonoBehaviour
             mainMusicSource.Play();
             musicPlaying = true;
         }
+
+        if(quitGamePressed.triggered)
+        {
+            quitMenu.SetActive(!quitMenu.activeSelf);
+            Time.timeScale = quitMenu.activeSelf ? 0f : 1f;
+        }
     }
 
+    public void QuitButton()
+    {
+        mainMusicSource.PlayOneShot(uiClip);
+        Application.Quit();
+    }
+    public void BackButton()
+    {
+        mainMusicSource.PlayOneShot(uiClip);
+        quitMenu.SetActive(!quitMenu.activeSelf);
+        Time.timeScale = quitMenu.activeSelf ? 0f : 1f;
+    }
     public float GetSpeed()
     {
         return speed;
@@ -117,10 +151,7 @@ public class GameManager : MonoBehaviour
         musicPlaying = false;
 
     }
-    private void OnDisable()
-    {
-        GhostKitten.KittenSaved.RemoveListener(KittenSaved);
-    }
+
 
     public int GetCurrentLevel()
     {
@@ -168,7 +199,8 @@ public class GameManager : MonoBehaviour
         lives = 9;
         maxRooms = defaultMaxRooms;
         minRooms = defaultMinRooms;
-        if(SceneManager.GetActiveScene().name != "EndLevel")
+        timeTillDawn = maxTimeTillDawn;
+        if (SceneManager.GetActiveScene().name != "EndLevel")
         {
             SceneManager.LoadScene("EndLevel");
         }
@@ -210,6 +242,10 @@ public class GameManager : MonoBehaviour
     public float GetTimeTillDawn()
     {
         return timeTillDawn;
+    }
+    public float GetMaxTimeTillDawn()
+    {
+        return maxTimeTillDawn;
     }
 
     public bool SpendKittens(int kittens)

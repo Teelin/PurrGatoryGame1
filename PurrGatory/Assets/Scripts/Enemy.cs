@@ -21,7 +21,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] float wanderTimer;
     [SerializeField] float attackCooldown;
     [SerializeField] LayerMask detectionMask;
-    [SerializeField] int damage;
+    [SerializeField] int damage, attackDistance;
+
+    Animator beetleAnim;
+
+    Vector3 targetPos;
+
+    [SerializeField] AudioClip attackClip, walkClip;
+    [SerializeField] AudioSource audioSource;
 
     
 
@@ -54,6 +61,7 @@ public class Enemy : MonoBehaviour
         PlayerController.rattleAction += Stun;
         target = player.Find("Sprite").Find("KittenFollowTarget");
         timer = wanderTimer;
+        beetleAnim = GetComponent<Animator>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,6 +70,7 @@ public class Enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        audioSource.clip = walkClip;
 
 
     }
@@ -77,10 +86,13 @@ public class Enemy : MonoBehaviour
         if (player != null && !isStunned && hasLineOfSight)
         {
             //agent.isStopped = false;
-            agent.SetDestination(new Vector3(target.position.x, target.position.y,0));
+            targetPos = new Vector3(target.position.x, target.position.y, 0);
+
+
+            agent.SetDestination(targetPos);
             
 
-            playerIsNear = Physics2D.OverlapCircle(transform.position, .5f, detectionMask);
+            playerIsNear = Vector2.Distance(transform.position, player.transform.position) < attackDistance;
             canBeStunned = Vector2.Distance(transform.position, player.transform.position) < player.GetComponent<PlayerController>().GetRattleRange();
             if (playerIsNear && canAttack)
             {
@@ -105,54 +117,17 @@ public class Enemy : MonoBehaviour
                 canAttack = true;
             }
         }
-        /*
-        
-
-
-
-        if (!isStunned) {
-
-            if (playerIsNear && canAttack)
-            {
-                currentState = EnemyState.Attacking;
-            }
-            else if (whatEnemyCanSee == EnemyCanSee.player) { currentState = EnemyState.Following; isFollowing = true; }
-
-            else
-            {
-                currentState = EnemyState.Wandering;
-                isFollowing = false;
-            }
-        }
-
-
-            switch (currentState)
+        if (!canAttack && !isStunned)
         {
-            case EnemyState.Wandering:
-                Wander();
-                break;
-            case EnemyState.Following:
-                agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
-                break;
-            case EnemyState.Attacking:
-                Attack();
-                canAttack = false;
-                attackTimer = attackCooldown;
-                break;
-            case EnemyState.Stunned:
-                StartCoroutine(StunCoroutine(3f));
-                break;
-
+            audioSource.Play();
         }
-
-        if (!canAttack)
+        else
         {
-            attackTimer -= Time.deltaTime;
-            if (attackTimer <= 0f)
-            {
-                canAttack = true;
-            }
-        }*/
+            audioSource.Stop();
+        }
+       
+        var direction = (targetPos - transform.position).normalized;
+        transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg);
 
     }
     
@@ -161,32 +136,14 @@ public class Enemy : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= wanderTimer)
         {
-            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-            agent.SetDestination(newPos);
+            targetPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            agent.SetDestination(targetPos);
             timer = 0;
         }
     }
 
 
 
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        // Handle player collision logic here
-    //        Debug.Log("Enemy collided with Player.");
-    //        isFollowing = true;
-    //        target = player.Find("KittenFollowTarget");
-    //    }
-    //}
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        isFollowing = false;
-    //    }
-    //}
 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
@@ -248,27 +205,13 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         // Implement attack logic here
-        Debug.Log("Enemy is attacking the player!");
+        
         GameObject.FindGameObjectWithTag("Player").GetComponent<BastHealth>().TakeDamage(damage);
+        beetleAnim.SetTrigger("Attack");
+        audioSource.PlayOneShot(attackClip);
     }
 
-    void OnDrawGizmosSelected()
-    {
-        // Draw a yellow sphere at the transform's position to visualize the wander radius
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, wanderRadius);
-        
-        if (hasLineOfSight) 
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, player.position);
-        }
-        else
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, player.position);
-        }
-    }
+    
 }
 
 

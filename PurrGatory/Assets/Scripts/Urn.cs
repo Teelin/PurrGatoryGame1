@@ -6,6 +6,7 @@ public class Urn : MonoBehaviour
 {
 
     bool playerNearby = false;
+    bool urnSmashed = false;
     [SerializeField] GameObject KittenPrefab;
     [SerializeField] TextMeshProUGUI popUp;
     Transform player;
@@ -32,7 +33,7 @@ public class Urn : MonoBehaviour
     private void Update()
     {
         playerNearby = Vector2.Distance(transform.position, player.position) < player.GetComponent<PlayerController>().GetRattleRange();
-        if (playerNearby)
+        if (playerNearby && !urnSmashed)
         {
             popUp.enabled = true;
         }
@@ -43,8 +44,9 @@ public class Urn : MonoBehaviour
     }
     private void Rattle()
     {
-        if (playerNearby)// Implement the logic for what happens when the player uses the rattle near the urn
+        if (playerNearby && !urnSmashed)// Implement the logic for what happens when the player uses the rattle near the urn
         {
+            urnSmashed = true;
             //spawn kitten ghost
             audioSource.Play();
             animator.Play("Urn_Smashed");

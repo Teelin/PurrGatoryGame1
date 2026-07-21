@@ -23,7 +23,7 @@ public class LevelCompleteUI : MonoBehaviour
     {
         
         double timeRemaining = GameManager.Instance.GetTimeTillDawn();
-        double timeCompleted = 2400f - timeRemaining;
+        double timeCompleted = GameManager.Instance.GetMaxTimeTillDawn() - timeRemaining;
         levelCompleteText.text = "This Evenings Run was Compelted in \n"+ TimeSpan.FromSeconds(timeCompleted).Minutes + ":" + TimeSpan.FromSeconds(timeCompleted).Seconds + "\n" + "Kittens Saved Overall\n " + GameManager.Instance.GetKittensSaved() + "\n" + "Spend your souls and prepare for the next Evening";
         kittensToSpendText.text = GameManager.Instance.GetKittensAvailableToSpend().ToString();
     }
