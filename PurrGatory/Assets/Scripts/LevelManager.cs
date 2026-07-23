@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
 
             if (timeToCompleteLevel + (GameManager.Instance.GetMaxTimeTillDawn() - GameManager.Instance.GetTimeTillDawn()) >= GameManager.Instance.GetMaxTimeTillDawn())
             {
+                GameManager.Instance.SetGameState(GameManager.GameState.Menu);
                 apophisLoadingScreen.SetActive(true);
                 SceneManager.LoadSceneAsync("Apophis");
                 Time.timeScale = 0f;

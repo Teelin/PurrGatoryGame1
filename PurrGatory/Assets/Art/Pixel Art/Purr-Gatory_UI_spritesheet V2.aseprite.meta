@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Purr-Gatory_UI_spritesheet V2
     originalName: 
-    pivot: {x: 0.6666667, y: -0.4755043}
+    pivot: {x: 0.5714286, y: -0.45454547}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,8 +137,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 384
-      height: 347
+      width: 448
+      height: 352
     spriteID: 58a2c6addcef4f341ad0487ee21d070c
     spriteBone: []
     spriteOutline: []
@@ -168,9 +168,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 165
-        width: 384
-        height: 347
+        y: 160
+        width: 448
+        height: 352
       spriteId: 58a2c6addcef4f341ad0487ee21d070c
     linkedCells: []
     tileCells: []
