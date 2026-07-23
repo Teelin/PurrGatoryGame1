@@ -19,10 +19,7 @@ public class HUDControl : MonoBehaviour
         timeSlider.maxValue = GameManager.Instance.GetMaxTimeTillDawn();
         currentTimeTillDawn = GameManager.Instance.GetTimeTillDawn();
         player = GameObject.FindGameObjectWithTag("Player");
-        foreach (var life in lives)
-        {
-            life.sprite = livesSprites[0];
-        }
+        
 
     }
     void Update()
@@ -42,6 +39,14 @@ public class HUDControl : MonoBehaviour
             kittensSavedText.color = Color.white;
         }
 
+        if(GameManager.Instance.GetLives() == 9 && player.GetComponent<BastHealth>().GetCurrentDamage() == 0)
+        {
+            foreach (Image life in lives)
+            {
+                life.sprite = livesSprites[0];
+            }
+        }
+
         switch (GameManager.Instance.GetLives())
         {
             case 9:
@@ -53,30 +58,58 @@ public class HUDControl : MonoBehaviour
                 break;
             case 7:
                 UpdateHealthSprite(7);
+                lives[8].sprite = livesSprites[8];
                 lives[7].sprite = livesSprites[8];
                 break;
             case 6:
                 UpdateHealthSprite(6);
+                lives[8].sprite = livesSprites[8];
+                lives[7].sprite = livesSprites[8];
                 lives[6].sprite = livesSprites[8];
                 break;
             case 5:
                 UpdateHealthSprite(5);
+                lives[8].sprite = livesSprites[8];
+                lives[7].sprite = livesSprites[8];
+                lives[6].sprite = livesSprites[8];
                 lives[5].sprite = livesSprites[8];
                 break;
             case 4:
                 UpdateHealthSprite(4);
+                lives[8].sprite = livesSprites[8];
+                lives[7].sprite = livesSprites[8];
+                lives[6].sprite = livesSprites[8];
+                lives[5].sprite = livesSprites[8];
                 lives[4].sprite = livesSprites[8];
                 break;
             case 3:
                 UpdateHealthSprite(3);
+                lives[8].sprite = livesSprites[8];
+                lives[7].sprite = livesSprites[8];
+                lives[6].sprite = livesSprites[8];
+                lives[5].sprite = livesSprites[8];
+                lives[4].sprite = livesSprites[8];
                 lives[3].sprite = livesSprites[8];
                 break;
             case 2:
                 UpdateHealthSprite(2);
+                lives[8].sprite = livesSprites[8];
+                lives[7].sprite = livesSprites[8];
+                lives[6].sprite = livesSprites[8];
+                lives[5].sprite = livesSprites[8];
+                lives[4].sprite = livesSprites[8];
+                lives[3].sprite = livesSprites[8];
                 lives[2].sprite = livesSprites[8];
                 break;
             case 1:
                 UpdateHealthSprite(1);
+                lives[8].sprite = livesSprites[8];
+                lives[7].sprite = livesSprites[8];
+                lives[6].sprite = livesSprites[8];
+                lives[5].sprite = livesSprites[8];
+                lives[4].sprite = livesSprites[8];
+                lives[3].sprite = livesSprites[8];
+                lives[2].sprite = livesSprites[8];
                 lives[1].sprite = livesSprites[8];
                 break;
         }
@@ -104,25 +137,6 @@ public class HUDControl : MonoBehaviour
 
     void UpdateHealthSprite(int currentLife)
     {
-        /*float damagePerecent = player.GetComponent<BastHealth>().GetCurrentDamage()/ player.GetComponent<BastHealth>().GetMaxDamage();
-
-        if (player.GetComponent<BastHealth>().GetCurrentDamage() == 0) 
-        {
-            lives[currentLife-1].sprite = livesSprites[0];
-        }
-        else if (player.GetComponent<BastHealth>().GetCurrentDamage() < player.GetComponent<BastHealth>().GetMaxDamage() * 0.5f)
-        {
-            lives[currentLife-1].sprite = livesSprites[1];
-        }
-        else if (player.GetComponent<BastHealth>().GetCurrentDamage() < player.GetComponent<BastHealth>().GetMaxDamage() * 0.75f)
-        {
-            lives[currentLife-1].sprite = livesSprites[2];
-        }
-        else
-        {
-            lives[currentLife-1].sprite = livesSprites[3];
-        }*/
-
         switch (player.GetComponent<BastHealth>().GetCurrentDamage())
         {
             case 0:

@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     InputAction quitGamePressed;
     [SerializeField] GameObject quitMenu;
 
+    
+
     private void OnEnable()
     {
         inputActions.FindActionMap("UI").Enable();
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
         musicPlaying = true;
         timeTillDawn = maxTimeTillDawn;
         quitGamePressed = inputActions.FindAction("Quit");
+        
     }
     private void Update()
     {
@@ -87,6 +90,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Playing:
                 mainMusicSource.clip = gameMusic;
+               
                 break;
             case GameState.BossFight:
                 mainMusicSource.clip = bossMusic;
@@ -96,9 +100,11 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.GameOver:
                 mainMusicSource.clip = menuMusic;
+                
                 break;
             case GameState.Paused:
                 mainMusicSource.clip = gameMusic;
+                
                 break;
         }
         if (musicPlaying == false)

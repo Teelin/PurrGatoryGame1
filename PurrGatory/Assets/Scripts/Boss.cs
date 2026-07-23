@@ -149,7 +149,7 @@ public class Boss : MonoBehaviour
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        transform.rotation = Quaternion.Euler(0, 0, angle-90);
     }
 
     void ChangeState(BossState newState)
