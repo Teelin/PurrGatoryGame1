@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Urn : MonoBehaviour
@@ -12,6 +13,8 @@ public class Urn : MonoBehaviour
     Transform player;
     Animator animator;
     AudioSource audioSource;
+
+    public static UnityEvent<GameObject> kittenSpawned = new UnityEvent<GameObject>();
 
     private void Awake()
     {
@@ -50,8 +53,9 @@ public class Urn : MonoBehaviour
             //spawn kitten ghost
             audioSource.Play();
             animator.Play("Urn_Smashed");
-            Instantiate(KittenPrefab, transform.position, Quaternion.identity);
-            
+            GameObject kitten = Instantiate(KittenPrefab, transform.position, Quaternion.identity);
+            kittenSpawned.Invoke(kitten);
+
         }
         
     }

@@ -62,7 +62,7 @@ public class Room : MonoBehaviour
             if(LevelManager.Instance.IsBossDefeated())
             {
                 barrierBottom.SetActive(false);
-                exitPopUpText.text = "Boss Defeated! You can now exit.";
+                exitPopUpText.text = "1/1";
             }
         }
         if (isSunBargeRoom)

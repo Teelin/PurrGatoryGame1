@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     static GameState gameState;
     bool musicPlaying = false;
 
-    float speed = 5f, sightRange = 3f, rattleRange = 2f, rattleCooldown = 5f, playerAttackDamage = 5f;
+    float speed = 5f, sightRange = 3f, rattleRange = 2f, rattleCooldown = 5f, playerAttackDamage = 5f, pounceDistance = 2f;
 
     public InputActionAsset inputActions;
 
@@ -150,6 +150,10 @@ public class GameManager : MonoBehaviour
     public float GetDamage()
     {
         return playerAttackDamage;
+    }
+    public float GetPounceDistance()
+    {
+        return pounceDistance;
     }
 
     public void SetGameState(GameState newState)
@@ -297,5 +301,10 @@ public class GameManager : MonoBehaviour
     public void UpdateSpeed(float newSpeed)
     {
         speed = newSpeed;
+    }
+
+    public void UpdatePounceDistance(float newDistance)
+    {
+        pounceDistance = newDistance;
     }
 }

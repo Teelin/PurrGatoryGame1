@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     public InputActionAsset inputActions;
 
-    private InputAction moveAction, lookAction;
+    private InputAction moveAction, lookAction, rattleUsed, useItem, sacraficeLife, pounceAction;
     //private Rigidbody2D player_RB;
     private Animator player_Anim;
 
@@ -20,10 +20,6 @@ public class PlayerController : MonoBehaviour
     Vector3 moveInput, lookInput;
 
     public static event Action rattleAction, useAction;
-
-    InputAction rattleUsed;
-    InputAction useItem;
-    InputAction sacraficeLife;
 
     //[SerializeField] private float moveSpeed = 5f;
 
@@ -35,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     CinemachineImpulseSource impulseSource;
 
-    float moveSpeed, sightRange, rattleRange, rattleCooldown, damage;
+    float moveSpeed, sightRange, rattleRange, rattleCooldown, damage, pounceDistance;
 
     [SerializeField] Light2D rattleLight, eyeLight;
     [SerializeField] AudioSource audioSource;
@@ -61,6 +57,8 @@ public class PlayerController : MonoBehaviour
         rattleUsed = inputActions.FindAction("Rattle");
         useItem = inputActions.FindAction("Use");
         sacraficeLife = inputActions.FindAction("SacraficeLife");
+        pounceAction = inputActions.FindAction("Pounce");
+
 
     }
     private void Start()
@@ -78,9 +76,9 @@ public class PlayerController : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
         lookInput = lookAction.ReadValue<Vector2>();
 
-        Vector3 movemntSpeed = moveInput * (moveSpeed * Time.deltaTime);
-        transform.position += movemntSpeed;
-        if(movemntSpeed != Vector3.zero)
+        Vector3 movementSpeed = moveInput * (moveSpeed * Time.deltaTime);
+        transform.position += movementSpeed;
+        if(movementSpeed != Vector3.zero)
         {
             transform.localScale = new Vector3(1, 1, 1);
             RotatePlayer();
@@ -111,6 +109,11 @@ public class PlayerController : MonoBehaviour
         {
             SacraficeLife();
         }
+        if(pounceAction.triggered)
+        {
+            movementSpeed = moveInput * pounceDistance;
+            transform.position += movementSpeed;
+        }
 
         if(!canAttack) 
         {
@@ -133,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
         //player_Anim.SetFloat("XSpeed", Mathf.Abs(moveInput.x));
         //player_Anim.SetFloat("SpeedY", moveInput.y);
-        player_Anim.SetFloat("Speed", movemntSpeed.sqrMagnitude);
+        player_Anim.SetFloat("Speed", movementSpeed.sqrMagnitude);
 
     }
 
@@ -144,6 +147,7 @@ public class PlayerController : MonoBehaviour
         rattleRange = GameManager.Instance.GetRattleRange();
         rattleCooldown = GameManager.Instance.GetRattleCooldown();
         damage = GameManager.Instance.GetDamage();
+        pounceDistance = GameManager.Instance.GetPounceDistance();
     }
 
 
@@ -221,6 +225,7 @@ public class PlayerController : MonoBehaviour
     void SacraficeLife() 
     { 
         GetComponent<BastHealth>().TakeLife();
+
         
         if (!audioSource.isPlaying)
         {

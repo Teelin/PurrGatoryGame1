@@ -9,6 +9,12 @@ public class Enemy2 : MonoBehaviour
     [SerializeField]float captureRadius = 0.75f;
     Collider2D[] results = new Collider2D[10];
     [SerializeField] AudioSource audioSource;
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -17,6 +23,7 @@ public class Enemy2 : MonoBehaviour
         if (isKittenClose)
         {
             results[0].gameObject.GetComponent<GhostKitten>().IsCaptured(transform.position);
+            animator.SetTrigger("Attack");
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();

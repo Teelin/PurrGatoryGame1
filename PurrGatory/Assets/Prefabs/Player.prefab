@@ -5372,6 +5372,7 @@ GameObject:
   - component: {fileID: 6390398647446387759}
   - component: {fileID: 1010098417580234364}
   - component: {fileID: -1656976720500099600}
+  - component: {fileID: 7055878662627930032}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -5652,6 +5653,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7055878662627930032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445208249954233539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0379e2da7e467f04fa2f626bb4e69780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KittenManager
+  pointSpacing: 1
+  KittenPrefab: {fileID: 7171778104533524805, guid: 06eb9abff83115b40bc26d7491d0b604, type: 3}
 --- !u!1 &8938087540696838955
 GameObject:
   m_ObjectHideFlags: 0

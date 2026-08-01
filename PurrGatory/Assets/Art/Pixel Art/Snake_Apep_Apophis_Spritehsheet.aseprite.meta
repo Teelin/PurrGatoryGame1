@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Snake_Apep_Apophis_Spritehsheet
     originalName: 
-    pivot: {x: 0.5163399, y: -0.025362318}
+    pivot: {x: 0.5108991, y: -0.025362318}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,7 +137,7 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 153
+      width: 367
       height: 276
     spriteID: 3624e38d7b5c0304fba543e12b96a37b
     spriteBone: []
@@ -169,7 +169,7 @@ ScriptedImporter:
       cellRect:
         x: 1
         y: 7
-        width: 153
+        width: 367
         height: 276
       spriteId: 3624e38d7b5c0304fba543e12b96a37b
     linkedCells: []
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 160, y: 288}
-  previousTextureSize: {x: 256, y: 512}
+  canvasSize: {x: 377, y: 288}
+  previousTextureSize: {x: 512, y: 512}

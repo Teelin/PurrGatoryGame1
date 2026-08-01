@@ -32,6 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2411017429953229537}
+  - {fileID: 5089568902421325571}
   m_Father: {fileID: 272758591731394367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3650,6 +3651,81 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
+--- !u!1 &5899684625581469679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5089568902421325571}
+  - component: {fileID: 6223072389772326125}
+  - component: {fileID: 5457647224653240823}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5089568902421325571
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899684625581469679}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.008315319, y: -0.008315319, z: -0.008315319}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2157022446260201735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.725, y: -3.007}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6223072389772326125
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899684625581469679}
+  m_CullTransparentMesh: 1
+--- !u!114 &5457647224653240823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899684625581469679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -6982790362035518497, guid: cf1c42fb28980f7478804899d3b1a119, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6318180347153443245
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,6 +5281,12 @@ CompositeCollider2D:
         Y: -45937500
       - X: -90000000
         Y: -45937500
+      - X: -90000000
+        Y: -45312500
+      - X: -85312496
+        Y: -45312500
+      - X: -85312496
+        Y: -50000000
       - X: -85937504
         Y: -50000000
       - X: -85937504
@@ -5213,6 +5295,12 @@ CompositeCollider2D:
         Y: -70000000
     - - X: -234062496
         Y: -50000000
+      - X: -234687504
+        Y: -50000000
+      - X: -234687504
+        Y: -45312500
+      - X: -230000000
+        Y: -45312500
       - X: -230000000
         Y: -45937500
       - X: -180000000
@@ -5259,12 +5347,18 @@ CompositeCollider2D:
       - {x: -8.00003, y: -4}
       - {x: -14, y: -4.000029}
       - {x: -13.999971, y: -4.59375}
-      - {x: -8.999993, y: -4.5937576}
-      - {x: -8.593751, y: -5.000011}
+      - {x: -9, y: -4.593721}
+      - {x: -8.99997, y: -4.53125}
+      - {x: -8.53125, y: -4.531279}
+      - {x: -8.53128, y: -5}
+      - {x: -8.593751, y: -5.000029}
       - {x: -8.59372, y: -7}
     - - {x: -23.406279, y: -7}
-      - {x: -23.406242, y: -4.999993}
-      - {x: -22.999989, y: -4.59375}
+      - {x: -23.406279, y: -5}
+      - {x: -23.46875, y: -4.9999704}
+      - {x: -23.468721, y: -4.53125}
+      - {x: -23, y: -4.531279}
+      - {x: -22.999971, y: -4.59375}
       - {x: -18, y: -4.593721}
       - {x: -18.000029, y: -4}
       - {x: -24, y: -4.000029}
@@ -5459,7 +5553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You still have to find and defeat the boss
+  m_text: 0/1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: edf701b8304da7940ad77cd1dedcaadc, type: 2}
   m_sharedMaterial: {fileID: -3557126631863853884, guid: edf701b8304da7940ad77cd1dedcaadc, type: 2}
@@ -5598,6 +5692,8 @@ MonoBehaviour:
   sacredFirePrefab: {fileID: 0}
   miniMapMask: {fileID: 3353393961549910960}
   exitPopUpText: {fileID: 6722671896954253066}
+  bossRequirmentText: {fileID: 0}
+  bossRequirmentObject: {fileID: 0}
 --- !u!1 &8686669831433231070
 GameObject:
   m_ObjectHideFlags: 0

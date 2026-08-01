@@ -74,6 +74,7 @@ public class BastHealth : MonoBehaviour
             currentDamage = 0;
             LevelManager.Instance.KittenSaved();
             GameManager.Instance.KittenSaved();
+            gameObject.GetComponent<KittenManager>().SpawnNewKitten();
 
             if (currentLives <= 0)
             {

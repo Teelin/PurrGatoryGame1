@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Bastet_CatForm_ Walk_North_Spritesheet
     originalName: 
-    pivot: {x: 0.5045871, y: 0}
+    pivot: {x: 0.50289017, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,7 +137,7 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 109
+      width: 173
       height: 94
     spriteID: c575ce664603200479495f0f1288d375
     spriteBone: []
@@ -169,7 +169,7 @@ ScriptedImporter:
       cellRect:
         x: 9
         y: 0
-        width: 109
+        width: 173
         height: 94
       spriteId: c575ce664603200479495f0f1288d375
     linkedCells: []
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 96}
-  previousTextureSize: {x: 128, y: 128}
+  canvasSize: {x: 192, y: 96}
+  previousTextureSize: {x: 256, y: 128}

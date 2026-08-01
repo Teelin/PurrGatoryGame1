@@ -10,12 +10,15 @@ public class Enemy3 : MonoBehaviour
     [SerializeField] float patrolSpeed;
     bool changingTarget = false;
     [SerializeField] AudioSource AudioSource;
+    
+
     private void Start()
     {
         foreach (GameObject point in patrolPoints)
         {
             point.transform.parent = null; // Detach patrol points from the enemy
         }
+        
     }
 
     private void Update()
