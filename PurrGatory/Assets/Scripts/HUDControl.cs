@@ -14,13 +14,19 @@ public class HUDControl : MonoBehaviour
     [SerializeField] Sprite[] livesSprites;
     [SerializeField] Image rattleCooldown, sacraficeCooldown;
 
+    private void OnEnable()
+    {
+        GameManager.OnLevelComplete.AddListener(ResetHUD);
+    }
+    private void OnDisable()
+    {
+        GameManager.OnLevelComplete.RemoveListener(ResetHUD);
+    }
     private void Start()
     {
         timeSlider.maxValue = GameManager.Instance.GetMaxTimeTillDawn();
         currentTimeTillDawn = GameManager.Instance.GetTimeTillDawn();
         player = GameObject.FindGameObjectWithTag("Player");
-        
-
     }
     void Update()
     {
@@ -39,13 +45,6 @@ public class HUDControl : MonoBehaviour
             kittensSavedText.color = Color.white;
         }
 
-        if(GameManager.Instance.GetLives() == 9 && player.GetComponent<BastHealth>().GetCurrentDamage() == 0)
-        {
-            foreach (Image life in lives)
-            {
-                life.sprite = livesSprites[0];
-            }
-        }
 
         switch (GameManager.Instance.GetLives())
         {
@@ -133,6 +132,14 @@ public class HUDControl : MonoBehaviour
             
         }
 
+    }
+
+    private void ResetHUD()
+    {
+        foreach (Image life in lives)
+        {
+            life.sprite = livesSprites[0];
+        }
     }
 
     void UpdateHealthSprite(int currentLife)

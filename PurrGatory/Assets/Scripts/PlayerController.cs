@@ -109,11 +109,11 @@ public class PlayerController : MonoBehaviour
         {
             SacraficeLife();
         }
-        if(pounceAction.triggered)
+        /*if(pounceAction.triggered)
         {
             movementSpeed = moveInput * pounceDistance;
             transform.position += movementSpeed;
-        }
+        }*/
 
         if(!canAttack) 
         {

@@ -25,7 +25,7 @@ public class BastHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentLives = maxLives;
+        currentLives = GameManager.Instance.GetLives();
     }
 
     // Update is called once per frame
@@ -72,8 +72,8 @@ public class BastHealth : MonoBehaviour
         {
             currentLives--;
             currentDamage = 0;
-            LevelManager.Instance.KittenSaved();
-            GameManager.Instance.KittenSaved();
+            //LevelManager.Instance.KittenSaved();
+            //GameManager.Instance.KittenSaved();
             gameObject.GetComponent<KittenManager>().SpawnNewKitten();
 
             if (currentLives <= 0)
