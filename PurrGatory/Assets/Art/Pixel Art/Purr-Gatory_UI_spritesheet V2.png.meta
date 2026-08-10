@@ -144,9 +144,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 477
+        y: 486
         width: 448
-        height: 35
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -540,7 +540,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 258
+        y: 257
         width: 15
         height: 14
       alignment: 0
@@ -667,6 +667,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_22
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 225
+        width: 86
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3633bd3b14ea3ec449ff665409ed27ff
+      internalID: -1810948162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_25
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 224
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141227b23dac3b640889d594c1c184f1
+      internalID: -69712302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purr-Gatory_UI_spritesheet V2_26
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 227
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14381a726546b8b45b20f08fda7f0a05
+      internalID: -1287409585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -699,6 +765,8 @@ TextureImporter:
       Purr-Gatory_UI_spritesheet V2_22: -1810948162
       Purr-Gatory_UI_spritesheet V2_23: 409654082
       Purr-Gatory_UI_spritesheet V2_24: -93371642
+      Purr-Gatory_UI_spritesheet V2_25: -69712302
+      Purr-Gatory_UI_spritesheet V2_26: -1287409585
       Purr-Gatory_UI_spritesheet V2_3: -1048458734929611834
       Purr-Gatory_UI_spritesheet V2_4: 3236186397895097993
       Purr-Gatory_UI_spritesheet V2_5: 8818486904446551335

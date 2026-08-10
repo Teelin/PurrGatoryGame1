@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     static GameState gameState;
     bool musicPlaying = false;
 
-    float speed = 5f, sightRange = 3f, rattleRange = 2f, rattleCooldown = 5f, playerAttackDamage = 5f, pounceDistance = 2f;
+    float speed = 5f, sightRange = 3f, rattleRange = 2f, rattleCooldown = 3.5f, playerAttackDamage = 5f, pounceDistance = 2f;
 
     public InputActionAsset inputActions;
 

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
+using NUnit.Framework.Internal.Commands;
 
 public class AsyncLoader : MonoBehaviour
 {
@@ -17,9 +18,11 @@ public class AsyncLoader : MonoBehaviour
     [SerializeField] AudioSource AudioSource;
 
     [SerializeField] string[] infoText;
-    [SerializeField] TextMeshProUGUI infoTextUI;
-    [SerializeField] GameObject playButton;
+    [SerializeField] string startText;
+    [SerializeField] TextMeshProUGUI infoTextUI, startTextUI;
+    [SerializeField] GameObject backButton;
     int textIndex = 0;
+    bool  textTyping = false;
 
     private void Start()
     {
@@ -33,19 +36,20 @@ public class AsyncLoader : MonoBehaviour
         }
         else if (textIndex >= infoText.Length)
         {
+
             textIndex = infoText.Length-1;
         }
 
         if(textIndex == infoText.Length - 1)
         {
-            playButton.SetActive(true);
+            backButton.SetActive(true);
         }
         else
         {
-            playButton.SetActive(false);
+            backButton.SetActive(false);
         }
 
-        infoTextUI.text = infoText[textIndex];
+        //infoTextUI.text = infoText[textIndex];
     }
 
     public void ShowInstructions()
@@ -53,13 +57,19 @@ public class AsyncLoader : MonoBehaviour
         AudioSource.Play();
         mainMenuScreen.SetActive(false);
         instructionScreen.SetActive(true);
+        infoTextUI.text = "";
+        StartCoroutine(PrintTextPerChar(infoText[textIndex]));
+        textTyping = true;
     }
+
     public void LoadSceneAsync(string sceneName)
     {
         AudioSource.Play();
-        instructionScreen.SetActive(false);
+        mainMenuScreen.SetActive(false);
         loadingScreen.SetActive(true);
-        StartCoroutine(LoadSceneCoroutine(sceneName));
+        StartCoroutine(PrintStartText(startText, sceneName));
+        
+        
     }
 
 
@@ -85,13 +95,83 @@ public class AsyncLoader : MonoBehaviour
 
     public void LeftText()
     {
+
+        if(textIndex == 0)
+        {
+            AudioSource.Play();
+            instructionScreen.SetActive(false);
+            mainMenuScreen.SetActive(true);
+        }
+        
         AudioSource.Play();
-        textIndex--;
+        StopAllCoroutines();
+        if (!textTyping)
+        {
+            textIndex--;
+            infoTextUI.text = "";
+            StartCoroutine(PrintTextPerChar(infoText[textIndex]));
+            textTyping = true;
+        }
+        else
+        {
+            StopAllCoroutines();
+            infoTextUI.text = infoText[textIndex];
+            textTyping = false;
+        }
+        
     }
      public void RightText()
     {
+
         AudioSource.Play();
-        textIndex++;
+        if (textIndex == infoText.Length - 1&& !textTyping)
+        {
+            return;
+        }
+        
+        if(!textTyping)
+        {
+            textIndex++;
+            infoTextUI.text = "";
+            StartCoroutine(PrintTextPerChar(infoText[textIndex]));
+            textTyping = true;
+        }
+        else
+        {
+            StopAllCoroutines();
+            infoTextUI.text = infoText[textIndex];
+            textTyping = false;
+        }
+        
+
+        
     }
+
+    IEnumerator PrintTextPerChar(string text)
+    {
+        foreach (char c in text)
+        {
+            infoTextUI.text += c;
+            yield return new WaitForSeconds(0.05f);
+        }
+        textTyping = false;
+    }
+    IEnumerator PrintStartText(string text, string sceneName)
+    {
+        foreach (char c in text)
+        {
+            startTextUI.text += c;
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(LoadSceneCoroutine(sceneName));
+    }
+    public void BackButtenPress()
+    {
+        AudioSource.Play();
+        instructionScreen.SetActive(false);
+        mainMenuScreen.SetActive(true);
+    }
+    
 
 }
